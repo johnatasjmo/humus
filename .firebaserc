@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "bento-starter"
+    "default": "bento-starter",
+    "humus prod": "humus-b434e",
+    "humus-prod": "humus-b434e"
   }
 }

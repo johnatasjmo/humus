@@ -1,6 +1,7 @@
 <template>
   <div class="page-wrapper">
     <h1 class="home-page-title">{{ appTitle }}</h1>
+    <h1>Compost Calculator</h1>
     <img alt="logo-bento" class="logo" src="@/assets/img/bento-starter.svg" />
 
     <a

@@ -1,5 +1,9 @@
 <template>
-  <v-navigation-drawer v-model="showDrawer" app>
+  <v-navigation-drawer
+    v-model="showDrawerComputed"
+    app
+    @input="checkHideDrawer"
+  >
     <v-list-item>
       <v-list-item-content>
         <v-list-item-title class="title">
@@ -39,10 +43,43 @@ export default {
     return {
       items: [
         {
-          icon: '',
-          title: 'test'
+          icon: 'mdi-calculator',
+          title: 'Calculator'
+        },
+        {
+          icon: 'mdi-sprout',
+          title: 'Feedstocks'
+        },
+        {
+          icon: 'mdi-leaf',
+          title: 'myFeedstocks'
+        },
+        {
+          icon: 'mdi-chart-bar',
+          title: 'myResults'
+        },
+        {
+          icon: 'mdi-settings',
+          title: 'Settings'
         }
       ]
+    }
+  },
+  computed: {
+    showDrawerComputed: {
+      get() {
+        return this.showDrawer
+      },
+      set() {
+        return null
+      }
+    }
+  },
+  methods: {
+    checkHideDrawer(show) {
+      if (!show) {
+        this.$emit('closeDrawer')
+      }
     }
   }
 }

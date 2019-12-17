@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <nav-drawer :show-drawer="showDrawer" />
+    <nav-drawer :show-drawer="showDrawer" @closeDrawer="showDrawer = false" />
     <v-app-bar app color="primary" dark>
       <v-btn text icon color="green" @click="toggleDrawer">
         <v-icon>mdi-menu</v-icon>

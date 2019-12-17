@@ -1,11 +1,14 @@
 <template>
   <v-app>
+    <nav-drawer :show-drawer="showDrawer" />
     <v-app-bar app color="primary" dark>
+      <v-btn text icon color="green" @click="toggleDrawer">
+        <v-icon>mdi-menu</v-icon>
+      </v-btn>
       <v-spacer></v-spacer>
     </v-app-bar>
 
     <v-content>
-      <!-- <Home /> -->
       <router-view />
       <new-content-available-toastr
         v-if="newContentAvailable"
@@ -27,21 +30,33 @@
 import { mapState, mapActions, mapGetters } from 'vuex'
 import NewContentAvailableToastr from '@/components/NewContentAvailableToastr'
 import AppleAddToHomeScreenModal from '@/components/AppleAddToHomeScreenModal'
+import NavDrawer from '@/components/NavDrawer'
 
 export default {
   name: 'App',
   components: {
     NewContentAvailableToastr,
-    AppleAddToHomeScreenModal
+    AppleAddToHomeScreenModal,
+    NavDrawer
+  },
+  data() {
+    return {
+      showDrawer: true
+    }
   },
   computed: {
     ...mapGetters('app', ['newContentAvailable']),
     ...mapState('app', ['showAddToHomeScreenModalForApple', 'refreshingApp'])
   },
-  methods: mapActions('app', [
-    'closeAddToHomeScreenModalForApple',
-    'serviceWorkerSkipWaiting'
-  ])
+  methods: {
+    toggleDrawer() {
+      this.showDrawer = !this.showDrawer
+    },
+    ...mapActions('app', [
+      'closeAddToHomeScreenModalForApple',
+      'serviceWorkerSkipWaiting'
+    ])
+  }
 }
 </script>
 

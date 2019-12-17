@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Head from 'vue-head'
+import { isNil } from 'lodash'
 import Home from '@/views/Home'
 import CheckLogin from '@/views/CheckLogin'
-import { isNil } from 'lodash'
 import store from '@/store'
 
 Vue.use(Router)
@@ -40,23 +40,37 @@ const router = new Router({
       path: '/login',
       name: 'login',
       component: () =>
-        import(/* webpackChunkName: "client-chunk-login" */ '@/views/Login.vue'),
+        import(
+          /* webpackChunkName: "client-chunk-login" */ '@/views/Login.vue'
+        ),
       meta: {
         authNotRequired: true
       }
     },
     {
+      path: '/feedstocks',
+      name: 'Feedstocks',
+      component: () =>
+        import(
+          /* webpackChunkName: "client-chunk-feedstocks" */ '@/views/Feedstocks.vue'
+        )
+    },
+    {
       path: '/products',
       name: 'products',
       component: () =>
-        import(/* webpackChunkName: "client-chunk-products" */ '@/views/Products.vue')
+        import(
+          /* webpackChunkName: "client-chunk-products" */ '@/views/Products.vue'
+        )
     },
     {
       path: '/products/:id',
       name: 'product',
       props: true,
       component: () =>
-        import(/* webpackChunkName: "client-chunk-product-details" */ '@/views/Product.vue')
+        import(
+          /* webpackChunkName: "client-chunk-product-details" */ '@/views/Product.vue'
+        )
     },
     { path: '*', redirect: '/home' }
   ]

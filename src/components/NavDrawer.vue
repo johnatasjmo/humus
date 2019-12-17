@@ -18,7 +18,12 @@
     <v-divider></v-divider>
 
     <v-list dense nav>
-      <v-list-item v-for="item in items" :key="item.title" link>
+      <v-list-item
+        v-for="item in items"
+        :key="item.title"
+        link
+        @click="item.action"
+      >
         <v-list-item-icon>
           <v-icon>{{ item.icon }}</v-icon>
         </v-list-item-icon>
@@ -32,6 +37,8 @@
 </template>
 
 <script>
+import router from '../router'
+
 export default {
   props: {
     showDrawer: {
@@ -43,24 +50,42 @@ export default {
     return {
       items: [
         {
+          icon: 'mdi-home',
+          title: 'Home',
+          action() {
+            router.push({ name: 'home' }).catch(err => {
+              console.log('TCL: action -> err', err)
+            })
+          }
+        },
+        {
           icon: 'mdi-calculator',
-          title: 'Calculator'
+          title: 'Calculator',
+          action() {}
         },
         {
           icon: 'mdi-sprout',
-          title: 'Feedstocks'
+          title: 'Feedstocks',
+          action() {
+            router.push({ name: 'Feedstocks' }).catch(err => {
+              console.log('TCL: action -> err', err)
+            })
+          }
         },
         {
           icon: 'mdi-leaf',
-          title: 'myFeedstocks'
+          title: 'myFeedstocks',
+          action() {}
         },
         {
           icon: 'mdi-chart-bar',
-          title: 'myResults'
+          title: 'myResults',
+          action() {}
         },
         {
           icon: 'mdi-settings',
-          title: 'Settings'
+          title: 'Settings',
+          action() {}
         }
       ]
     }

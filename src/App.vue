@@ -1,10 +1,11 @@
 <template>
   <v-app>
     <nav-drawer :show-drawer="showDrawer" @closeDrawer="showDrawer = false" />
-    <v-app-bar app color="primary" dark>
+    <v-app-bar app color="primary">
       <v-btn text icon color="green" @click="toggleDrawer">
         <v-icon>mdi-menu</v-icon>
       </v-btn>
+      <v-toolbar-title v-text="$route.name"></v-toolbar-title>
       <v-spacer></v-spacer>
     </v-app-bar>
 

@@ -1,60 +1,58 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
+    <v-app-bar app color="primary" dark>
       <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
     </v-app-bar>
 
     <v-content>
-      <HelloWorld/>
+      <!-- <Home /> -->
+      <router-view />
+      <new-content-available-toastr
+        v-if="newContentAvailable"
+        class="new-content-available-toastr"
+        :refreshing-app="refreshingApp"
+        @refresh="serviceWorkerSkipWaiting"
+      ></new-content-available-toastr>
+      <apple-add-to-home-screen-modal
+        v-if="showAddToHomeScreenModalForApple"
+        class="apple-add-to-home-screen-modal"
+        @close="closeAddToHomeScreenModalForApple(false)"
+      >
+      </apple-add-to-home-screen-modal>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import { mapState, mapActions, mapGetters } from 'vuex'
+import NewContentAvailableToastr from '@/components/NewContentAvailableToastr'
+import AppleAddToHomeScreenModal from '@/components/AppleAddToHomeScreenModal'
 
 export default {
   name: 'App',
-
   components: {
-    HelloWorld,
+    NewContentAvailableToastr,
+    AppleAddToHomeScreenModal
   },
-
-  data: () => ({
-    //
-  }),
-};
+  computed: {
+    ...mapGetters('app', ['newContentAvailable']),
+    ...mapState('app', ['showAddToHomeScreenModalForApple', 'refreshingApp'])
+  },
+  methods: mapActions('app', [
+    'closeAddToHomeScreenModalForApple',
+    'serviceWorkerSkipWaiting'
+  ])
+}
 </script>
+
+<style lang="scss" scoped>
+body {
+  #app {
+    .new-content-available-toastr {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+  }
+}
+</style>

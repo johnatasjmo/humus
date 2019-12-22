@@ -53,7 +53,10 @@ const router = new Router({
       component: () =>
         import(
           /* webpackChunkName: "client-chunk-feedstocks" */ '@/views/Feedstocks.vue'
-        )
+        ),
+      meta: {
+        authNotRequired: true
+      }
     },
     {
       path: '/products',

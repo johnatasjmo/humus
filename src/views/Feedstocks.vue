@@ -5,7 +5,16 @@
 </template>
 
 <script>
-export default {}
+import { mapActions } from 'vuex'
+
+export default {
+  mounted() {
+    this.getFeedstocksCategories()
+  },
+  methods: {
+    ...mapActions('feedstocks', ['getFeedstocksCategories'])
+  }
+}
 </script>
 
 <style lang="scss" scoped></style>

@@ -53,7 +53,7 @@ export default {
           icon: 'mdi-home',
           title: 'Home',
           action() {
-            router.push({ name: 'home' }).catch(err => {
+            router.push({ name: 'Home' }).catch(err => {
               console.log('TCL: action -> err', err)
             })
           }

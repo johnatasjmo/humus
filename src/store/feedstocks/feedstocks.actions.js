@@ -21,7 +21,6 @@ export default {
     const feedstocksByCategory = await feedstocksDB.readAll([
       ['category', '==', categoryID]
     ])
-    console.log('TCL: feedstocksByCategory', feedstocksByCategory)
     commit('setFeedstocksByCategory', feedstocksByCategory)
   }
 }

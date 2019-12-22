@@ -11,10 +11,6 @@ export default {
     FeedStocksByCategory
   },
   mounted() {
-    console.log(
-      'TCL: mounted -> this.$route.params.categoryId',
-      this.$route.params.categoryId
-    )
     this.getFeedstocksByCategoryID(this.$route.params.categoryId)
   },
   methods: {

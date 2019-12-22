@@ -18,6 +18,8 @@ export default {
   getFeedstocksByCategoryID: async ({ commit }, categoryID) => {
     const feedstocksDB = new FeedstocksDB()
 
+    commit('setFeedstocksByCategory', null)
+
     const feedstocksByCategory = await feedstocksDB.readAll([
       ['category', '==', categoryID]
     ])

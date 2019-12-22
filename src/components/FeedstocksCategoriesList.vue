@@ -1,7 +1,7 @@
 <template>
   <v-card class="mx-auto">
     <v-list>
-      <v-list-item-group v-model="item">
+      <v-list-item-group>
         <v-list-item
           v-for="category in feedstocksCategories"
           :key="category.id"
@@ -31,11 +31,6 @@
 import { mapState } from 'vuex'
 
 export default {
-  data() {
-    return {
-      item: 1
-    }
-  },
   computed: {
     ...mapState('feedstocks', ['feedstocksCategories'])
   }

@@ -12,14 +12,14 @@
     </v-app-bar>
 
     <v-content>
-      <v-container class="fill-height" fluid>
-        <!-- <v-row align="center" justify="center">
-          <v-col cols="12" > -->
+      <v-container fluid class="container">
+        <!-- <v-row align="center" justify="center"> -->
+        <!-- <v-col cols="12"> -->
         <!-- <v-row align="center" justify="center"> -->
         <router-view />
         <!-- </v-row> -->
-        <!-- </v-col>
-        </v-row> -->
+        <!-- </v-col> -->
+        <!-- </v-row> -->
       </v-container>
       <new-content-available-toastr
         v-if="newContentAvailable"
@@ -93,5 +93,12 @@ body {
       right: 10px;
     }
   }
+}
+
+.container {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

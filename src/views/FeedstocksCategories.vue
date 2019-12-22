@@ -1,5 +1,10 @@
 <template>
-  <FeedstocksCategoriesList />
+  <v-progress-circular
+    v-if="loading"
+    indeterminate
+    color="green"
+  ></v-progress-circular>
+  <FeedstocksCategoriesList v-else />
 </template>
 
 <script>
@@ -10,8 +15,13 @@ export default {
   components: {
     FeedstocksCategoriesList
   },
-  mounted() {
-    this.getFeedstocksCategories()
+  data: () => ({
+    loading: false
+  }),
+  async mounted() {
+    this.loading = true
+    await this.getFeedstocksCategories()
+    this.loading = false
   },
   methods: {
     ...mapActions('feedstocks', ['getFeedstocksCategories'])

@@ -1,5 +1,10 @@
 <template>
-  <FeedStocksByCategory />
+  <v-progress-circular
+    v-if="loading"
+    indeterminate
+    color="green"
+  ></v-progress-circular>
+  <FeedStocksByCategory v-else />
 </template>
 
 <script>
@@ -10,8 +15,13 @@ export default {
   components: {
     FeedStocksByCategory
   },
-  mounted() {
-    this.getFeedstocksByCategoryID(this.$route.params.categoryId)
+  data: () => ({
+    loading: false
+  }),
+  async mounted() {
+    this.loading = true
+    await this.getFeedstocksByCategoryID(this.$route.params.categoryId)
+    this.loading = false
   },
   methods: {
     ...mapActions('feedstocks', ['getFeedstocksByCategoryID'])

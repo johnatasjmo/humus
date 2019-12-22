@@ -52,6 +52,17 @@ const router = new Router({
       name: 'Feedstocks',
       component: () =>
         import(
+          /* webpackChunkName: "client-chunk-feedstocks-categories" */ '@/views/FeedstocksCategories.vue'
+        ),
+      meta: {
+        authNotRequired: true
+      }
+    },
+    {
+      path: '/feedstocks/:categoryId',
+      name: 'Material',
+      component: () =>
+        import(
           /* webpackChunkName: "client-chunk-feedstocks" */ '@/views/Feedstocks.vue'
         ),
       meta: {

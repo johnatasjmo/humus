@@ -1,5 +1,5 @@
 export default {
   feedstocksCategories: [],
-  feedstocks: [],
+  feedstocksByCategory: null,
   myFeedstocks: []
 }

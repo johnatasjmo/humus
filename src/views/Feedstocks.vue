@@ -1,22 +1,26 @@
 <template>
-  <FeedstokcsCategoriesList />
+  <FeedStocksByCategory />
 </template>
 
 <script>
 import { mapActions } from 'vuex'
-import FeedstokcsCategoriesList from '@/components/FeedstocksCategoriesList'
+import FeedStocksByCategory from '@/components/FeedstocksByCategoryList'
 
 export default {
   components: {
-    FeedstokcsCategoriesList
+    FeedStocksByCategory
   },
   mounted() {
-    this.getFeedstocksCategories()
+    console.log(
+      'TCL: mounted -> this.$route.params.categoryId',
+      this.$route.params.categoryId
+    )
+    this.getFeedstocksByCategoryID(this.$route.params.categoryId)
   },
   methods: {
-    ...mapActions('feedstocks', ['getFeedstocksCategories'])
+    ...mapActions('feedstocks', ['getFeedstocksByCategoryID'])
   }
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>

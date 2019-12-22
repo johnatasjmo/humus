@@ -22,7 +22,7 @@ const router = new Router({
   routes: [
     {
       path: '/home',
-      name: 'home',
+      name: 'Home',
       component: Home,
       meta: {
         authNotRequired: true

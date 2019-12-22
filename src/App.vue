@@ -2,8 +2,8 @@
   <v-app>
     <nav-drawer :show-drawer="showDrawer" @closeDrawer="showDrawer = false" />
     <v-app-bar app color="primary">
-      <v-btn text icon color="green" @click="toggleDrawer">
-        <v-icon>mdi-menu</v-icon>
+      <v-btn text icon color="green" @click="leftButtonAction">
+        <v-icon>{{ leftButtonIcon }}</v-icon>
       </v-btn>
       <v-toolbar-title>
         {{ currentAppTitle }}
@@ -60,9 +60,19 @@ export default {
     ...mapState('app', ['showAddToHomeScreenModalForApple', 'refreshingApp']),
     currentAppTitle() {
       return this.getAppTitle(this.$route.name)
+    },
+    leftButtonIcon() {
+      return this.$route.name === 'Home' ? 'mdi-menu' : 'mdi-chevron-left'
     }
   },
   methods: {
+    leftButtonAction() {
+      if (this.$route.name === 'Home') {
+        this.toggleDrawer()
+      } else {
+        this.$router.go(-1)
+      }
+    },
     toggleDrawer() {
       this.showDrawer = !this.showDrawer
     },

@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   data() {
@@ -32,6 +32,15 @@ export default {
   },
   computed: {
     ...mapState('feedstocks', ['feedstocksByCategory'])
+  },
+  mounted() {
+    this.setCustomAppBarTitle(this.$route.params.categoryName)
+  },
+  beforeDestroy() {
+    this.clearCustomAppBarTitle(null)
+  },
+  methods: {
+    ...mapMutations('app', ['setCustomAppBarTitle', 'clearCustomAppBarTitle'])
   }
 }
 </script>

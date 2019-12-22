@@ -8,7 +8,7 @@
           @click="
             $router.push({
               name: 'Material',
-              params: { categoryId: category.id }
+              params: { categoryId: category.id, categoryName: category.name }
             })
           "
         >

@@ -5,7 +5,9 @@
       <v-btn text icon color="green" @click="toggleDrawer">
         <v-icon>mdi-menu</v-icon>
       </v-btn>
-      <v-toolbar-title v-text="$route.name"></v-toolbar-title>
+      <v-toolbar-title>
+        {{ currentAppTitle }}
+      </v-toolbar-title>
       <v-spacer></v-spacer>
     </v-app-bar>
 
@@ -54,8 +56,11 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('app', ['newContentAvailable']),
-    ...mapState('app', ['showAddToHomeScreenModalForApple', 'refreshingApp'])
+    ...mapGetters('app', ['newContentAvailable', 'getAppTitle']),
+    ...mapState('app', ['showAddToHomeScreenModalForApple', 'refreshingApp']),
+    currentAppTitle() {
+      return this.getAppTitle(this.$route.name)
+    }
   },
   methods: {
     toggleDrawer() {

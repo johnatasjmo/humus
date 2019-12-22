@@ -65,6 +65,7 @@ const router = new Router({
         import(
           /* webpackChunkName: "client-chunk-feedstocks" */ '@/views/Feedstocks.vue'
         ),
+      props: true,
       meta: {
         authNotRequired: true
       }

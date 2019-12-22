@@ -10,7 +10,15 @@
     </v-app-bar>
 
     <v-content>
-      <router-view />
+      <v-container class="fill-height" fluid>
+        <!-- <v-row align="center" justify="center">
+          <v-col cols="12" > -->
+        <!-- <v-row align="center" justify="center"> -->
+        <router-view />
+        <!-- </v-row> -->
+        <!-- </v-col>
+        </v-row> -->
+      </v-container>
       <new-content-available-toastr
         v-if="newContentAvailable"
         class="new-content-available-toastr"

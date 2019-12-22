@@ -1,13 +1,15 @@
 <template>
-  <div>
-    Feedstocks
-  </div>
+  <FeedstokcsCategoriesList />
 </template>
 
 <script>
 import { mapActions } from 'vuex'
+import FeedstokcsCategoriesList from '@/components/FeedstocksCategoriesList'
 
 export default {
+  components: {
+    FeedstokcsCategoriesList
+  },
   mounted() {
     this.getFeedstocksCategories()
   },

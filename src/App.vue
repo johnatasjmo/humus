@@ -96,7 +96,7 @@ body {
 }
 
 .container {
-  height: 90vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

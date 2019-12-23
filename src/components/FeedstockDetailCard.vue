@@ -48,7 +48,7 @@
         </v-col>
         <v-col cols="3">
           <div class="font-weight-bold text-end">
-            {{ feedstockDetails.bulk_density }}
+            {{ feedstockDetails.bulk_density_yd }}
           </div>
         </v-col>
       </v-row>

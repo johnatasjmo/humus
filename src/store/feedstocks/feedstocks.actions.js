@@ -21,7 +21,7 @@ export default {
     commit('setFeedstocksByCategory', null)
 
     const feedstocksByCategory = await feedstocksDB.readAll([
-      ['category', '==', categoryID]
+      ['material_type', '==', categoryID]
     ])
     commit('setFeedstocksByCategory', feedstocksByCategory)
   },

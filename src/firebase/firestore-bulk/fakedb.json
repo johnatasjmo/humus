@@ -1,12 +1,86 @@
 {
-  "myCollection" : {
-    "UniqueKey1" : {
-      "field1" : "foo",
-      "field2" : "bar"
+  "feedstocks_categories": {
+    "crop_residues": {
+      "icon": "mdi-sprout",
+      "name": "Crop residues & processing wastes"
     },
-    "UniqueKey2" : {
-      "field1" : "fog",
-      "field2" : "buzz"
+    "fish_meat_animal": {
+      "icon": "mdi-fish",
+      "name": "Fish, meat and animal by products"
+    },
+    "manures": {
+      "icon": "mdi-recycle",
+      "name": "Manures"
+    },
+    "municipal_food_waste": {
+      "icon": "mdi-silverware-fork-knife",
+      "name": "Municipal and food waste"
+    },
+    "other": {
+      "icon": "mdi-cookie",
+      "name": "Other"
+    },
+    "paper": {
+      "icon": "mdi-paper-roll",
+      "name": "Paper"
+    },
+    "straw_hay_silage": {
+      "icon": "mdi-barley",
+      "name": "Straw, hay silage"
+    },
+    "wood_and_paper": {
+      "icon": "mdi-tree",
+      "name": "Wood and paper"
+    },
+    "yard_trimmings": {
+      "icon": "mdi-leaf",
+      "name": "yard trimmings and other vegetation"
+    }
+  },
+  "feedstocks": {
+    "apple_filter_cake": {
+      "material": "Apple filter cake",
+      "category": "crop_residues",
+      "creator": "",
+      "source": "",
+      "nitrogen": "1.2",
+      "carbon": "15.6",
+      "cn_ratio": "13",
+      "moisture_content": "60",
+      "bulk_density": "1197"
+    },
+    "apple_pomace": {
+      "material": "Apple pomace",
+      "category": "crop_residues",
+      "creator": "",
+      "source": "",
+      "nitrogen": "1.1",
+      "carbon": "52.8",
+      "cn_ratio": "48",
+      "moisture_content": "88",
+      "bulk_density": "1559"
+    },
+    "blood": {
+      "material": "Blood",
+      "category": "fish_meat_animal",
+      "creator": "",
+      "source": "",
+      "nitrogen": "13.5",
+      "carbon": "43.88",
+      "cn_ratio": "3.25",
+      "moisture_content": "45",
+      "bulk_density": "1517"
+    },
+    "crab_and_lobster_wastes": {
+      "material": "Crab and lobster wastes",
+      "category": "fish_meat_animal",
+      "creator": "",
+      "source": "",
+      "nitrogen": "6.1",
+      "carbon": "29.89",
+      "cn_ratio": "4.9",
+      "moisture_content": "47",
+      "bulk_density": "240"
     }
   }
 }

@@ -4,29 +4,29 @@
     indeterminate
     color="green"
   ></v-progress-circular>
-  <FeedStocksByCategory v-else />
+  <FeedstocksCategoriesList v-else />
 </template>
 
 <script>
 import { mapActions } from 'vuex'
-import FeedStocksByCategory from '@/components/FeedstocksByCategoryList'
+import FeedstocksCategoriesList from '@/components/FeedstocksCategoriesList'
 
 export default {
   components: {
-    FeedStocksByCategory
+    FeedstocksCategoriesList
   },
   data: () => ({
     loading: false
   }),
   async mounted() {
     this.loading = true
-    await this.getFeedstocksByCategoryID(this.$route.params.categoryId)
+    await this.getFeedstocksCategories()
     this.loading = false
   },
   methods: {
-    ...mapActions('feedstocks', ['getFeedstocksByCategoryID'])
+    ...mapActions('feedstocks', ['getFeedstocksCategories'])
   }
 }
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped></style>

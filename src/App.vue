@@ -2,15 +2,25 @@
   <v-app>
     <nav-drawer :show-drawer="showDrawer" @closeDrawer="showDrawer = false" />
     <v-app-bar app color="primary">
-      <v-btn text icon color="green" @click="toggleDrawer">
-        <v-icon>mdi-menu</v-icon>
+      <v-btn text icon color="green" @click="leftButtonAction">
+        <v-icon>{{ leftButtonIcon }}</v-icon>
       </v-btn>
-      <v-toolbar-title v-text="$route.name"></v-toolbar-title>
+      <v-toolbar-title>
+        {{ currentAppTitle }}
+      </v-toolbar-title>
       <v-spacer></v-spacer>
     </v-app-bar>
 
     <v-content>
-      <router-view />
+      <v-container fluid class="container">
+        <!-- <v-row align="center" justify="center"> -->
+        <!-- <v-col cols="12"> -->
+        <!-- <v-row align="center" justify="center"> -->
+        <router-view />
+        <!-- </v-row> -->
+        <!-- </v-col> -->
+        <!-- </v-row> -->
+      </v-container>
       <new-content-available-toastr
         v-if="newContentAvailable"
         class="new-content-available-toastr"
@@ -46,10 +56,23 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('app', ['newContentAvailable']),
-    ...mapState('app', ['showAddToHomeScreenModalForApple', 'refreshingApp'])
+    ...mapGetters('app', ['newContentAvailable', 'getAppTitle']),
+    ...mapState('app', ['showAddToHomeScreenModalForApple', 'refreshingApp']),
+    currentAppTitle() {
+      return this.getAppTitle(this.$route.name)
+    },
+    leftButtonIcon() {
+      return this.$route.name === 'Home' ? 'mdi-menu' : 'mdi-chevron-left'
+    }
   },
   methods: {
+    leftButtonAction() {
+      if (this.$route.name === 'Home') {
+        this.toggleDrawer()
+      } else {
+        this.$router.go(-1)
+      }
+    },
     toggleDrawer() {
       this.showDrawer = !this.showDrawer
     },
@@ -70,5 +93,12 @@ body {
       right: 10px;
     }
   }
+}
+
+.container {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

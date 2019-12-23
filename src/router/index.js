@@ -22,7 +22,7 @@ const router = new Router({
   routes: [
     {
       path: '/home',
-      name: 'home',
+      name: 'Home',
       component: Home,
       meta: {
         authNotRequired: true
@@ -52,8 +52,23 @@ const router = new Router({
       name: 'Feedstocks',
       component: () =>
         import(
+          /* webpackChunkName: "client-chunk-feedstocks-categories" */ '@/views/FeedstocksCategories.vue'
+        ),
+      meta: {
+        authNotRequired: true
+      }
+    },
+    {
+      path: '/feedstocks/:categoryId',
+      name: 'Material',
+      component: () =>
+        import(
           /* webpackChunkName: "client-chunk-feedstocks" */ '@/views/Feedstocks.vue'
-        )
+        ),
+      props: true,
+      meta: {
+        authNotRequired: true
+      }
     },
     {
       path: '/products',

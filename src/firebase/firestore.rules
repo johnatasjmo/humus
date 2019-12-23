@@ -14,5 +14,29 @@ service cloud.firestore {
       allow create: if authenticated() && request.auth.uid == userId;
       allow update, delete: if authenticated() && request.auth.uid == userId;
     }
+
+    match /feedstocks_categories/{feedStockCategoryId} {
+      allow get: if true;
+      allow list: if true;
+    }
+
+    match /feedstocks/{feedstockId} {
+      allow get: if true;
+      allow list: if true;
+    }
+
+    match /myCollection/{testId} {
+      allow get: if true;
+			allow list: if true;
+      allow create: if true;
+      allow update, delete: if true;
+    }
+
+    match /myCollection {
+      allow get: if true;
+			allow list: if true;
+      allow create: if true;
+      allow update, delete: if true;
+    }
   }
 }

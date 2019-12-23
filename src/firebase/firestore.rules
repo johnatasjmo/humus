@@ -24,5 +24,19 @@ service cloud.firestore {
       allow get: if true;
       allow list: if true;
     }
+
+    match /myCollection/{testId} {
+      allow get: if true;
+			allow list: if true;
+      allow create: if true;
+      allow update, delete: if true;
+    }
+
+    match /myCollection {
+      allow get: if true;
+			allow list: if true;
+      allow create: if true;
+      allow update, delete: if true;
+    }
   }
 }

@@ -24,5 +24,17 @@ export default {
       ['category', '==', categoryID]
     ])
     commit('setFeedstocksByCategory', feedstocksByCategory)
+  },
+
+  /**
+   * Fetch feedstock by ID
+   */
+  fetFeedstocksByID: async ({ commit }, feedstockID) => {
+    const feedstocksDB = new FeedstocksDB()
+
+    commit('setFeedstockDetails', null)
+    const feedstockDetails = await feedstocksDB.read(feedstockID)
+    console.log('TCL: feedstockDetails', feedstockDetails)
+    commit('setFeedstockDetails', feedstockDetails)
   }
 }

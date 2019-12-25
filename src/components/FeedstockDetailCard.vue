@@ -1,9 +1,12 @@
 <template>
   <v-card v-if="feedstockDetails" class="mx-auto" max-width="500">
+    <v-card-title class="headline">
+      {{ feedstockDetails.material }}
+    </v-card-title>
+    <v-card-subtitle v-if="feedstockDetails.source">
+      source: {{ feedstockDetails.source }}
+    </v-card-subtitle>
     <v-card-text>
-      <p class="display-1 text--primary">
-        {{ feedstockDetails.material }}
-      </p>
       <v-row justify="space-between">
         <v-col cols="9">
           <span class="font-weight-bold">

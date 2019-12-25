@@ -75,7 +75,7 @@ const router = new Router({
       name: 'Feedstock',
       component: () =>
         import(
-          /* webpackChunkName: "client-chunk-feedstocks" */ '@/views/FeedstockDetails.vue'
+          /* webpackChunkName: "client-chunk-feedstock-details" */ '@/views/FeedstockDetails.vue'
         ),
       props: true,
       meta: {
@@ -87,7 +87,15 @@ const router = new Router({
       name: 'My Feedstocks',
       component: () =>
         import(
-          /* webpackChunkName: "client-chunk-feedstocks" */ '@/views/MyFeedstocks.vue'
+          /* webpackChunkName: "client-chunk-myFeedstocks" */ '@/views/MyFeedstocks.vue'
+        )
+    },
+    {
+      path: '/myfeedstocks/create',
+      name: 'Create Feedstock',
+      component: () =>
+        import(
+          /* webpackChunkName: "client-chunk-myFeedstocks-create" */ '@/views/CreateFeedstock.vue'
         )
     },
     {

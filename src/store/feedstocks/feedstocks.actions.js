@@ -27,6 +27,21 @@ export default {
   },
 
   /**
+   * Fetch my feedstocks
+   */
+  getMyFeedstocks: async ({ commit, rootState }) => {
+    const feedstocksDB = new FeedstocksDB()
+
+    commit('setMyfeedstocks', null)
+
+    const myfeedstocks = await feedstocksDB.readAll([
+      ['creator', '==', rootState.authentication.user.id]
+    ])
+    console.log('TCL: myfeedstocks', myfeedstocks)
+    commit('setMyfeedstocks', myfeedstocks)
+  },
+
+  /**
    * Fetch feedstock by ID
    */
   fetFeedstocksByID: async ({ commit }, feedstockID) => {

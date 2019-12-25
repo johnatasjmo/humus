@@ -83,6 +83,14 @@ const router = new Router({
       }
     },
     {
+      path: '/myfeedstocks',
+      name: 'My Feedstocks',
+      component: () =>
+        import(
+          /* webpackChunkName: "client-chunk-feedstocks" */ '@/views/MyFeedstocks.vue'
+        )
+    },
+    {
       path: '/products',
       name: 'products',
       component: () =>

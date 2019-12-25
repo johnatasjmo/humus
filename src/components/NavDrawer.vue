@@ -78,7 +78,11 @@ export default {
         {
           icon: 'mdi-leaf',
           title: 'myFeedstocks',
-          action() {}
+          action() {
+            router.push({ name: 'My Feedstocks' }).catch(err => {
+              console.log('TCL: action -> err', err)
+            })
+          }
         },
         {
           icon: 'mdi-chart-bar',

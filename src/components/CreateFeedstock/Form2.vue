@@ -4,40 +4,40 @@
       <v-row>
         <v-col cols="12" md="6">
           <v-text-field
-            v-model="nitrogen"
-            :rules="nitrogenRules"
+            v-model="formValues.nitrogen"
+            :rules="validations.nitrogenRules"
             label="Nitrogen % (dry weight)"
             required
           ></v-text-field>
         </v-col>
         <v-col cols="12" md="6">
           <v-text-field
-            v-model="carbon"
-            :rules="carbonRules"
+            v-model="formValues.carbon"
+            :rules="validations.carbonRules"
             label="Carbon % (dry weight)"
             required
           ></v-text-field>
         </v-col>
         <v-col cols="12" md="6">
           <v-text-field
-            v-model="cnRatio"
-            :rules="cnRatioRules"
+            v-model="formValues.cnRatio"
+            :rules="validations.cnRatioRules"
             label="C:N ratio (weight to weight)"
             required
           ></v-text-field>
         </v-col>
         <v-col cols="12" md="6">
           <v-text-field
-            v-model="moistureContent"
-            :rules="moistureContentRules"
+            v-model="formValues.moistureContent"
+            :rules="validations.moistureContentRules"
             label="Moisture content (weight to weight)"
             required
           ></v-text-field>
         </v-col>
         <v-col cols="12" md="6">
           <v-text-field
-            v-model="bulkDensity"
-            :rules="bulkDensityRules"
+            v-model="formValues.bulkDensity"
+            :rules="validations.bulkDensityRules"
             label="Bulk density (pound per cubic)"
             required
           ></v-text-field>
@@ -55,22 +55,26 @@ export default {
   data() {
     return {
       valid: false,
-      nitrogen: null,
-      nitrogenRules: [v => !!v || 'Nitrogen is required'],
-      carbon: null,
-      carbonRules: [v => !!v || 'Carbon is required'],
-      cnRatio: null,
-      cnRatioRules: [v => !!v || 'C:N ratio is required'],
-      moistureContent: null,
-      moistureContentRules: [v => !!v || 'Moisture content is required'],
-      bulkDensity: null,
-      bulkDensityRules: [v => !!v || 'Bulk density is required']
+      formValues: {
+        nitrogen: null,
+        carbon: null,
+        cnRatio: null,
+        moistureContent: null,
+        bulkDensity: null
+      },
+      validations: {
+        nitrogenRules: [v => !!v || 'Nitrogen is required'],
+        carbonRules: [v => !!v || 'Carbon is required'],
+        cnRatioRules: [v => !!v || 'C:N ratio is required'],
+        moistureContentRules: [v => !!v || 'Moisture content is required'],
+        bulkDensityRules: [v => !!v || 'Bulk density is required']
+      }
     }
   },
   methods: {
     validate() {
       if (this.$refs.form.validate()) {
-        this.$emit('formValid')
+        this.$emit('formValid', this.formValues)
       }
     }
   }

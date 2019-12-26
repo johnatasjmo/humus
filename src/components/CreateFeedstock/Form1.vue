@@ -4,8 +4,8 @@
       <v-row>
         <v-col cols="12" md="6">
           <v-select
-            v-model="type"
-            :rules="typeRules"
+            v-model="formValues.type"
+            :rules="validations.typeRules"
             :items="['1', '2']"
             label="Feedstock type"
             required
@@ -13,22 +13,25 @@
         </v-col>
         <v-col cols="12" md="6">
           <v-text-field
-            v-model="material"
-            :rules="materialRules"
+            v-model="formValues.material"
+            :rules="validations.materialRules"
             label="Material"
             required
           ></v-text-field>
         </v-col>
         <v-col cols="12" md="6">
           <v-text-field
-            v-model="source"
-            :rules="sourceRules"
+            v-model="formValues.source"
+            :rules="validations.sourceRules"
             label="Source"
             required
           ></v-text-field>
         </v-col>
         <v-col cols="12" md="6">
-          <v-text-field v-model="reference" label="Reference"></v-text-field>
+          <v-text-field
+            v-model="formValues.reference"
+            label="Reference"
+          ></v-text-field>
         </v-col>
       </v-row>
     </v-container>
@@ -43,20 +46,23 @@ export default {
   data() {
     return {
       valid: false,
-      type: null,
-      typeRules: [v => !!v || 'Material type is required'],
-      lastname: '',
-      material: '',
-      materialRules: [v => !!v || 'material is required'],
-      source: '',
-      sourceRules: [v => !!v || 'Source is required'],
-      reference: ''
+      formValues: {
+        type: null,
+        material: '',
+        source: '',
+        reference: ''
+      },
+      validations: {
+        typeRules: [v => !!v || 'Material type is required'],
+        materialRules: [v => !!v || 'material is required'],
+        sourceRules: [v => !!v || 'Source is required']
+      }
     }
   },
   methods: {
     validate() {
       if (this.$refs.form.validate()) {
-        this.$emit('formValid')
+        this.$emit('formValid', this.formValues)
       }
     }
   }

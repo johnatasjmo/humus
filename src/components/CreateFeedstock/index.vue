@@ -18,11 +18,11 @@
 
     <v-stepper-items>
       <v-stepper-content step="1">
-        <Form1 @formValid="() => (stepper = 2)" />
+        <Form1 @formValid="values => nextStep(values)" />
       </v-stepper-content>
 
       <v-stepper-content step="2">
-        <Form2 @formValid="createFeedstock" />
+        <Form2 @formValid="values => createFeedstock(values)" />
       </v-stepper-content>
     </v-stepper-items>
   </v-stepper>
@@ -39,11 +39,24 @@ export default {
   },
   data() {
     return {
-      stepper: 0
+      stepper: 1,
+      values: {}
     }
   },
   methods: {
-    createFeedstock() {}
+    createFeedstock(values) {
+      this.setValues(values)
+    },
+    nextStep(values) {
+      this.setValues(values)
+      this.stepper += 1
+    },
+    setValues(values) {
+      this.values = {
+        ...values,
+        ...this.values
+      }
+    }
   }
 }
 </script>

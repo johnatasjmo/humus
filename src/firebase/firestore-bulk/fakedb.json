@@ -48,7 +48,8 @@
       "cn_ratio": "13",
       "moisture_content": "60",
       "bulk_density_yd": "1197",
-      "bulk_density_m": "710.15"
+      "bulk_density_m": "710.15",
+      "public": true
     },
     "apple_pomace": {
       "material": "Apple pomace",
@@ -60,7 +61,8 @@
       "cn_ratio": "48",
       "moisture_content": "88",
       "bulk_density_yd": "1559",
-      "bulk_density_m": "924.92"
+      "bulk_density_m": "924.92",
+      "public": true
     },
     "apple_processing_sludge": {
       "material": "Apple processing sludge",
@@ -72,7 +74,8 @@
       "cn_ratio": "7",
       "moisture_content": "59",
       "bulk_density_yd": "1411",
-      "bulk_density_m": "837.11"
+      "bulk_density_m": "837.11",
+      "public": true
     },
     "cocoa_shells": {
       "material": "Cocoa Shells",
@@ -84,7 +87,8 @@
       "cn_ratio": "22",
       "moisture_content": "8",
       "bulk_density_yd": "792.21",
-      "bulk_density_m": "470"
+      "bulk_density_m": "470",
+      "public": true
     },
     "coffee_grounds": {
       "material": "Coffee Grounds",
@@ -96,7 +100,8 @@
       "cn_ratio": "18.1",
       "moisture_content": "80",
       "bulk_density_yd": "1517",
-      "bulk_density_m": "900"
+      "bulk_density_m": "900",
+      "public": true
     },
     "corn_cobs": {
       "material": "Corn cobs",
@@ -108,7 +113,8 @@
       "cn_ratio": "98",
       "moisture_content": "15",
       "bulk_density_yd": "557",
-      "bulk_density_m": "330.45"
+      "bulk_density_m": "330.45",
+      "public": true
     },
     "corn_stalks": {
       "material": "Corn Stalks",
@@ -120,7 +126,8 @@
       "cn_ratio": "67",
       "moisture_content": "12",
       "bulk_density_yd": "33.71",
-      "bulk_density_m": "20"
+      "bulk_density_m": "20",
+      "public": true
     },
     "cranberry_filter_cake": {
       "material": "Cranberry filter cake",
@@ -132,7 +139,8 @@
       "cn_ratio": "31",
       "moisture_content": "50",
       "bulk_density_yd": "1021",
-      "bulk_density_m": "605.73"
+      "bulk_density_m": "605.73",
+      "public": true
     },
     "cranberry_filter_cake_with_rice_hulls": {
       "material": "Cranberry filter cake (with rice hulls)",
@@ -144,7 +152,8 @@
       "cn_ratio": "42",
       "moisture_content": "71",
       "bulk_density_yd": "1298",
-      "bulk_density_m": "770.07"
+      "bulk_density_m": "770.07",
+      "public": true
     },
     "cull_potatoes": {
       "material": "Cull Potatoes",
@@ -156,7 +165,8 @@
       "cn_ratio": "18",
       "moisture_content": "78",
       "bulk_density_yd": "1533.85",
-      "bulk_density_m": "910"
+      "bulk_density_m": "910",
+      "public": true
     },
     "fruit_waste": {
       "material": "Fruit Waste",
@@ -168,7 +178,8 @@
       "cn_ratio": "31.8",
       "moisture_content": "80",
       "bulk_density_yd": "1601.27",
-      "bulk_density_m": "950"
+      "bulk_density_m": "950",
+      "public": true
     },
     "rice_hulls_1": {
       "material": "Rice hulls 1",
@@ -180,7 +191,8 @@
       "cn_ratio": "626.5",
       "moisture_content": "9.5",
       "bulk_density_yd": "202",
-      "bulk_density_m": "119.84"
+      "bulk_density_m": "119.84",
+      "public": true
     },
     "rice_hulls_2": {
       "material": "Rice hulls 2",
@@ -192,7 +204,8 @@
       "cn_ratio": "121",
       "moisture_content": "14",
       "bulk_density_yd": "202",
-      "bulk_density_m": "119.84"
+      "bulk_density_m": "119.84",
+      "public": true
     },
     "spent_silage": {
       "material": "Spent silage",
@@ -204,7 +217,8 @@
       "cn_ratio": "30",
       "moisture_content": "60",
       "bulk_density_yd": "421.39",
-      "bulk_density_m": "250"
+      "bulk_density_m": "250",
+      "public": true
     },
     "straw_stable_bedding": {
       "material": "Straw (stable Bedding)",
@@ -216,7 +230,8 @@
       "cn_ratio": "85",
       "moisture_content": "25",
       "bulk_density_yd": "337.11",
-      "bulk_density_m": "200"
+      "bulk_density_m": "200",
+      "public": true
     },
     "ucd_dairy_manure_and_rice_hulls": {
       "material": "UCD Dairy manure and rice hulls",
@@ -228,7 +243,8 @@
       "cn_ratio": "43.37",
       "moisture_content": "69.7",
       "bulk_density_yd": "775.35",
-      "bulk_density_m": "460"
+      "bulk_density_m": "460",
+      "public": true
     },
     "vegetable_produce": {
       "material": "Vegetable produce",
@@ -240,7 +256,8 @@
       "cn_ratio": "19",
       "moisture_content": "87",
       "bulk_density_yd": "1585",
-      "bulk_density_m": "940.34"
+      "bulk_density_m": "940.34",
+      "public": true
     },
     "vegetable_waste": {
       "material": "Vegetable Waste",
@@ -252,7 +269,8 @@
       "cn_ratio": "10.86",
       "moisture_content": "87",
       "bulk_density_yd": "1601.27",
-      "bulk_density_m": "950"
+      "bulk_density_m": "950",
+      "public": true
     },
     "blood": {
       "material": "Blood",
@@ -264,7 +282,8 @@
       "cn_ratio": "3.25",
       "moisture_content": "45",
       "bulk_density_yd": "1517",
-      "bulk_density_m": "900"
+      "bulk_density_m": "900",
+      "public": true
     },
     "crab_and_lobster_wastes": {
       "material": "Crab and lobster wastes",
@@ -276,7 +295,8 @@
       "cn_ratio": "4.9",
       "moisture_content": "47",
       "bulk_density_yd": "240",
-      "bulk_density_m": "142.39"
+      "bulk_density_m": "142.39",
+      "public": true
     },
     "paunch_manure": {
       "material": "Paunch manure",
@@ -288,7 +308,8 @@
       "cn_ratio": "25",
       "moisture_content": "82.5",
       "bulk_density_yd": "1460",
-      "bulk_density_m": "866.18"
+      "bulk_density_m": "866.18",
+      "public": true
     },
     "poultry_mortalities": {
       "material": "Poultry Mortalities",
@@ -300,7 +321,8 @@
       "cn_ratio": "5",
       "moisture_content": "65",
       "bulk_density_yd": "842.78",
-      "bulk_density_m": "500"
+      "bulk_density_m": "500",
+      "public": true
     },
     "broiler_litter_1": {
       "material": "Broiler litter 1",
@@ -312,7 +334,8 @@
       "cn_ratio": "13.5",
       "moisture_content": "34",
       "bulk_density_yd": "891",
-      "bulk_density_m": "528.61"
+      "bulk_density_m": "528.61",
+      "public": true
     },
     "broiler_litter_2": {
       "material": "Broiler litter 2",
@@ -324,7 +347,8 @@
       "cn_ratio": "14",
       "moisture_content": "37",
       "bulk_density_yd": "864",
-      "bulk_density_m": "512.59"
+      "bulk_density_m": "512.59",
+      "public": true
     },
     "cattle_1": {
       "material": "Cattle 1",
@@ -336,7 +360,8 @@
       "cn_ratio": "20.5",
       "moisture_content": "77",
       "bulk_density_yd": "1498.5",
-      "bulk_density_m": "889.02"
+      "bulk_density_m": "889.02",
+      "public": true
     },
     "cattle_2": {
       "material": "Cattle 2",
@@ -348,7 +373,8 @@
       "cn_ratio": "19",
       "moisture_content": "81",
       "bulk_density_yd": "1458",
-      "bulk_density_m": "865"
+      "bulk_density_m": "865",
+      "public": true
     },
     "cattle_3": {
       "material": "Cattle 3",
@@ -360,7 +386,8 @@
       "cn_ratio": "17.2",
       "moisture_content": "81",
       "bulk_density_yd": "1466.43",
-      "bulk_density_m": "870"
+      "bulk_density_m": "870",
+      "public": true
     },
     "dairy_cow": {
       "material": "Dairy Cow",
@@ -372,7 +399,8 @@
       "cn_ratio": "12.64",
       "moisture_content": "80",
       "bulk_density_yd": "1466.43",
-      "bulk_density_m": "870"
+      "bulk_density_m": "870",
+      "public": true
     },
     "dairy_manure_no_bedding": {
       "material": "Dairy Manure (no bedding)",
@@ -384,7 +412,8 @@
       "cn_ratio": "18",
       "moisture_content": "53.7",
       "bulk_density_yd": "2191.22",
-      "bulk_density_m": "1300"
+      "bulk_density_m": "1300",
+      "public": true
     },
     "dairy_manure_solids": {
       "material": "Dairy manure solids",
@@ -396,7 +425,8 @@
       "cn_ratio": "58",
       "moisture_content": "73",
       "bulk_density_yd": "722.83",
-      "bulk_density_m": "428.84"
+      "bulk_density_m": "428.84",
+      "public": true
     },
     "dairy_manure_with_bedding": {
       "material": "Dairy manure with bedding",
@@ -408,7 +438,8 @@
       "cn_ratio": "19",
       "moisture_content": "46.9",
       "bulk_density_yd": "1331.58",
-      "bulk_density_m": "789.99"
+      "bulk_density_m": "789.99",
+      "public": true
     },
     "heifer_manure,_moderate_bedding": {
       "material": "Heifer manure, moderate bedding",
@@ -420,7 +451,8 @@
       "cn_ratio": "28",
       "moisture_content": "72",
       "bulk_density_yd": "890.93",
-      "bulk_density_m": "528.57"
+      "bulk_density_m": "528.57",
+      "public": true
     },
     "horse_bedding": {
       "material": "Horse Bedding",
@@ -432,7 +464,8 @@
       "cn_ratio": "35.44",
       "moisture_content": "32",
       "bulk_density_yd": "370.82",
-      "bulk_density_m": "220"
+      "bulk_density_m": "220",
+      "public": true
     },
     "horse_general_1": {
       "material": "Horse general 1",
@@ -444,7 +477,8 @@
       "cn_ratio": "36",
       "moisture_content": "69",
       "bulk_density_yd": "1417.5",
-      "bulk_density_m": "840.97"
+      "bulk_density_m": "840.97",
+      "public": true
     },
     "horse_general_2": {
       "material": "Horse general 2",
@@ -456,7 +490,8 @@
       "cn_ratio": "30",
       "moisture_content": "72",
       "bulk_density_yd": "1379",
-      "bulk_density_m": "818.13"
+      "bulk_density_m": "818.13",
+      "public": true
     },
     "horse_manure_and_bedding": {
       "material": "Horse Manure and bedding",
@@ -468,7 +503,8 @@
       "cn_ratio": "1",
       "moisture_content": "55.9",
       "bulk_density_yd": "1078.75",
-      "bulk_density_m": "640"
+      "bulk_density_m": "640",
+      "public": true
     },
     "horse_manure_cpp": {
       "material": "Horse Manure CPP",
@@ -480,7 +516,8 @@
       "cn_ratio": "21.76",
       "moisture_content": "66",
       "bulk_density_yd": "640.51",
-      "bulk_density_m": "380"
+      "bulk_density_m": "380",
+      "public": true
     },
     "horse_manure_sunyc": {
       "material": "Horse manure SUNYC",
@@ -492,7 +529,8 @@
       "cn_ratio": "30",
       "moisture_content": "24",
       "bulk_density_yd": "268.96",
-      "bulk_density_m": "159.57"
+      "bulk_density_m": "159.57",
+      "public": true
     },
     "laying_hens_1": {
       "material": "Laying hens 1",
@@ -504,7 +542,8 @@
       "cn_ratio": "6.5",
       "moisture_content": "68.5",
       "bulk_density_yd": "1498.5",
-      "bulk_density_m": "889.02"
+      "bulk_density_m": "889.02",
+      "public": true
     },
     "laying_hens_2": {
       "material": "Laying hens 2",
@@ -516,7 +555,8 @@
       "cn_ratio": "6",
       "moisture_content": "69",
       "bulk_density_yd": "1479",
-      "bulk_density_m": "877.46"
+      "bulk_density_m": "877.46",
+      "public": true
     },
     "mixed_livestock_manure,_well_bedded": {
       "material": "Mixed livestock manure, well bedded",
@@ -528,7 +568,8 @@
       "cn_ratio": "31",
       "moisture_content": "32",
       "bulk_density_yd": "638.78",
-      "bulk_density_m": "378.97"
+      "bulk_density_m": "378.97",
+      "public": true
     },
     "pig_farm_slurry": {
       "material": "Pig Farm Slurry",
@@ -540,7 +581,8 @@
       "cn_ratio": "14",
       "moisture_content": "80",
       "bulk_density_yd": "1685.55",
-      "bulk_density_m": "1000"
+      "bulk_density_m": "1000",
+      "public": true
     },
     "poultry": {
       "material": "Poultry",
@@ -552,7 +594,8 @@
       "cn_ratio": "9.65",
       "moisture_content": "53",
       "bulk_density_yd": "1163.03",
-      "bulk_density_m": "690"
+      "bulk_density_m": "690",
+      "public": true
     },
     "poultry_manure_with_litter": {
       "material": "Poultry Manure with Litter",
@@ -564,7 +607,8 @@
       "cn_ratio": "9.4",
       "moisture_content": "16.3",
       "bulk_density_yd": "994.47",
-      "bulk_density_m": "590"
+      "bulk_density_m": "590",
+      "public": true
     },
     "sheep": {
       "material": "Sheep",
@@ -576,7 +620,8 @@
       "cn_ratio": "14.48",
       "moisture_content": "69",
       "bulk_density_yd": "1752.97",
-      "bulk_density_m": "1040"
+      "bulk_density_m": "1040",
+      "public": true
     },
     "stable": {
       "material": "Stable",
@@ -588,7 +633,8 @@
       "cn_ratio": "13",
       "moisture_content": "60",
       "bulk_density_yd": "1348.44",
-      "bulk_density_m": "800"
+      "bulk_density_m": "800",
+      "public": true
     },
     "swine": {
       "material": "Swine",
@@ -600,7 +646,8 @@
       "cn_ratio": "13.44",
       "moisture_content": "80",
       "bulk_density_yd": "1618.13",
-      "bulk_density_m": "960"
+      "bulk_density_m": "960",
+      "public": true
     },
     "turkey_litter": {
       "material": "Turkey litter",
@@ -612,7 +659,8 @@
       "cn_ratio": "16",
       "moisture_content": "26",
       "bulk_density_yd": "783",
-      "bulk_density_m": "464.54"
+      "bulk_density_m": "464.54",
+      "public": true
     },
     "ucd_horse_manure_and_bedding": {
       "material": "UCD Horse Manure and bedding",
@@ -624,7 +672,8 @@
       "cn_ratio": "34",
       "moisture_content": "60",
       "bulk_density_yd": "320.25",
-      "bulk_density_m": "190"
+      "bulk_density_m": "190",
+      "public": true
     },
     "ucd_poultry_manure": {
       "material": "UCD Poultry Manure",
@@ -636,7 +685,8 @@
       "cn_ratio": "9.21",
       "moisture_content": "23.1",
       "bulk_density_yd": "1651.84",
-      "bulk_density_m": "980"
+      "bulk_density_m": "980",
+      "public": true
     },
     "wsu_dairy_solids": {
       "material": "WSU Dairy solids",
@@ -648,7 +698,8 @@
       "cn_ratio": "43.18",
       "moisture_content": "80.94",
       "bulk_density_yd": "1237.63",
-      "bulk_density_m": "734.26"
+      "bulk_density_m": "734.26",
+      "public": true
     },
     "wsu_poultry_manure_broiler": {
       "material": "WSU Poultry manure broiler",
@@ -660,7 +711,8 @@
       "cn_ratio": "12.3",
       "moisture_content": "36.45",
       "bulk_density_yd": "731.21",
-      "bulk_density_m": "433.81"
+      "bulk_density_m": "433.81",
+      "public": true
     },
     "bakery_waste": {
       "material": "Bakery Waste",
@@ -672,7 +724,8 @@
       "cn_ratio": "28",
       "moisture_content": "10",
       "bulk_density_yd": "421.39",
-      "bulk_density_m": "250"
+      "bulk_density_m": "250",
+      "public": true
     },
     "food_scraps": {
       "material": "Food Scraps",
@@ -684,7 +737,8 @@
       "cn_ratio": "20",
       "moisture_content": "74.8",
       "bulk_density_yd": "1887.82",
-      "bulk_density_m": "1120"
+      "bulk_density_m": "1120",
+      "public": true
     },
     "food_waste": {
       "material": "Food Waste",
@@ -696,7 +750,8 @@
       "cn_ratio": "14.84",
       "moisture_content": "69",
       "bulk_density_yd": "1517",
-      "bulk_density_m": "900"
+      "bulk_density_m": "900",
+      "public": true
     },
     "kitchen_garden_garbage": {
       "material": "Kitchen/Garden Garbage",
@@ -708,7 +763,8 @@
       "cn_ratio": "15",
       "moisture_content": "69",
       "bulk_density_yd": "1179.89",
-      "bulk_density_m": "700"
+      "bulk_density_m": "700",
+      "public": true
     },
     "produce_waste": {
       "material": "Produce waste",
@@ -720,7 +776,8 @@
       "cn_ratio": "11.56",
       "moisture_content": "95",
       "bulk_density_yd": "2191.22",
-      "bulk_density_m": "1300"
+      "bulk_density_m": "1300",
+      "public": true
     },
     "sewage_sludge": {
       "material": "Sewage sludge",
@@ -732,7 +789,8 @@
       "cn_ratio": "10.5",
       "moisture_content": "78",
       "bulk_density_yd": "1412.5",
-      "bulk_density_m": "838"
+      "bulk_density_m": "838",
+      "public": true
     },
     "sewage_sludge_wet": {
       "material": "Sewage Sludge (Wet)",
@@ -744,7 +802,8 @@
       "cn_ratio": "10",
       "moisture_content": "80",
       "bulk_density_yd": "1854.11",
-      "bulk_density_m": "1100"
+      "bulk_density_m": "1100",
+      "public": true
     },
     "wsu_fair_waste": {
       "material": "WSU Fair waste",
@@ -756,7 +815,8 @@
       "cn_ratio": "81.59",
       "moisture_content": "45.63",
       "bulk_density_yd": "259.17",
-      "bulk_density_m": "153.76"
+      "bulk_density_m": "153.76",
+      "public": true
     },
     "vet_hospital_manure_and_bedding": {
       "material": "Vet Hospital Manure and Bedding",
@@ -768,7 +828,8 @@
       "cn_ratio": "59",
       "moisture_content": "52.6",
       "bulk_density_yd": "353.97",
-      "bulk_density_m": "210"
+      "bulk_density_m": "210",
+      "public": true
     },
     "water": {
       "material": "Water",
@@ -780,7 +841,8 @@
       "cn_ratio": "0",
       "moisture_content": "100",
       "bulk_density_yd": "1682.46",
-      "bulk_density_m": "998.16"
+      "bulk_density_m": "998.16",
+      "public": true
     },
     "paper_pulp_atlas-assumed": {
       "material": "paper pulp (atlas-assumed)",
@@ -792,7 +854,8 @@
       "cn_ratio": "90",
       "moisture_content": "56",
       "bulk_density_yd": "1100",
-      "bulk_density_m": "652.6"
+      "bulk_density_m": "652.6",
+      "public": true
     },
     "straw_general_1": {
       "material": "Straw general 1",
@@ -804,7 +867,8 @@
       "cn_ratio": "99",
       "moisture_content": "7",
       "bulk_density_yd": "218",
-      "bulk_density_m": "129.33"
+      "bulk_density_m": "129.33",
+      "public": true
     },
     "straw_general_2": {
       "material": "Straw general 2",
@@ -816,7 +880,8 @@
       "cn_ratio": "80",
       "moisture_content": "12",
       "bulk_density_yd": "227",
-      "bulk_density_m": "134.67"
+      "bulk_density_m": "134.67",
+      "public": true
     },
     "straw_general_3": {
       "material": "Straw general 3",
@@ -828,7 +893,8 @@
       "cn_ratio": "35.45",
       "moisture_content": "12",
       "bulk_density_yd": "219.12",
-      "bulk_density_m": "130"
+      "bulk_density_m": "130",
+      "public": true
     },
     "cardboard": {
       "material": "Cardboard",
@@ -840,7 +906,8 @@
       "cn_ratio": "377.8",
       "moisture_content": "8",
       "bulk_density_yd": "269.69",
-      "bulk_density_m": "160"
+      "bulk_density_m": "160",
+      "public": true
     },
     "corrugated_cardboard": {
       "material": "Corrugated cardboard",
@@ -852,7 +919,8 @@
       "cn_ratio": "563",
       "moisture_content": "8",
       "bulk_density_yd": "259",
-      "bulk_density_m": "153.66"
+      "bulk_density_m": "153.66",
+      "public": true
     },
     "newsprint": {
       "material": "Newsprint",
@@ -864,7 +932,8 @@
       "cn_ratio": "322.8",
       "moisture_content": "5.5",
       "bulk_density_yd": "219.12",
-      "bulk_density_m": "130"
+      "bulk_density_m": "130",
+      "public": true
     },
     "paper_office": {
       "material": "paper (Office)",
@@ -876,7 +945,8 @@
       "cn_ratio": "128.8",
       "moisture_content": "20",
       "bulk_density_yd": "303.4",
-      "bulk_density_m": "180"
+      "bulk_density_m": "180",
+      "public": true
     },
     "paper_&_card_waste": {
       "material": "paper & Card Waste",
@@ -888,7 +958,8 @@
       "cn_ratio": "500",
       "moisture_content": "7",
       "bulk_density_yd": "219.12",
-      "bulk_density_m": "130"
+      "bulk_density_m": "130",
+      "public": true
     },
     "paper_pulp": {
       "material": "paper pulp",
@@ -900,7 +971,8 @@
       "cn_ratio": "90",
       "moisture_content": "82",
       "bulk_density_yd": "1403",
-      "bulk_density_m": "832.37"
+      "bulk_density_m": "832.37",
+      "public": true
     },
     "sawdust_1": {
       "material": "Sawdust 1",
@@ -912,7 +984,8 @@
       "cn_ratio": "475",
       "moisture_content": "42",
       "bulk_density_yd": "400",
-      "bulk_density_m": "237.31"
+      "bulk_density_m": "237.31",
+      "public": true
     },
     "sawdust_2": {
       "material": "Sawdust 2",
@@ -924,7 +997,8 @@
       "cn_ratio": "442",
       "moisture_content": "39",
       "bulk_density_yd": "400",
-      "bulk_density_m": "237.31"
+      "bulk_density_m": "237.31",
+      "public": true
     },
     "telephone_books": {
       "material": "Telephone books",
@@ -936,7 +1010,8 @@
       "cn_ratio": "772",
       "moisture_content": "6",
       "bulk_density_yd": "250",
-      "bulk_density_m": "148.32"
+      "bulk_density_m": "148.32",
+      "public": true
     },
     "wood_chips_softwood": {
       "material": "Wood Chips (Softwood)",
@@ -948,7 +1023,8 @@
       "cn_ratio": "101.9",
       "moisture_content": "40",
       "bulk_density_yd": "404.53",
-      "bulk_density_m": "240"
+      "bulk_density_m": "240",
+      "public": true
     },
     "wood_chips_1": {
       "material": "Wood chips 1",
@@ -960,7 +1036,8 @@
       "cn_ratio": "140",
       "moisture_content": "58",
       "bulk_density_yd": "537.92",
-      "bulk_density_m": "319.14"
+      "bulk_density_m": "319.14",
+      "public": true
     },
     "wood_chips_2": {
       "material": "Wood chips 2",
@@ -972,7 +1049,8 @@
       "cn_ratio": "100",
       "moisture_content": "47.5",
       "bulk_density_yd": "724.79",
-      "bulk_density_m": "430"
+      "bulk_density_m": "430",
+      "public": true
     },
     "wood_shavings_sawdust": {
       "material": "Wood Shavings/Sawdust",
@@ -984,7 +1062,8 @@
       "cn_ratio": "500",
       "moisture_content": "20",
       "bulk_density_yd": "404.53",
-      "bulk_density_m": "240"
+      "bulk_density_m": "240",
+      "public": true
     },
     "grass_compacted": {
       "material": "Grass (compacted)",
@@ -996,7 +1075,8 @@
       "cn_ratio": "15.39",
       "moisture_content": "60",
       "bulk_density_yd": "640.51",
-      "bulk_density_m": "380"
+      "bulk_density_m": "380",
+      "public": true
     },
     "grass_loose": {
       "material": "Grass (loose)",
@@ -1008,7 +1088,8 @@
       "cn_ratio": "15.39",
       "moisture_content": "82",
       "bulk_density_yd": "303.4",
-      "bulk_density_m": "180"
+      "bulk_density_m": "180",
+      "public": true
     },
     "grass_cuttings": {
       "material": "Grass Cuttings",
@@ -1020,7 +1101,8 @@
       "cn_ratio": "17",
       "moisture_content": "82",
       "bulk_density_yd": "348",
-      "bulk_density_m": "206.46"
+      "bulk_density_m": "206.46",
+      "public": true
     },
     "green_waste": {
       "material": "Green Waste",
@@ -1032,7 +1114,8 @@
       "cn_ratio": "50",
       "moisture_content": "30",
       "bulk_density_yd": "505.67",
-      "bulk_density_m": "300"
+      "bulk_density_m": "300",
+      "public": true
     },
     "greenhouse_cleanout": {
       "material": "Greenhouse cleanout",
@@ -1044,7 +1127,8 @@
       "cn_ratio": "21",
       "moisture_content": "69.9",
       "bulk_density_yd": "1129.32",
-      "bulk_density_m": "670"
+      "bulk_density_m": "670",
+      "public": true
     },
     "ground_greenwaste": {
       "material": "Ground Greenwaste",
@@ -1056,7 +1140,8 @@
       "cn_ratio": "87",
       "moisture_content": "29",
       "bulk_density_yd": "588.35",
-      "bulk_density_m": "349.05"
+      "bulk_density_m": "349.05",
+      "public": true
     },
     "ground_wood": {
       "material": "Ground wood",
@@ -1068,7 +1153,8 @@
       "cn_ratio": "61",
       "moisture_content": "30",
       "bulk_density_yd": "1025.41",
-      "bulk_density_m": "608.35"
+      "bulk_density_m": "608.35",
+      "public": true
     },
     "landscape_browns": {
       "material": "Landscape Browns",
@@ -1080,7 +1166,8 @@
       "cn_ratio": "63.89",
       "moisture_content": "35",
       "bulk_density_yd": "252.83",
-      "bulk_density_m": "150"
+      "bulk_density_m": "150",
+      "public": true
     },
     "landscape_greens": {
       "material": "Landscape Greens",
@@ -1092,7 +1179,8 @@
       "cn_ratio": "13.03",
       "moisture_content": "34.2",
       "bulk_density_yd": "117.99",
-      "bulk_density_m": "70"
+      "bulk_density_m": "70",
+      "public": true
     },
     "leaves": {
       "material": "Leaves 2",
@@ -1104,7 +1192,8 @@
       "cn_ratio": "54",
       "moisture_content": "45",
       "bulk_density_yd": "455.1",
-      "bulk_density_m": "270"
+      "bulk_density_m": "270",
+      "public": true
     },
     "leaves_compact_wet": {
       "material": "Leaves (Compact/Wet)",
@@ -1116,7 +1205,8 @@
       "cn_ratio": "46.91",
       "moisture_content": "38",
       "bulk_density_yd": "505.67",
-      "bulk_density_m": "300"
+      "bulk_density_m": "300",
+      "public": true
     },
     "leaves_fresh": {
       "material": "Leaves (Fresh)",
@@ -1128,7 +1218,8 @@
       "cn_ratio": "37.17",
       "moisture_content": "65",
       "bulk_density_yd": "303.4",
-      "bulk_density_m": "180"
+      "bulk_density_m": "180",
+      "public": true
     },
     "leaves_loose_dry": {
       "material": "Leaves (Loose/Dry)",
@@ -1140,7 +1231,8 @@
       "cn_ratio": "46.91",
       "moisture_content": "40",
       "bulk_density_yd": "168.56",
-      "bulk_density_m": "100"
+      "bulk_density_m": "100",
+      "public": true
     },
     "shrub_trimmings": {
       "material": "Shrub Trimmings",
@@ -1152,7 +1244,8 @@
       "cn_ratio": "53",
       "moisture_content": "15",
       "bulk_density_yd": "438.24",
-      "bulk_density_m": "260"
+      "bulk_density_m": "260",
+      "public": true
     },
     "tree_trimmings_1": {
       "material": "Tree Trimmings 1",
@@ -1164,7 +1257,8 @@
       "cn_ratio": "16",
       "moisture_content": "70",
       "bulk_density_yd": "1296",
-      "bulk_density_m": "768.89"
+      "bulk_density_m": "768.89",
+      "public": true
     },
     "tree_trimmings_2": {
       "material": "Tree Trimmings 2",
@@ -1176,7 +1270,8 @@
       "cn_ratio": "16",
       "moisture_content": "70",
       "bulk_density_yd": "1297.87",
-      "bulk_density_m": "770"
+      "bulk_density_m": "770",
+      "public": true
     },
     "ucd_ground_green_waste": {
       "material": "UCD Ground green waste",
@@ -1188,7 +1283,8 @@
       "cn_ratio": "47",
       "moisture_content": "41",
       "bulk_density_yd": "573.09",
-      "bulk_density_m": "340"
+      "bulk_density_m": "340",
+      "public": true
     },
     "wsu_yard_trimmings": {
       "material": "WSU Yard trimmings",
@@ -1200,7 +1296,8 @@
       "cn_ratio": "28.83",
       "moisture_content": "61.46",
       "bulk_density_yd": "810.04",
-      "bulk_density_m": "480.58"
+      "bulk_density_m": "480.58",
+      "public": true
     }
   }
 }

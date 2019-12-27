@@ -1,5 +1,10 @@
 <template>
-  <v-stepper v-model="stepper">
+  <v-progress-circular
+    v-if="loading"
+    indeterminate
+    color="green"
+  ></v-progress-circular>
+  <v-stepper v-else v-model="stepper">
     <v-stepper-header>
       <v-stepper-step
         :complete="stepper > 1"
@@ -29,7 +34,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import Form1 from './Form1'
 import Form2 from './Form2'
 
@@ -41,16 +46,33 @@ export default {
   data() {
     return {
       stepper: 1,
-      values: {}
+      values: {},
+      loading: false
     }
   },
   computed: {
     ...mapState('authentication', ['user'])
   },
   methods: {
-    createFeedstock(values) {
+    ...mapActions('feedstocks', ['insertFeedstock']),
+    async createFeedstock(values) {
       this.setValues(values)
       this.addExtraValues()
+      try {
+        this.loading = true
+        const id = await this.insertFeedstock(this.values)
+        this.loading = false
+        this.$router.replace({
+          name: 'Feedstock',
+          params: {
+            categoryId: this.values.material_type,
+            id
+          }
+        })
+      } catch (error) {
+        this.loading = false
+        console.log('TCL: createFeedstock -> error', error)
+      }
     },
     nextStep(values) {
       this.setValues(values)

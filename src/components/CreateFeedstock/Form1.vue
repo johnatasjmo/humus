@@ -4,7 +4,7 @@
       <v-row>
         <v-col cols="12" md="6">
           <v-select
-            v-model="formValues.type"
+            v-model="formValues.material_type"
             :rules="validations.typeRules"
             :items="['1', '2']"
             label="Feedstock type"
@@ -47,7 +47,7 @@ export default {
     return {
       valid: false,
       formValues: {
-        type: null,
+        material_type: null,
         material: '',
         source: '',
         reference: ''

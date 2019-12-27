@@ -20,7 +20,7 @@
         </v-col>
         <v-col cols="12" md="6">
           <v-text-field
-            v-model="formValues.cnRatio"
+            v-model="formValues.cn_ratio"
             :rules="validations.cnRatioRules"
             label="C:N ratio (weight to weight)"
             required
@@ -28,7 +28,7 @@
         </v-col>
         <v-col cols="12" md="6">
           <v-text-field
-            v-model="formValues.moistureContent"
+            v-model="formValues.moisture_content"
             :rules="validations.moistureContentRules"
             label="Moisture content (weight to weight)"
             required
@@ -36,7 +36,7 @@
         </v-col>
         <v-col cols="12" md="6">
           <v-text-field
-            v-model="formValues.bulkDensity"
+            v-model="formValues.bulk_density_yd"
             :rules="validations.bulkDensityRules"
             label="Bulk density (pound per cubic)"
             required
@@ -58,9 +58,9 @@ export default {
       formValues: {
         nitrogen: null,
         carbon: null,
-        cnRatio: null,
-        moistureContent: null,
-        bulkDensity: null
+        cn_ratio: null,
+        moisture_content: null,
+        bulk_density_yd: null
       },
       validations: {
         nitrogenRules: [v => !!v || 'Nitrogen is required'],

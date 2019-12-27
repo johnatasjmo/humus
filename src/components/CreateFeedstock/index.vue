@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Form1 from './Form1'
 import Form2 from './Form2'
 
@@ -43,9 +44,13 @@ export default {
       values: {}
     }
   },
+  computed: {
+    ...mapState('authentication', ['user'])
+  },
   methods: {
     createFeedstock(values) {
       this.setValues(values)
+      this.addExtraValues()
     },
     nextStep(values) {
       this.setValues(values)
@@ -55,6 +60,18 @@ export default {
       this.values = {
         ...values,
         ...this.values
+      }
+    },
+    addExtraValues() {
+      // eslint-disable-next-line camelcase
+      const bulk_density_m =
+        parseInt(this.values.bulk_density_yd, 10) * (0.593276).toFixed(2)
+
+      this.values = {
+        ...this.values,
+        bulk_density_m,
+        creator: this.user.id,
+        public: true
       }
     }
   }

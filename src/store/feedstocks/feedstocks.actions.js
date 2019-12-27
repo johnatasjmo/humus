@@ -51,5 +51,14 @@ export default {
     const feedstockDetails = await feedstocksDB.read(feedstockID)
     console.log('TCL: feedstockDetails', feedstockDetails)
     commit('setFeedstockDetails', feedstockDetails)
+  },
+  /**
+   * Insert new feedstock
+   */
+  insertFeedstock: async (context, data) => {
+    const feedstocksDB = new FeedstocksDB()
+
+    const { id } = await feedstocksDB.create(data)
+    return id
   }
 }

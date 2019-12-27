@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapActions, mapMutations } from 'vuex'
 import Form1 from './Form1'
 import Form2 from './Form2'
 
@@ -55,6 +55,7 @@ export default {
   },
   methods: {
     ...mapActions('feedstocks', ['insertFeedstock']),
+    ...mapMutations('snackbar', ['setSnackbar']),
     async createFeedstock(values) {
       this.setValues(values)
       this.addExtraValues()
@@ -72,6 +73,11 @@ export default {
       } catch (error) {
         this.loading = false
         console.log('TCL: createFeedstock -> error', error)
+        this.setSnackbar({
+          show: true,
+          color: 'error',
+          text: 'there was an error creating the feedstock'
+        })
       }
     },
     nextStep(values) {

@@ -33,6 +33,7 @@
         @close="closeAddToHomeScreenModalForApple(false)"
       >
       </apple-add-to-home-screen-modal>
+      <Snackbar />
     </v-content>
   </v-app>
 </template>
@@ -42,13 +43,15 @@ import { mapState, mapActions, mapGetters } from 'vuex'
 import NewContentAvailableToastr from '@/components/NewContentAvailableToastr'
 import AppleAddToHomeScreenModal from '@/components/AppleAddToHomeScreenModal'
 import NavDrawer from '@/components/NavDrawer'
+import Snackbar from '@/components/Snackbar'
 
 export default {
   name: 'App',
   components: {
     NewContentAvailableToastr,
     AppleAddToHomeScreenModal,
-    NavDrawer
+    NavDrawer,
+    Snackbar
   },
   data() {
     return {

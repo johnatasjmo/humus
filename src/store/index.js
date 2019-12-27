@@ -4,6 +4,7 @@ import authentication from './authentication'
 import app from './app'
 import products from './products'
 import feedstocks from './feedstocks'
+import snackbar from './snackbar'
 
 Vue.use(Vuex)
 
@@ -15,6 +16,7 @@ export default new Vuex.Store({
     authentication,
     app,
     products,
-    feedstocks
+    feedstocks,
+    snackbar
   }
 })

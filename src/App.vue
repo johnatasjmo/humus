@@ -16,7 +16,7 @@
         <!-- <v-row align="center" justify="center"> -->
         <!-- <v-col cols="12"> -->
         <!-- <v-row align="center" justify="center"> -->
-        <router-view />
+        <router-view class="router-container" />
         <!-- </v-row> -->
         <!-- </v-col> -->
         <!-- </v-row> -->
@@ -102,6 +102,15 @@ body {
 }
 
 .container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.router-container {
+  width: 100%;
+  max-width: 500px;
   height: 100%;
   display: flex;
   justify-content: center;

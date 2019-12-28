@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div style="width:100%">
     <div v-if="myFeedstocks && myFeedstocks.length === 0">
       You do not have feedstocks yet
     </div>
-    <v-card v-else class="mx-auto">
+    <v-card v-else>
       <v-list>
         <v-list-item-group>
           <v-list-item
@@ -23,6 +23,9 @@
                 v-text="feedstock.material"
               ></v-list-item-title>
             </v-list-item-content>
+            <v-list-item-icon>
+              <v-icon>mdi-delete</v-icon>
+            </v-list-item-icon>
           </v-list-item>
         </v-list-item-group>
       </v-list>

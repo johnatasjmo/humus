@@ -65,26 +65,18 @@ export default {
       return this.getAppTitle(this.$route.name)
     },
     leftButtonIcon() {
-      if (
-        this.$route.name === 'Home' ||
-        this.$route.name === 'My Feedstocks' ||
-        this.$route.name === 'Feedstocks'
-      ) {
-        return 'mdi-menu'
+      if (this.$route.meta.backRoute) {
+        return 'mdi-chevron-left'
       }
-      return 'mdi-chevron-left'
+      return 'mdi-menu'
     }
   },
   methods: {
     leftButtonAction() {
-      if (
-        this.$route.name === 'Home' ||
-        this.$route.name === 'My Feedstocks' ||
-        this.$route.name === 'Feedstocks'
-      ) {
-        this.toggleDrawer()
+      if (this.$route.meta.backRoute) {
+        this.$router.push({ name: this.$route.meta.backRoute })
       } else {
-        this.$router.go(-1)
+        this.toggleDrawer()
       }
     },
     toggleDrawer() {

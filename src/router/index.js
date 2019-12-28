@@ -67,7 +67,8 @@ const router = new Router({
         ),
       props: true,
       meta: {
-        authNotRequired: true
+        authNotRequired: true,
+        backRoute: 'Feedstocks'
       }
     },
     {
@@ -79,7 +80,8 @@ const router = new Router({
         ),
       props: true,
       meta: {
-        authNotRequired: true
+        authNotRequired: true,
+        backRoute: 'Material'
       }
     },
     {
@@ -91,12 +93,27 @@ const router = new Router({
         )
     },
     {
+      path: '/myfeedstocks/:id',
+      name: 'My feedstock',
+      component: () =>
+        import(
+          /* webpackChunkName: "client-chunk-feedstock-details" */ '@/views/FeedstockDetails.vue'
+        ),
+      props: true,
+      meta: {
+        backRoute: 'My Feedstocks'
+      }
+    },
+    {
       path: '/myfeedstocks/create',
       name: 'Create Feedstock',
       component: () =>
         import(
           /* webpackChunkName: "client-chunk-myFeedstocks-create" */ '@/views/CreateFeedstock.vue'
-        )
+        ),
+      meta: {
+        backRoute: 'My Feedstocks'
+      }
     },
     {
       path: '/products',

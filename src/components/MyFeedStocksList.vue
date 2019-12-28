@@ -11,10 +11,9 @@
             :key="feedstock.id"
             @click="
               $router.push({
-                name: 'Feedstock',
+                name: 'My feedstock',
                 params: {
-                  id: feedstock.id,
-                  categoryId: feedstock.material_type
+                  id: feedstock.id
                 }
               })
             "

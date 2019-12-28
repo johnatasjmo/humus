@@ -20,11 +20,11 @@ export default {
   }),
   async mounted() {
     this.loading = true
-    await this.fetFeedstocksByID(this.$route.params.id)
+    await this.getFeedstockByID(this.$route.params.id)
     this.loading = false
   },
   methods: {
-    ...mapActions('feedstocks', ['fetFeedstocksByID'])
+    ...mapActions('feedstocks', ['getFeedstockByID'])
   }
 }
 </script>

@@ -93,18 +93,6 @@ const router = new Router({
         )
     },
     {
-      path: '/myfeedstocks/:id',
-      name: 'My feedstock',
-      component: () =>
-        import(
-          /* webpackChunkName: "client-chunk-feedstock-details" */ '@/views/FeedstockDetails.vue'
-        ),
-      props: true,
-      meta: {
-        backRoute: 'My Feedstocks'
-      }
-    },
-    {
       path: '/myfeedstocks/create',
       name: 'Create Feedstock',
       component: () =>
@@ -115,6 +103,19 @@ const router = new Router({
         backRoute: 'My Feedstocks'
       }
     },
+    {
+      path: '/myfeedstocks/:id',
+      name: 'My feedstock',
+      component: () =>
+        import(
+          /* webpackChunkName: "client-chunk-my-feedstock-details" */ '@/views/FeedstockDetails.vue'
+        ),
+      props: true,
+      meta: {
+        backRoute: 'My Feedstocks'
+      }
+    },
+
     {
       path: '/products',
       name: 'products',

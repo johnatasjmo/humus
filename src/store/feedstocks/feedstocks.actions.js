@@ -44,7 +44,7 @@ export default {
   /**
    * Fetch feedstock by ID
    */
-  fetFeedstocksByID: async ({ commit }, feedstockID) => {
+  getFeedstockByID: async ({ commit }, feedstockID) => {
     const feedstocksDB = new FeedstocksDB()
 
     commit('setFeedstockDetails', null)

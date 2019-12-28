@@ -1,36 +1,38 @@
 <template>
-  <v-progress-circular
-    v-if="loading"
-    indeterminate
-    color="green"
-  ></v-progress-circular>
-  <v-stepper v-else v-model="stepper">
-    <v-stepper-header>
-      <v-stepper-step
-        :complete="stepper > 1"
-        step="1"
-        editable
-      ></v-stepper-step>
+  <div>
+    <v-progress-circular
+      v-if="loading"
+      indeterminate
+      color="green"
+    ></v-progress-circular>
+    <v-stepper v-else v-model="stepper">
+      <v-stepper-header>
+        <v-stepper-step
+          :complete="stepper > 1"
+          step="1"
+          editable
+        ></v-stepper-step>
 
-      <v-divider></v-divider>
+        <v-divider></v-divider>
 
-      <v-stepper-step
-        :complete="stepper > 2"
-        step="2"
-        :editable="stepper > 2"
-      ></v-stepper-step>
-    </v-stepper-header>
+        <v-stepper-step
+          :complete="stepper > 2"
+          step="2"
+          :editable="stepper > 2"
+        ></v-stepper-step>
+      </v-stepper-header>
 
-    <v-stepper-items>
-      <v-stepper-content step="1">
-        <Form1 @formValid="values => nextStep(values)" />
-      </v-stepper-content>
+      <v-stepper-items>
+        <v-stepper-content step="1">
+          <Form1 @formValid="values => nextStep(values)" />
+        </v-stepper-content>
 
-      <v-stepper-content step="2">
-        <Form2 @formValid="values => createFeedstock(values)" />
-      </v-stepper-content>
-    </v-stepper-items>
-  </v-stepper>
+        <v-stepper-content step="2">
+          <Form2 @formValid="values => createFeedstock(values)" />
+        </v-stepper-content>
+      </v-stepper-items>
+    </v-stepper>
+  </div>
 </template>
 
 <script>
@@ -68,9 +70,8 @@ export default {
           text: 'Feedstock created!'
         })
         this.$router.replace({
-          name: 'Feedstock',
+          name: 'My feedstock',
           params: {
-            categoryId: this.values.material_type,
             id
           }
         })

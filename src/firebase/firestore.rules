@@ -23,20 +23,8 @@ service cloud.firestore {
     match /feedstocks/{feedstockId} {
       allow get: if true;
       allow list: if true;
-    }
-
-    match /myCollection/{testId} {
-      allow get: if true;
-			allow list: if true;
-      allow create: if true;
-      allow update, delete: if true;
-    }
-
-    match /myCollection {
-      allow get: if true;
-			allow list: if true;
-      allow create: if true;
-      allow update, delete: if true;
+      allow create: if authenticated();
+      allow update, delete: if authenticated();
     }
   }
 }

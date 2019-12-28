@@ -63,6 +63,10 @@ export default {
         this.loading = true
         const id = await this.insertFeedstock(this.values)
         this.loading = false
+        this.setSnackbar({
+          show: true,
+          text: 'Feedstock created!'
+        })
         this.$router.replace({
           name: 'Feedstock',
           params: {
@@ -72,7 +76,7 @@ export default {
         })
       } catch (error) {
         this.loading = false
-        console.log('TCL: createFeedstock -> error', error)
+        console.error('TCL: createFeedstock -> error', error)
         this.setSnackbar({
           show: true,
           color: 'error',
@@ -82,7 +86,7 @@ export default {
     },
     nextStep(values) {
       this.setValues(values)
-      this.stepper += 1
+      this.stepper = 2
     },
     setValues(values) {
       this.values = {

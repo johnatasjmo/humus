@@ -1,9 +1,7 @@
 <template>
-  <div class="text-center">
-    <v-snackbar v-model="show" :color="color">
-      {{ text }}
-    </v-snackbar>
-  </div>
+  <v-snackbar v-model="localShow" :color="color">
+    {{ text }}
+  </v-snackbar>
 </template>
 
 <script>
@@ -11,11 +9,12 @@ import { mapState, mapMutations } from 'vuex'
 
 export default {
   computed: {
-    ...mapState('snackbar', ['show', 'color', 'text'])
-  },
-  watch: {
-    show(val) {
-      if (val) {
+    ...mapState('snackbar', ['show', 'color', 'text']),
+    localShow: {
+      get() {
+        return this.show
+      },
+      set() {
         this.resetSnackbar()
       }
     }

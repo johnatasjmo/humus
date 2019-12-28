@@ -65,12 +65,23 @@ export default {
       return this.getAppTitle(this.$route.name)
     },
     leftButtonIcon() {
-      return this.$route.name === 'Home' ? 'mdi-menu' : 'mdi-chevron-left'
+      if (
+        this.$route.name === 'Home' ||
+        this.$route.name === 'My Feedstocks' ||
+        this.$route.name === 'Feedstocks'
+      ) {
+        return 'mdi-menu'
+      }
+      return 'mdi-chevron-left'
     }
   },
   methods: {
     leftButtonAction() {
-      if (this.$route.name === 'Home') {
+      if (
+        this.$route.name === 'Home' ||
+        this.$route.name === 'My Feedstocks' ||
+        this.$route.name === 'Feedstocks'
+      ) {
         this.toggleDrawer()
       } else {
         this.$router.go(-1)

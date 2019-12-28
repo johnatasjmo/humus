@@ -63,11 +63,26 @@ export default {
         bulk_density_yd: null
       },
       validations: {
-        nitrogenRules: [v => !!v || 'Nitrogen is required'],
-        carbonRules: [v => !!v || 'Carbon is required'],
-        cnRatioRules: [v => !!v || 'C:N ratio is required'],
-        moistureContentRules: [v => !!v || 'Moisture content is required'],
-        bulkDensityRules: [v => !!v || 'Bulk density is required']
+        nitrogenRules: [
+          v => !!v || 'Nitrogen is required',
+          v => v.match(/^-?\d*(\.\d+)?$/) || 'Value should be a valid number'
+        ],
+        carbonRules: [
+          v => !!v || 'Carbon is required',
+          v => v.match(/^-?\d*(\.\d+)?$/) || 'Value should be a valid number'
+        ],
+        cnRatioRules: [
+          v => !!v || 'C:N ratio is required',
+          v => v.match(/^-?\d*(\.\d+)?$/) || 'Value should be a valid number'
+        ],
+        moistureContentRules: [
+          v => !!v || 'Moisture content is required',
+          v => v.match(/^-?\d*(\.\d+)?$/) || 'Value should be a valid number'
+        ],
+        bulkDensityRules: [
+          v => !!v || 'Bulk density is required',
+          v => v.match(/^-?\d*(\.\d+)?$/) || 'Value should be a valid number'
+        ]
       }
     }
   },

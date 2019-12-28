@@ -6,7 +6,9 @@
           <v-select
             v-model="formValues.material_type"
             :rules="validations.typeRules"
-            :items="['1', '2']"
+            :items="feedstocksCategories"
+            item-text="name"
+            item-value="id"
             label="Feedstock type"
             required
           ></v-select>
@@ -42,6 +44,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   data() {
     return {
@@ -58,6 +62,9 @@ export default {
         sourceRules: [v => !!v || 'Source is required']
       }
     }
+  },
+  computed: {
+    ...mapState('feedstocks', ['feedstocksCategories'])
   },
   methods: {
     validate() {

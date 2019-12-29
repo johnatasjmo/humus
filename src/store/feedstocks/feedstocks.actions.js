@@ -60,5 +60,14 @@ export default {
 
     const { id } = await feedstocksDB.create(data)
     return id
+  },
+  /**
+   * Delete a feedstock
+   */
+  deleteFeedstock: async ({ commit }, id) => {
+    const feedstocksDB = new FeedstocksDB()
+
+    await feedstocksDB.delete(id)
+    commit('deleteFeedstock', id)
   }
 }

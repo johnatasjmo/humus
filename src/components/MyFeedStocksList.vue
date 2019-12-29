@@ -1,8 +1,14 @@
 <template>
   <div style="width:100%">
-    <div v-if="myFeedstocks && myFeedstocks.length === 0">
+    <div v-if="myFeedstocks && myFeedstocks.length === 0" class="text-center">
       You do not have feedstocks yet
     </div>
+    <v-progress-circular
+      v-else-if="loading"
+      indeterminate
+      color="green"
+      style="width:100%"
+    ></v-progress-circular>
     <v-card v-else>
       <v-list>
         <v-list-item-group>
@@ -35,8 +41,13 @@
                   ¿Do you want to delete the feedstock {{ feedstock.material }}?
                 </template>
                 <template slot="actions">
-                  <v-btn text @click="dialog = false">Cancel</v-btn>
-                  <v-btn color="red" dark @click="dialog = false">Delete</v-btn>
+                  <v-btn text>Cancel</v-btn>
+                  <v-btn
+                    color="red"
+                    dark
+                    @click="doDeleteFeedstock(feedstock.id)"
+                    >Delete</v-btn
+                  >
                 </template>
               </Dialog>
             </v-list-item-icon>
@@ -65,15 +76,28 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import Dialog from '@/components/Dialog'
 
 export default {
   components: {
     Dialog
   },
+  data() {
+    return {
+      loading: false
+    }
+  },
   computed: {
     ...mapState('feedstocks', ['myFeedstocks'])
+  },
+  methods: {
+    ...mapActions('feedstocks', ['deleteFeedstock']),
+    async doDeleteFeedstock(id) {
+      this.loading = true
+      await this.deleteFeedstock(id)
+      this.loading = false
+    }
   }
 }
 </script>

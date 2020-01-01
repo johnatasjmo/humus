@@ -37,7 +37,6 @@ export default {
     const myfeedstocks = await feedstocksDB.readAll([
       ['creator', '==', rootState.authentication.user.id]
     ])
-    console.log('TCL: myfeedstocks', myfeedstocks)
     commit('setMyfeedstocks', myfeedstocks)
   },
 
@@ -49,7 +48,6 @@ export default {
 
     commit('setFeedstockDetails', null)
     const feedstockDetails = await feedstocksDB.read(feedstockID)
-    console.log('TCL: feedstockDetails', feedstockDetails)
     commit('setFeedstockDetails', feedstockDetails)
   },
   /**

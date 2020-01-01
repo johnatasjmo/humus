@@ -83,7 +83,6 @@ describe('feedstocks module mutations', () => {
     const state = cloneDeep(baseState)
     mutations.setMyfeedstocks(state, [feedstock1, feedstock2])
     mutations.deleteFeedstock(state, 'apple_pomace')
-    console.log('TCL: state', state)
     expect(state).toEqual({
       ...baseState,
       myFeedstocks: [feedstock1]

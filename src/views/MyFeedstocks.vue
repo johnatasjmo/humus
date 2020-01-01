@@ -3,6 +3,7 @@
     <v-progress-circular
       v-if="loading"
       indeterminate
+      data-test="loader"
       color="green"
     ></v-progress-circular>
     <MyFeedstocksList v-else />
@@ -20,9 +21,9 @@ export default {
   data: () => ({
     loading: false
   }),
-  mounted() {
+  async mounted() {
     this.loading = true
-    this.getMyFeedstocks()
+    await this.getMyFeedstocks()
     this.loading = false
   },
   methods: {

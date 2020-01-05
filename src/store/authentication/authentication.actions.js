@@ -3,6 +3,64 @@ import router from '@/router'
 import { createNewUserFromFirebaseAuthUser } from '@/misc/helpers'
 import UsersDB from '@/firebase/users-db'
 
+const updateFeedstocksLocal = async (serverFeedstocks, commit) => {
+  localStorage.setItem('feedstocks', JSON.stringify(serverFeedstocks))
+  commit('feedstocks/setFeedstocks', serverFeedstocks, { root: true })
+}
+
+const updateFeedstocksVersionsLocal = async (serverVersions, commit) => {
+  localStorage.setItem('feedstocks_versions', JSON.stringify(serverVersions))
+  commit('feedstocks/setFeedstocksVersions', serverVersions, { root: true })
+}
+
+const getFeedstockByIDAndUpdateLocal = async (
+  id,
+  localFeedstocks,
+  serverVersions,
+  commit,
+  dispatch
+) => {
+  const feedStock = await dispatch('feedstocks/getFeedstockByID', id, {
+    root: true
+  })
+
+  if (feedStock) {
+    const indexToUpdate = localFeedstocks.findIndex(f => f.id === id)
+
+    console.log('BEFORE', localFeedstocks[indexToUpdate])
+    localFeedstocks[indexToUpdate] = feedStock
+    console.log('AFTER', localFeedstocks[indexToUpdate])
+
+    // updating feedstocks local Storage & VUEX
+    updateFeedstocksLocal(localFeedstocks, commit)
+
+    // updating versions feedstocks local Storage & VUEX
+    updateFeedstocksVersionsLocal(serverVersions, commit)
+  }
+}
+
+const removeFeedstockByIdsFromLocal = (
+  ids,
+  localFeedstocks,
+  serverVersions,
+  commit
+) => {
+  const feedstocksFiltered = localFeedstocks.filter(lf =>
+    ids.every(id => lf.id !== id)
+  )
+  console.log(
+    'TCL: removeFeedstockByIdsFromLocal -> feedstocksFiltered',
+    feedstocksFiltered
+  )
+  localFeedstocks = feedstocksFiltered
+
+  // updating feedstocks local Storage & VUEX
+  updateFeedstocksLocal(localFeedstocks, commit)
+
+  // updating versions feedstocks local Storage & VUEX
+  updateFeedstocksVersionsLocal(serverVersions, commit)
+}
+
 const fethLocalOrOnlineData = async (
   localStorageKey,
   action,
@@ -38,8 +96,45 @@ const compareLocalVersionsWithServer = async (
   )
   const localKeys = Object.keys(localVersions[0].versions)
   const localValues = Object.values(localVersions[0].versions)
-  // const serverKeys = Object.keys(serverVersions[0].versions)
+  const serverKeys = Object.keys(serverVersions[0].versions)
   const serverValues = Object.values(serverVersions[0].versions)
+
+  // Comparing lengths
+  if (localValues.length !== serverValues.length) {
+    const keysToAdd = serverKeys.filter(id =>
+      localKeys.every(id2 => id !== id2)
+    )
+    console.log('TCL: keysToAdd', keysToAdd)
+
+    const keysToRemove = localKeys.filter(id =>
+      serverKeys.every(id2 => id !== id2)
+    )
+    console.log('TCL: keysToRemove', keysToRemove)
+
+    if (keysToAdd.length > 0) {
+      keysToAdd.map(id => {
+        getFeedstockByIDAndUpdateLocal(
+          id,
+          localFeedstocks,
+          serverVersions,
+          commit,
+          dispatch
+        )
+        return null
+      })
+    }
+
+    if (keysToRemove.length > 0) {
+      removeFeedstockByIdsFromLocal(
+        keysToRemove,
+        localFeedstocks,
+        serverVersions,
+        commit
+      )
+    }
+
+    return
+  }
 
   const changes = localKeys.filter(
     (lk, index) => localValues[index] !== serverValues[index]
@@ -48,34 +143,13 @@ const compareLocalVersionsWithServer = async (
 
   if (changes.length > 0) {
     changes.map(async id => {
-      console.log('TCL: id', id)
-      const feedStock = await dispatch('feedstocks/getFeedstockByID', id, {
-        root: true
-      })
-      console.log('TCL: feedStock', feedStock)
-
-      const indexToUpdate = localFeedstocks.findIndex(f => f.id === id)
-      console.log(
-        'BEFORE--->TCL: localFeedstocks[i]',
-        localFeedstocks[indexToUpdate]
+      getFeedstockByIDAndUpdateLocal(
+        id,
+        localFeedstocks,
+        serverVersions,
+        commit,
+        dispatch
       )
-      localFeedstocks[indexToUpdate] = feedStock
-      console.log(
-        'AFTER--->TCL: localFeedstocks[i]',
-        localFeedstocks[indexToUpdate]
-      )
-      console.log('TCL: localFeedstocks', localFeedstocks)
-
-      // updating feedstocks local Storage & VUEX
-      localStorage.setItem('feedstocks', JSON.stringify(localFeedstocks))
-      commit('feedstocks/setFeedstocks', localFeedstocks, { root: true })
-
-      // updating versions feedstocks local Storage & VUEX
-      localStorage.setItem(
-        'feedstocks_versions',
-        JSON.stringify(serverVersions)
-      )
-      commit('feedstocks/setFeedstocksVersions', serverVersions, { root: true })
     })
   }
 }

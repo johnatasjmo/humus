@@ -102,6 +102,7 @@ export default {
       dispatch
     )
     console.log('TCL: feedstocks', feedstocks)
+    commit('feedstocks/setFeedstocks', feedstocks, { root: true })
 
     // Getting feedstocks versions or consulting from firestore
     const feedstocksVersions = await fethLocalOrOnlineData(
@@ -110,6 +111,9 @@ export default {
       'feedstocks/setFeedstocks',
       dispatch
     )
+    commit('feedstocks/setFeedstocksVersions', feedstocksVersions, {
+      root: true
+    })
     compareLocalVersionsWithServer(
       feedstocksVersions,
       feedstocks,

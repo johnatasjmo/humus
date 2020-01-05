@@ -26,5 +26,10 @@ service cloud.firestore {
       allow create: if authenticated();
       allow update, delete: if authenticated();
     }
+
+    match /feedstocks_versions/{versionId} {
+      allow get: if true;
+      allow list: if true;
+    }
   }
 }

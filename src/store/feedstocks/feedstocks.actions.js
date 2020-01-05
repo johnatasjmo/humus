@@ -1,5 +1,6 @@
 import FeedstocksCategoriesDB from '@/firebase/feedstocks-categories-db'
 import FeedstocksDB from '@/firebase/feedstocks-db'
+import FeedstocksVersionsDB from '@/firebase/feedstocks-versions-db'
 
 export default {
   /**
@@ -13,12 +14,24 @@ export default {
   },
 
   /**
+   * Fetch feedstocks versions
+   */
+  getFeedstocksVersion: async ({ commit }) => {
+    const feedstocksVersionsDB = new FeedstocksVersionsDB()
+
+    const versions = await feedstocksVersionsDB.readAll()
+    commit('setFeedstocksVersions', versions)
+    return versions
+  },
+  /**
    * Fetch admin general feedstocks
    */
-  getAdminGeneralFeedstocks: async () => {
+  getAdminGeneralFeedstocks: async ({ commit }) => {
     const feedstocksDB = new FeedstocksDB()
 
-    return feedstocksDB.readAll([['creator', '==', 'admin']])
+    const feedstocks = await feedstocksDB.readAll([['creator', '==', 'admin']])
+    commit('setFeedstocks', feedstocks)
+    return feedstocks
   },
   /**
    * Fetch feedstocks by category ID
@@ -57,6 +70,7 @@ export default {
     commit('setFeedstockDetails', null)
     const feedstockDetails = await feedstocksDB.read(feedstockID)
     commit('setFeedstockDetails', feedstockDetails)
+    return feedstockDetails
   },
   /**
    * Insert new feedstock

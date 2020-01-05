@@ -13,6 +13,14 @@ export default {
   },
 
   /**
+   * Fetch admin general feedstocks
+   */
+  getAdminGeneralFeedstocks: async () => {
+    const feedstocksDB = new FeedstocksDB()
+
+    return feedstocksDB.readAll([['creator', '==', 'admin']])
+  },
+  /**
    * Fetch feedstocks by category ID
    */
   getFeedstocksByCategoryID: async ({ commit }, categoryID) => {

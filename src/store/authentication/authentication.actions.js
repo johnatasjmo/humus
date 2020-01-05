@@ -15,7 +15,24 @@ export default {
       : userFromFirebase
 
     commit('setUser', user)
-    dispatch('products/getUserProducts', null, { root: true })
+    // dispatch('products/getUserProducts', null, { root: true })
+    const localFeedstocksString = localStorage.getItem('feedstocks')
+    let localFeedstocks
+
+    if (localFeedstocksString) {
+      localFeedstocks = JSON.parse(localFeedstocksString)
+      console.log('TCL: localFeedstocks1', localFeedstocks)
+    } else {
+      localFeedstocks = await dispatch(
+        'feedstocks/getAdminGeneralFeedstocks',
+        null,
+        { root: true }
+      )
+      console.log('TCL: localFeedstocks2', localFeedstocks)
+      localStorage.setItem('feedstocks', JSON.stringify(localFeedstocks))
+    }
+
+    commit('feedstocks/setFeedstocks', localFeedstocks, { root: true })
   },
 
   /**

@@ -4,7 +4,7 @@
       <v-list>
         <v-list-item-group>
           <v-list-item
-            v-for="feedstock in feedstocksByCategory"
+            v-for="feedstock in feedstocks"
             :key="feedstock.id"
             @click="
               $router.push({
@@ -28,11 +28,14 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapMutations } from 'vuex'
 
 export default {
-  computed: {
-    ...mapState('feedstocks', ['feedstocksByCategory'])
+  props: {
+    feedstocks: {
+      type: Array,
+      required: true
+    }
   },
   mounted() {
     this.setCustomAppBarTitle(this.$route.params.categoryName)

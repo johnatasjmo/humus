@@ -6,6 +6,8 @@ export default {
   setFeedstocksByCategory: (state, feedstocks) =>
     (state.feedstocksByCategory = feedstocks),
 
+  setFeedstocks: (state, feedstocks) => (state.feedstocks = feedstocks),
+
   setFeedstockDetails: (state, feedstock) =>
     (state.feedstockDetails = feedstock),
 

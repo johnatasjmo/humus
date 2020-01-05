@@ -1,30 +1,25 @@
 <template>
   <v-progress-circular
-    v-if="loading"
+    v-if="feedstocks.length === 0"
     indeterminate
     color="green"
   ></v-progress-circular>
-  <FeedStocksByCategory v-else />
+  <FeedStocksByCategory v-else :feedstocks="feedstocks" />
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 import FeedStocksByCategory from '@/components/FeedstocksByCategoryList'
 
 export default {
   components: {
     FeedStocksByCategory
   },
-  data: () => ({
-    loading: false
-  }),
-  async mounted() {
-    this.loading = true
-    await this.getFeedstocksByCategoryID(this.$route.params.categoryId)
-    this.loading = false
-  },
-  methods: {
-    ...mapActions('feedstocks', ['getFeedstocksByCategoryID'])
+  computed: {
+    ...mapGetters('feedstocks', ['getFeedstocksByCategoryId']),
+    feedstocks() {
+      return this.getFeedstocksByCategoryId(this.$route.params.categoryId)
+    }
   }
 }
 </script>

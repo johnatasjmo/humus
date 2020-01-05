@@ -194,6 +194,9 @@ export default {
       dispatch,
       commit
     )
+
+    // Getting local My feedstocks or consulting from firestore
+    await dispatch('feedstocks/getMyFeedstocks', null, { root: true })
   },
 
   /**

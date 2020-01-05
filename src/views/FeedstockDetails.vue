@@ -1,30 +1,20 @@
 <template>
-  <v-progress-circular
-    v-if="loading"
-    indeterminate
-    color="green"
-  ></v-progress-circular>
-  <FeedstockDetailCard v-else />
+  <FeedstockDetailCard :feedstock-details="feedstockDetails" />
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 import FeedstockDetailCard from '@/components/FeedstockDetailCard'
 
 export default {
   components: {
     FeedstockDetailCard
   },
-  data: () => ({
-    loading: false
-  }),
-  async mounted() {
-    this.loading = true
-    await this.getFeedstockByID(this.$route.params.id)
-    this.loading = false
-  },
-  methods: {
-    ...mapActions('feedstocks', ['getFeedstockByID'])
+  computed: {
+    ...mapGetters('feedstocks', ['getFeedstockDetails']),
+    feedstockDetails() {
+      return this.getFeedstockDetails(this.$route.params.id)
+    }
   }
 }
 </script>

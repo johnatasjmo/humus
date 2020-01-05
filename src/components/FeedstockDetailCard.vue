@@ -62,11 +62,12 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-
 export default {
-  computed: {
-    ...mapState('feedstocks', ['feedstockDetails'])
+  props: {
+    feedstockDetails: {
+      type: Object,
+      required: true
+    }
   }
 }
 </script>

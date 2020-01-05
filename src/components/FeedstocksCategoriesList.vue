@@ -30,11 +30,12 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-
 export default {
-  computed: {
-    ...mapState('feedstocks', ['feedstocksCategories'])
+  props: {
+    feedstocksCategories: {
+      type: Object,
+      required: true
+    }
   }
 }
 </script>

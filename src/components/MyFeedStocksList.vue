@@ -76,20 +76,23 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapActions } from 'vuex'
 import Dialog from '@/components/Dialog'
 
 export default {
   components: {
     Dialog
   },
+  props: {
+    myFeedstocks: {
+      type: Array,
+      required: true
+    }
+  },
   data() {
     return {
       loading: false
     }
-  },
-  computed: {
-    ...mapState('feedstocks', ['myFeedstocks'])
   },
   methods: {
     ...mapActions('feedstocks', ['deleteFeedstock']),

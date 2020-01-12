@@ -71,6 +71,9 @@ export default {
       return 'mdi-menu'
     }
   },
+  async beforeMount() {
+    await this.fetchFeedstocks()
+  },
   methods: {
     leftButtonAction() {
       if (this.$route.meta.backRoute) {
@@ -83,6 +86,7 @@ export default {
       this.showDrawer = !this.showDrawer
     },
     ...mapActions('app', [
+      'fetchFeedstocks',
       'closeAddToHomeScreenModalForApple',
       'serviceWorkerSkipWaiting'
     ])

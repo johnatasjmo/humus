@@ -4,6 +4,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build:qa": "vue-cli-service build --mode development",
     "lint": "vue-cli-service lint --fix",
     "bundlesize": "bundlesize",
     "firebase:deploy:ci": "firebase deploy --non-interactive --token $FIREBASE_TOKEN",

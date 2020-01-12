@@ -848,7 +848,7 @@
       "cardboard": {
         "espanol": "Cartón",
         "material": "Cardboard",
-        "material_type": "paper",
+        "material_type": "wood_and_paper",
         "creator": "admin",
         "source": "OFCH",
         "nitrogen": "0.1",
@@ -861,7 +861,7 @@
       "corrugated_cardboard": {
         "espanol": "Cartón corrugado",
         "material": "Corrugated cardboard",
-        "material_type": "paper",
+        "material_type": "wood_and_paper",
         "creator": "admin",
         "source": "OFCH",
         "nitrogen": "0.1",
@@ -874,7 +874,7 @@
       "newsprint_1": {
         "espanol": "Papel periodico 1",
         "material": "Newsprint 1",
-        "material_type": "paper",
+        "material_type": "wood_and_paper",
         "creator": "admin",
         "source": "OFCH",
         "nitrogen": "0.1",
@@ -887,7 +887,7 @@
       "newsprint_2": {
         "espanol": "Papel periodico 2",
         "material": "Newsprint 2",
-        "material_type": "paper",
+        "material_type": "wood_and_paper",
         "creator": "admin",
         "source": "OFCH",
         "nitrogen": "0.1",
@@ -900,7 +900,7 @@
       "paper_office": {
         "espanol": "Papel de oficina",
         "material": "Paper (Office)",
-        "material_type": "paper",
+        "material_type": "wood_and_paper",
         "creator": "admin",
         "source": "OFCH",
         "nitrogen": "0.2",
@@ -913,7 +913,7 @@
       "paper_&_card_waste": {
         "espanol": "Residuos de papel y tarjetas",
         "material": "Paper & card waste",
-        "material_type": "paper",
+        "material_type": "wood_and_paper",
         "creator": "admin",
         "source": "OFCH",
         "nitrogen": "0.1",
@@ -926,7 +926,7 @@
       "paper_pulp": {
         "espanol": "Pasta de papel",
         "material": "Paper pulp",
-        "material_type": "paper",
+        "material_type": "wood_and_paper",
         "creator": "admin",
         "source": "OFCH",
         "nitrogen": "0.59",
@@ -939,7 +939,7 @@
       "sawdust_1": {
         "espanol": "Aserrín 1",
         "material": "Sawdust 1",
-        "material_type": "paper",
+        "material_type": "wood_and_paper",
         "creator": "admin",
         "source": "OFCH",
         "nitrogen": "0.43",
@@ -952,7 +952,7 @@
       "sawdust_2": {
         "espanol": "Aserrín 2",
         "material": "Sawdust 2",
-        "material_type": "paper",
+        "material_type": "wood_and_paper",
         "creator": "admin",
         "source": "OFCH",
         "nitrogen": "0.24",
@@ -965,7 +965,7 @@
       "telephone_books": {
         "espanol": "Guías telefónicas",
         "material": "Telephone books",
-        "material_type": "paper",
+        "material_type": "wood_and_paper",
         "creator": "admin",
         "source": "OFCH",
         "nitrogen": "0.7",
@@ -978,7 +978,7 @@
       "wood_chips_softwood": {
         "espanol": "Astillas de madera 3 (Madera Blanda)",
         "material": "Wood Chips (Softwood)",
-        "material_type": "paper",
+        "material_type": "wood_and_paper",
         "creator": "admin",
         "source": "OFCH",
         "nitrogen": "0.2",
@@ -991,7 +991,7 @@
       "wood_chips_1": {
         "espanol": "Astillas de madera 1 (SUNYC)",
         "material": "Wood chips 1 (SUNYC)",
-        "material_type": "paper",
+        "material_type": "wood_and_paper",
         "creator": "admin",
         "source": "COTC SUNYC",
         "nitrogen": "0.14",
@@ -1004,7 +1004,7 @@
       "wood_chips_2": {
         "espanol": "Astillas de madera 2 (CU)",
         "material": "Wood chips 2 (CU)",
-        "material_type": "paper",
+        "material_type": "wood_and_paper",
         "creator": "admin",
         "source": "COTC CU",
         "nitrogen": "0.63",
@@ -1017,7 +1017,7 @@
       "wood_shavings_sawdust": {
         "espanol": "Virutas de madera y aserrín",
         "material": "Wood shavings/sawdust",
-        "material_type": "paper",
+        "material_type": "wood_and_paper",
         "creator": "admin",
         "source": "OFCH",
         "nitrogen": "0.1",

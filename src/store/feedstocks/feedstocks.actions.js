@@ -24,20 +24,6 @@ export default {
     return feedstocks
   },
   /**
-   * Fetch feedstocks by category ID
-   */
-  getFeedstocksByCategoryID: async ({ commit }, categoryID) => {
-    const feedstocksDB = new FeedstocksDB()
-
-    commit('setFeedstocksByCategory', null)
-
-    const feedstocksByCategory = await feedstocksDB.readAll([
-      ['material_type', '==', categoryID]
-    ])
-    commit('setFeedstocksByCategory', feedstocksByCategory)
-  },
-
-  /**
    * Fetch my feedstocks
    */
   getMyFeedstocks: async ({ commit, rootState }) => {

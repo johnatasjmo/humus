@@ -93,15 +93,6 @@ afterEach(() => {
 
 describe('feedstocks action', () => {
   describe('getFeedstocks', () => {
-    it('getFeedstocks by Id should work correctly', async () => {
-      mockFeedstocksDbReadAll.mockResolvedValue([feedstock1, feedstock2])
-      await actions.getFeedstocksByCategoryID({ commit }, category1.id)
-      expect(commit).toHaveBeenCalledWith('setFeedstocksByCategory', [
-        feedstock1,
-        feedstock2
-      ])
-    })
-
     it('getMyFeedstocks should return only my own feedstocks', async () => {
       mockFeedstocksDbReadAll.mockResolvedValue([feedstock1])
       await actions.getMyFeedstocks({ commit, rootState }, 'admin')

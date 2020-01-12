@@ -44,7 +44,7 @@
 export default {
   props: {
     feedstocksCategories: {
-      type: Object,
+      type: Array,
       required: true
     }
   }

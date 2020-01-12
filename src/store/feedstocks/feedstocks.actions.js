@@ -1,19 +1,8 @@
-import FeedstocksCategoriesDB from '@/firebase/feedstocks-categories-db'
 import FeedstocksDB from '@/firebase/feedstocks-db'
 import FeedstocksVersionsDB from '@/firebase/feedstocks-versions-db'
 import UserFeedstocksDB from '@/firebase/user-feedstocks-db'
 
 export default {
-  /**
-   * Fetch feedstocks categories
-   */
-  getFeedstocksCategories: async ({ commit }) => {
-    const feedStocksCategoriesDB = new FeedstocksCategoriesDB()
-
-    const feedstocksCategories = await feedStocksCategoriesDB.readAll()
-    commit('setFeedstocksCategories', feedstocksCategories)
-  },
-
   /**
    * Fetch feedstocks versions
    */

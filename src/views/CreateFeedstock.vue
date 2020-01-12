@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
 import CreateFeedstock from '@/components/CreateFeedstock'
 
 export default {
@@ -19,14 +18,6 @@ export default {
     return {
       loading: false
     }
-  },
-  mounted() {
-    this.loading = true
-    this.getFeedstocksCategories()
-    this.loading = false
-  },
-  methods: {
-    ...mapActions('feedstocks', ['getFeedstocksCategories'])
   }
 }
 </script>

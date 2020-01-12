@@ -91,22 +91,6 @@ afterEach(() => {
   mockFeedstocksDbDelete.mockReset()
 })
 
-describe('feedstocks categories action', () => {
-  describe('getFeedstocksCategories', () => {
-    it('should get catogories correctly', async () => {
-      mockFeedstocksCategoriesDbReadAll.mockResolvedValue([
-        category1,
-        category2
-      ])
-      await actions.getFeedstocksCategories({ commit, rootState })
-      expect(commit).toHaveBeenCalledWith('setFeedstocksCategories', [
-        category1,
-        category2
-      ])
-    })
-  })
-})
-
 describe('feedstocks action', () => {
   describe('getFeedstocks', () => {
     it('getFeedstocks by Id should work correctly', async () => {

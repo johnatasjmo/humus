@@ -29,11 +29,6 @@ export default {
       name: 'Other'
     },
     {
-      id: 'paper',
-      icon: 'mdi-file',
-      name: 'Paper'
-    },
-    {
       id: 'straw_hay_silage',
       icon: 'mdi-tractor',
       name: 'Straw, hay silage'

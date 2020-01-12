@@ -14,6 +14,8 @@ export default {
     (state.feedstockDetails = feedstock),
 
   setMyfeedstocks: (state, myFeedstocks) => (state.myFeedstocks = myFeedstocks),
+  addFeedstockToMyFeedstocks: (state, newFeedstock) =>
+    (state.myFeedstocks = [newFeedstock, ...state.myFeedstocks]),
   deleteFeedstock: (state, id) =>
     (state.myFeedstocks = state.myFeedstocks.filter(f => f.id !== id))
 }

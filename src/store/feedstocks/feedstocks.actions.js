@@ -1,6 +1,7 @@
 import FeedstocksCategoriesDB from '@/firebase/feedstocks-categories-db'
 import FeedstocksDB from '@/firebase/feedstocks-db'
 import FeedstocksVersionsDB from '@/firebase/feedstocks-versions-db'
+import UserFeedstocksDB from '@/firebase/user-feedstocks-db'
 
 export default {
   /**
@@ -51,13 +52,13 @@ export default {
    * Fetch my feedstocks
    */
   getMyFeedstocks: async ({ commit, rootState }) => {
-    const feedstocksDB = new FeedstocksDB()
+    const userFeedstocksDB = new UserFeedstocksDB(
+      rootState.authentication.user.id
+    )
 
     commit('setMyfeedstocks', null)
 
-    const myfeedstocks = await feedstocksDB.readAll([
-      ['creator', '==', rootState.authentication.user.id]
-    ])
+    const myfeedstocks = await userFeedstocksDB.readAll()
     commit('setMyfeedstocks', myfeedstocks)
   },
 
@@ -75,19 +76,22 @@ export default {
   /**
    * Insert new feedstock
    */
-  insertFeedstock: async (context, data) => {
-    const feedstocksDB = new FeedstocksDB()
+  insertFeedstock: async ({ rootState }, data) => {
+    const userFeedstocksDB = new UserFeedstocksDB(
+      rootState.authentication.user.id
+    )
 
-    const { id } = await feedstocksDB.create(data)
-    return id
+    return userFeedstocksDB.create(data)
   },
   /**
    * Delete a feedstock
    */
-  deleteFeedstock: async ({ commit }, id) => {
-    const feedstocksDB = new FeedstocksDB()
+  deleteFeedstock: async ({ commit, rootState }, id) => {
+    const userFeedstocksDB = new UserFeedstocksDB(
+      rootState.authentication.user.id
+    )
 
-    await feedstocksDB.delete(id)
+    await userFeedstocksDB.delete(id)
     commit('deleteFeedstock', id)
   }
 }

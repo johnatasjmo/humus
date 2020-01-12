@@ -57,23 +57,30 @@ export default {
   },
   methods: {
     ...mapActions('feedstocks', ['insertFeedstock']),
+    ...mapMutations('feedstocks', ['addFeedstockToMyFeedstocks']),
     ...mapMutations('snackbar', ['setSnackbar']),
     async createFeedstock(values) {
       this.setValues(values)
       this.addExtraValues()
       try {
         this.loading = true
-        const id = await this.insertFeedstock(this.values)
+
+        const newFeedstock = await this.insertFeedstock(this.values)
+        this.addFeedstockToMyFeedstocks(newFeedstock)
+
         this.loading = false
         this.setSnackbar({
           show: true,
           text: 'Feedstock created!'
         })
-        this.$router.replace({
+        /*  this.$router.replace({
           name: 'My feedstock',
           params: {
             id
           }
+        }) */
+        this.$router.replace({
+          name: 'My Feedstocks'
         })
       } catch (error) {
         this.loading = false

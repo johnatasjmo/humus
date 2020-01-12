@@ -66,31 +66,31 @@ export default {
         nitrogenRules: [
           v => !!v || 'Nitrogen is required',
           v =>
-            (!!v && v.match(/^-?\d*(\.\d+)?$/)) ||
+            (!!v && !!v.match(/^-?\d*(\.\d+)?$/)) ||
             'Value should be a valid number'
         ],
         carbonRules: [
           v => !!v || 'Carbon is required',
           v =>
-            (!!v && v.match(/^-?\d*(\.\d+)?$/)) ||
+            (!!v && !!v.match(/^-?\d*(\.\d+)?$/)) ||
             'Value should be a valid number'
         ],
         cnRatioRules: [
           v => !!v || 'C:N ratio is required',
           v =>
-            (!!v && v.match(/^-?\d*(\.\d+)?$/)) ||
+            (!!v && !!v.match(/^-?\d*(\.\d+)?$/)) ||
             'Value should be a valid number'
         ],
         moistureContentRules: [
           v => !!v || 'Moisture content is required',
           v =>
-            (!!v && v.match(/^-?\d*(\.\d+)?$/)) ||
+            (!!v && !!v.match(/^-?\d*(\.\d+)?$/)) ||
             'Value should be a valid number'
         ],
         bulkDensityRules: [
           v => !!v || 'Bulk density is required',
           v =>
-            (!!v && v.match(/^-?\d*(\.\d+)?$/)) ||
+            (!!v && !!v.match(/^-?\d*(\.\d+)?$/)) ||
             'Value should be a valid number'
         ]
       }

@@ -4,9 +4,6 @@ export default {
       ? state.feedstocks.filter(f => f.material_type === categoryId)
       : []
   },
-  getMyFeedstocks: state => {
-    return state.myFeedstocks ? state.myFeedstocks : []
-  },
   getFeedstockDetails: state => id => {
     const allFeedstocks = [...state.feedstocks, ...state.myFeedstocks]
     const res = allFeedstocks.find(f => f.id === id)

@@ -1,11 +1,11 @@
 <template>
   <div>
-    <MyFeedstocksList :my-feedstocks="getMyFeedstocks" />
+    <MyFeedstocksList :my-feedstocks="myFeedstocks" />
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 import MyFeedstocksList from '@/components/MyFeedStocksList'
 
 export default {
@@ -13,7 +13,7 @@ export default {
     MyFeedstocksList
   },
   computed: {
-    ...mapGetters('feedstocks', ['getMyFeedstocks'])
+    ...mapState('feedstocks', ['myFeedstocks'])
   }
 }
 </script>

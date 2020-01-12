@@ -1,18 +1,16 @@
 import Vuex from 'vuex'
 import { cloneDeep } from 'lodash'
 import { createLocalVue, shallowMount } from '@vue/test-utils'
-import MyFeedstocks from '@/views/myFeedstocks'
 import Vuetify from 'vuetify'
+import MyFeedstocks from '@/views/myFeedstocks'
 
 const defaultStoreStructure = {
   modules: {
     feedstocks: {
       namespaced: true,
       actions: {
-        getMyFeedstocks: function(){
-          setTimeout(() => {
-            return
-          }, 10000);
+        getMyFeedstocks() {
+          setTimeout(() => {}, 10000)
         }
       },
       state: {
@@ -56,7 +54,6 @@ localVue.use(Vuex)
 localVue.use(Vuetify)
 
 describe('MyFeedstocks', () => {
-
   let storeStructure
   beforeEach(() => {
     storeStructure = cloneDeep(defaultStoreStructure)
@@ -64,8 +61,9 @@ describe('MyFeedstocks', () => {
 
   test('should render correctly', () => {
     const store = new Vuex.Store(storeStructure)
-    const wrapper = shallowMount(MyFeedstocks, { 
-      store, localVue 
+    const wrapper = shallowMount(MyFeedstocks, {
+      store,
+      localVue
     })
     expect(wrapper).toMatchSnapshot()
   })

@@ -38,12 +38,12 @@ export default {
       },
       paper: {
         id: 'paper',
-        icon: 'mdi-paper-roll',
+        icon: 'mdi-file',
         name: 'Paper'
       },
       straw_hay_silage: {
         id: 'straw_hay_silage',
-        icon: 'mdi-barley',
+        icon: 'mdi-tractor',
         name: 'Straw, hay silage'
       },
       wood_and_paper: {

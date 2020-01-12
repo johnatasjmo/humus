@@ -67,7 +67,7 @@ export default {
           action() {}
         },
         {
-          icon: 'mdi-sprout',
+          icon: 'mdi-format-list-bulleted',
           title: 'Feedstocks',
           action() {
             router.push({ name: 'Feedstocks' }).catch(err => {
@@ -76,7 +76,7 @@ export default {
           }
         },
         {
-          icon: 'mdi-leaf',
+          icon: 'mdi-star',
           title: 'myFeedstocks',
           action() {
             router.push({ name: 'My Feedstocks' }).catch(err => {

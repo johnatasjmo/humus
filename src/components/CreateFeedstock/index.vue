@@ -73,15 +73,15 @@ export default {
           show: true,
           text: 'Feedstock created!'
         })
-        /*  this.$router.replace({
+        this.$router.replace({
           name: 'My feedstock',
           params: {
-            id
+            id: newFeedstock.id
           }
-        }) */
-        this.$router.replace({
-          name: 'My Feedstocks'
         })
+        /*  this.$router.replace({
+          name: 'My Feedstocks'
+        }) */
       } catch (error) {
         this.loading = false
         console.error('TCL: createFeedstock -> error', error)

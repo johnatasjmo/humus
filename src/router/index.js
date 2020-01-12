@@ -87,6 +87,12 @@ const router = new Router({
     {
       path: '/myfeedstocks',
       name: 'My Feedstocks',
+      beforeEnter: (to, from, next) => {
+        if (from.name === 'Feedstocks') {
+          to.meta.backRoute = 'Feedstocks'
+        }
+        next()
+      },
       component: () =>
         import(
           /* webpackChunkName: "client-chunk-myFeedstocks" */ '@/views/MyFeedstocks.vue'

@@ -45,7 +45,7 @@ export default {
       rootState.authentication.user.id
     )
 
-    commit('setMyfeedstocks', null)
+    commit('setMyfeedstocks', [])
 
     const myfeedstocks = await userFeedstocksDB.readAll()
     commit('setMyfeedstocks', myfeedstocks)
@@ -54,12 +54,10 @@ export default {
   /**
    * Fetch feedstock by ID
    */
-  getFeedstockByID: async ({ commit }, feedstockID) => {
+  getFeedstockByID: async (context, feedstockID) => {
     const feedstocksDB = new FeedstocksDB()
-
-    commit('setFeedstockDetails', null)
     const feedstockDetails = await feedstocksDB.read(feedstockID)
-    commit('setFeedstockDetails', feedstockDetails)
+
     return feedstockDetails
   },
   /**

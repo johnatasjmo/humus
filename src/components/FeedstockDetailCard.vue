@@ -1,6 +1,6 @@
 <template>
   <div style="width:100%">
-    <v-card v-if="feedstockDetails" class="mx-auto" max-width="500">
+    <v-card class="mx-auto" max-width="500">
       <v-card-title class="headline">
         {{ feedstockDetails.material }}
       </v-card-title>

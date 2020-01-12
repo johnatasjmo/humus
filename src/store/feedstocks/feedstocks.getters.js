@@ -9,6 +9,9 @@ export default {
   },
   getFeedstockDetails: state => id => {
     const allFeedstocks = [...state.feedstocks, ...state.myFeedstocks]
-    return allFeedstocks.find(f => f.id === id)
+    const res = allFeedstocks.find(f => f.id === id)
+
+    // eslint-disable-next-line no-extra-boolean-cast
+    return !!res ? res : {}
   }
 }

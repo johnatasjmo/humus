@@ -1,5 +1,10 @@
 <template>
-  <FeedstockDetailCard :feedstock-details="feedstockDetails" />
+  <v-progress-circular
+    v-if="feedstockDetails && Object.keys(feedstockDetails).length === 0"
+    indeterminate
+    color="green"
+  ></v-progress-circular>
+  <FeedstockDetailCard v-else :feedstock-details="feedstockDetails" />
 </template>
 
 <script>

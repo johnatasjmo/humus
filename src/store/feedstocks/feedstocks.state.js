@@ -1,9 +1,8 @@
 export default {
-  feedstocks: null,
+  feedstocks: [],
   feedstocksVersions: null,
   feedstocksByCategory: null,
   myFeedstocks: [],
-  feedstockDetails: null,
   feedstocksCategories: [
     {
       id: 'crop_residues',

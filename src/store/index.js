@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import authentication from './authentication'
 import app from './app'
-import products from './products'
 import feedstocks from './feedstocks'
 import snackbar from './snackbar'
 
@@ -15,7 +14,6 @@ export default new Vuex.Store({
   modules: {
     authentication,
     app,
-    products,
     feedstocks,
     snackbar
   }

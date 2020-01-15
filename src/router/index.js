@@ -21,7 +21,7 @@ const router = new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/home',
+      path: '/',
       name: 'Home',
       component: Home,
       meta: {
@@ -120,26 +120,7 @@ const router = new Router({
       meta: {
         backRoute: 'My Feedstocks'
       }
-    },
-
-    {
-      path: '/products',
-      name: 'products',
-      component: () =>
-        import(
-          /* webpackChunkName: "client-chunk-products" */ '@/views/Products.vue'
-        )
-    },
-    {
-      path: '/products/:id',
-      name: 'product',
-      props: true,
-      component: () =>
-        import(
-          /* webpackChunkName: "client-chunk-product-details" */ '@/views/Product.vue'
-        )
-    },
-    { path: '*', redirect: '/home' }
+    }
   ]
 })
 

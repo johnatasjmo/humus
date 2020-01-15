@@ -120,6 +120,15 @@ const router = new Router({
       meta: {
         backRoute: 'My Feedstocks'
       }
+    },
+    {
+      path: '/calculator',
+      name: 'Recipe calculator',
+      component: () =>
+        import(
+          /* webpackChunkName: "client-chunk-calculator" */ '@/views/Calculator.vue'
+        ),
+      props: true
     }
   ]
 })

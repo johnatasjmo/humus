@@ -1,16 +1,19 @@
 <template>
   <div style="width:100%">
     <v-card style="width:100%">
-      <div class="title pa-2">
-        Feedstocks
-      </div>
+      <v-container>
+        <v-row justify="space-between" class="pa-4">
+          <div class="title">
+            Feedstocks
+          </div>
+          <v-btn fab dark small color="accent">
+            <v-icon dark>mdi-plus</v-icon>
+          </v-btn>
+        </v-row>
+      </v-container>
       <v-list>
         <v-list-item-group>
-          <v-list-item>
-            <v-list-item-content>
-              <FeedstockItem :feedstock="getWater" />
-            </v-list-item-content>
-          </v-list-item>
+          <FeedstockItem :feedstock="getWater" />
         </v-list-item-group>
       </v-list>
     </v-card>

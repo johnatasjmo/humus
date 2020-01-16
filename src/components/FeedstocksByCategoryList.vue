@@ -6,14 +6,7 @@
           <v-list-item
             v-for="feedstock in feedstocks"
             :key="feedstock.id"
-            @click="
-              $router.push({
-                name: 'Feedstock',
-                params: {
-                  id: feedstock.id
-                }
-              })
-            "
+            @click="handleItemClick(feedstock.id)"
           >
             <FeedstockRow :feedstock="feedstock" />
           </v-list-item>
@@ -35,6 +28,10 @@ export default {
     feedstocks: {
       type: Array,
       required: true
+    },
+    toSelectFeedstock: {
+      type: Boolean,
+      default: false
     }
   },
   mounted() {
@@ -44,7 +41,25 @@ export default {
     this.clearCustomAppBarTitle(null)
   },
   methods: {
-    ...mapMutations('app', ['setCustomAppBarTitle', 'clearCustomAppBarTitle'])
+    ...mapMutations('app', ['setCustomAppBarTitle', 'clearCustomAppBarTitle']),
+    handleItemClick(id) {
+      console.log('TCL: handleItemClick -> id', id)
+      if (this.toSelectFeedstock) {
+        this.$router.replace({
+          name: 'Recipe calculator',
+          params: {
+            id
+          }
+        })
+      } else {
+        this.$router.push({
+          name: 'Feedstock',
+          params: {
+            id
+          }
+        })
+      }
+    }
   }
 }
 </script>

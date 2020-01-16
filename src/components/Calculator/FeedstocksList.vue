@@ -7,7 +7,18 @@
             Feedstocks
           </div>
           <v-btn fab dark small color="accent">
-            <v-icon dark>mdi-plus</v-icon>
+            <v-icon
+              dark
+              @click="
+                $router.push({
+                  name: 'Feedstocks',
+                  params: {
+                    toSelectFeedstock: true
+                  }
+                })
+              "
+              >mdi-plus</v-icon
+            >
           </v-btn>
         </v-row>
       </v-container>

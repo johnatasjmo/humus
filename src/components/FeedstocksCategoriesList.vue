@@ -20,7 +20,11 @@
             @click="
               $router.push({
                 name: 'Material',
-                params: { categoryId: category.id, categoryName: category.name }
+                params: {
+                  categoryId: category.id,
+                  categoryName: category.name,
+                  toSelectFeedstock
+                }
               })
             "
           >
@@ -46,6 +50,10 @@ export default {
     feedstocksCategories: {
       type: Array,
       required: true
+    },
+    toSelectFeedstock: {
+      type: Boolean,
+      default: false
     }
   }
 }

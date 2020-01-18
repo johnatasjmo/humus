@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Head from 'vue-head'
+import { isNil } from 'lodash'
 import Home from '@/views/Home'
 import CheckLogin from '@/views/CheckLogin'
-import { isNil } from 'lodash'
 import store from '@/store'
 
 Vue.use(Router)
@@ -21,8 +21,8 @@ const router = new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/home',
-      name: 'home',
+      path: '/',
+      name: 'Home',
       component: Home,
       meta: {
         authNotRequired: true
@@ -40,25 +40,96 @@ const router = new Router({
       path: '/login',
       name: 'login',
       component: () =>
-        import(/* webpackChunkName: "client-chunk-login" */ '@/views/Login.vue'),
+        import(
+          /* webpackChunkName: "client-chunk-login" */ '@/views/Login.vue'
+        ),
       meta: {
         authNotRequired: true
       }
     },
     {
-      path: '/products',
-      name: 'products',
+      path: '/feedstocks',
+      name: 'Feedstocks',
       component: () =>
-        import(/* webpackChunkName: "client-chunk-products" */ '@/views/Products.vue')
+        import(
+          /* webpackChunkName: "client-chunk-feedstocks-categories" */ '@/views/FeedstocksCategories.vue'
+        ),
+      meta: {
+        authNotRequired: true
+      }
     },
     {
-      path: '/products/:id',
-      name: 'product',
-      props: true,
+      path: '/feedstocks/:categoryId',
+      name: 'Material',
       component: () =>
-        import(/* webpackChunkName: "client-chunk-product-details" */ '@/views/Product.vue')
+        import(
+          /* webpackChunkName: "client-chunk-feedstocks" */ '@/views/Feedstocks.vue'
+        ),
+      props: true,
+      meta: {
+        authNotRequired: true,
+        backRoute: 'Feedstocks'
+      }
     },
-    { path: '*', redirect: '/home' }
+    {
+      path: '/feedstocks/:categoryId/:id',
+      name: 'Feedstock',
+      component: () =>
+        import(
+          /* webpackChunkName: "client-chunk-feedstock-details" */ '@/views/FeedstockDetails.vue'
+        ),
+      props: true,
+      meta: {
+        authNotRequired: true,
+        backRoute: 'Material'
+      }
+    },
+    {
+      path: '/myfeedstocks',
+      name: 'My Feedstocks',
+      beforeEnter: (to, from, next) => {
+        if (from.name === 'Feedstocks') {
+          to.meta.backRoute = 'Feedstocks'
+        }
+        next()
+      },
+      component: () =>
+        import(
+          /* webpackChunkName: "client-chunk-myFeedstocks" */ '@/views/MyFeedstocks.vue'
+        )
+    },
+    {
+      path: '/myfeedstocks/create',
+      name: 'Create Feedstock',
+      component: () =>
+        import(
+          /* webpackChunkName: "client-chunk-myFeedstocks-create" */ '@/views/CreateFeedstock.vue'
+        ),
+      meta: {
+        backRoute: 'My Feedstocks'
+      }
+    },
+    {
+      path: '/myfeedstocks/:id',
+      name: 'My feedstock',
+      component: () =>
+        import(
+          /* webpackChunkName: "client-chunk-my-feedstock-details" */ '@/views/FeedstockDetails.vue'
+        ),
+      props: true,
+      meta: {
+        backRoute: 'My Feedstocks'
+      }
+    },
+    {
+      path: '/calculator',
+      name: 'Recipe calculator',
+      component: () =>
+        import(
+          /* webpackChunkName: "client-chunk-calculator" */ '@/views/Calculator.vue'
+        ),
+      props: true
+    }
   ]
 })
 

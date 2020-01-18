@@ -1,91 +1,123 @@
 <template>
-  <div id="app">
-    <nav-bar></nav-bar>
-    <div class="main-wrapper">
-      <router-view />
-    </div>
+  <v-app>
+    <nav-drawer :show-drawer="showDrawer" @closeDrawer="showDrawer = false" />
+    <v-app-bar app color="primary" dark>
+      <v-btn text icon color="white" @click="leftButtonAction">
+        <v-icon>{{ leftButtonIcon }}</v-icon>
+      </v-btn>
+      <v-toolbar-title>
+        {{ currentAppTitle }}
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+    </v-app-bar>
 
-    <new-content-available-toastr
-      v-if="newContentAvailable"
-      class="new-content-available-toastr"
-      :refreshing-app="refreshingApp"
-      @refresh="serviceWorkerSkipWaiting"
-    ></new-content-available-toastr>
-    <apple-add-to-home-screen-modal
-      v-if="showAddToHomeScreenModalForApple"
-      class="apple-add-to-home-screen-modal"
-      @close="closeAddToHomeScreenModalForApple(false)"
-    >
-    </apple-add-to-home-screen-modal>
-  </div>
+    <v-content>
+      <v-container fluid class="container">
+        <!-- <v-row align="center" justify="center"> -->
+        <!-- <v-col cols="12"> -->
+        <!-- <v-row align="center" justify="center"> -->
+        <router-view class="router-container" />
+        <!-- </v-row> -->
+        <!-- </v-col> -->
+        <!-- </v-row> -->
+      </v-container>
+      <new-content-available-toastr
+        v-if="newContentAvailable"
+        class="new-content-available-toastr"
+        :refreshing-app="refreshingApp"
+        @refresh="serviceWorkerSkipWaiting"
+      ></new-content-available-toastr>
+      <apple-add-to-home-screen-modal
+        v-if="showAddToHomeScreenModalForApple"
+        class="apple-add-to-home-screen-modal"
+        @close="closeAddToHomeScreenModalForApple(false)"
+      >
+      </apple-add-to-home-screen-modal>
+      <Snackbar />
+    </v-content>
+  </v-app>
 </template>
+
 <script>
-import NavBar from '@/components/NavBar'
+import { mapState, mapActions, mapGetters } from 'vuex'
 import NewContentAvailableToastr from '@/components/NewContentAvailableToastr'
 import AppleAddToHomeScreenModal from '@/components/AppleAddToHomeScreenModal'
-import { mapState, mapActions, mapGetters } from 'vuex'
+import NavDrawer from '@/components/NavDrawer'
+import Snackbar from '@/components/Snackbar'
 
 export default {
-  components: { NavBar, NewContentAvailableToastr, AppleAddToHomeScreenModal },
-  computed: {
-    ...mapGetters('app', ['newContentAvailable']),
-    ...mapState('app', ['showAddToHomeScreenModalForApple', 'refreshingApp'])
+  name: 'App',
+  components: {
+    NewContentAvailableToastr,
+    AppleAddToHomeScreenModal,
+    NavDrawer,
+    Snackbar
   },
-  methods: mapActions('app', [
-    'closeAddToHomeScreenModalForApple',
-    'serviceWorkerSkipWaiting'
-  ])
+  data() {
+    return {
+      showDrawer: true
+    }
+  },
+  computed: {
+    ...mapGetters('app', ['newContentAvailable', 'getAppTitle']),
+    ...mapState('app', ['showAddToHomeScreenModalForApple', 'refreshingApp']),
+    currentAppTitle() {
+      return this.getAppTitle(this.$route.name)
+    },
+    leftButtonIcon() {
+      if (this.$route.meta.backRoute) {
+        return 'mdi-chevron-left'
+      }
+      return 'mdi-menu'
+    }
+  },
+  async beforeMount() {
+    await this.fetchFeedstocks()
+  },
+  methods: {
+    leftButtonAction() {
+      if (this.$route.meta.backRoute) {
+        this.$router.push({ name: this.$route.meta.backRoute })
+      } else {
+        this.toggleDrawer()
+      }
+    },
+    toggleDrawer() {
+      this.showDrawer = !this.showDrawer
+    },
+    ...mapActions('app', [
+      'fetchFeedstocks',
+      'closeAddToHomeScreenModalForApple',
+      'serviceWorkerSkipWaiting'
+    ])
+  }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 body {
-  margin: 0;
-
-  a {
-    font-weight: 500;
-    text-decoration: none;
-  }
-
   #app {
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-size: 16px;
-    color: #2c3e50;
-
     .new-content-available-toastr {
       position: absolute;
       bottom: 10px;
       right: 10px;
     }
-
-    .apple-add-to-home-screen-modal {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      top: 0;
-      left: 0;
-      height: fit-content;
-      width: fit-content;
-      margin: auto;
-      z-index: 1000;
-    }
-
-    .main-wrapper {
-      margin-top: 3.6rem;
-      padding: 20px;
-
-      .page-wrapper {
-        width: 60%;
-        margin: auto;
-
-        @media screen and (max-width: 1000px) {
-          width: 100%;
-        }
-      }
-    }
   }
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.router-container {
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

@@ -1,5 +1,5 @@
-import router from '@/router'
 import { isNil } from 'lodash'
+import router from '@/router'
 import { createNewUserFromFirebaseAuthUser } from '@/misc/helpers'
 import UsersDB from '@/firebase/users-db'
 
@@ -15,7 +15,9 @@ export default {
       : userFromFirebase
 
     commit('setUser', user)
-    dispatch('products/getUserProducts', null, { root: true })
+
+    // Getting My feedstocks from firestore
+    await dispatch('feedstocks/getMyFeedstocks', null, { root: true })
   },
 
   /**

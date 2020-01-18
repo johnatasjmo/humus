@@ -1,16 +1,6 @@
 <template>
-  <div class="page-wrapper">
-    <h1 class="home-page-title">{{ appTitle }}</h1>
-    <h1>Compost Calculator</h1>
-    <img alt="logo-bento" class="logo" src="@/assets/img/bento-starter.svg" />
-
-    <a
-      rel="noopener"
-      class="documentation-link"
-      target="_blank"
-      href="https://bento-starter.netlify.com/"
-      >Documentation →</a
-    >
+  <div>
+    Home view
   </div>
 </template>
 
@@ -37,7 +27,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/theme/variables.scss';
+/* @import '@/theme/variables.scss';
 
 .page-wrapper {
   display: flex;
@@ -66,5 +56,5 @@ export default {
     width: fit-content;
     font-weight: 500;
   }
-}
+} */
 </style>

@@ -1,19 +1,19 @@
 <template>
   <v-list-item>
     <v-list-item-content>
-      <v-container class="pa-0">
-        <v-row justify="start">
-          <v-col cols="8" class="caption pr-0">
-            {{ feedstock.material }}
-          </v-col>
-          <v-col cols="2" class="caption pr-0">
-            <v-text-field />
-          </v-col>
-          <v-col cols="2" class="caption pr-0">
-            yd3
-          </v-col>
-        </v-row>
-      </v-container>
+      <div style="width:100%" class="d-flex justify-space-between align-center">
+        <div>
+          {{ feedstock.material }}
+        </div>
+        <div class="d-flex justify-space-between align-center">
+          <div style="width: 30px">
+            <v-text-field dense class="caption" />
+          </div>
+          <div class="caption ml-2">
+            cy
+          </div>
+        </div>
+      </div>
     </v-list-item-content>
     <v-list-item-icon>
       <Dialog>

@@ -25,6 +25,11 @@
       <v-list>
         <v-list-item-group>
           <FeedstockItem :feedstock="getWater" />
+          <FeedstockItem
+            v-for="ingredient in ingredients"
+            :key="ingredient.id"
+            :feedstock="ingredient"
+          />
         </v-list-item-group>
       </v-list>
     </v-card>
@@ -32,7 +37,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 import FeedstockItem from './FeedstockItem'
 
 export default {
@@ -41,6 +46,7 @@ export default {
   },
   computed: {
     ...mapGetters('feedstocks', ['getFeedstockDetails']),
+    ...mapState('recipe', ['ingredients']),
     getWater() {
       return this.getFeedstockDetails('water')
     }

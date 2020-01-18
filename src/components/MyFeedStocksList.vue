@@ -100,10 +100,6 @@ export default {
       this.loading = false
     },
     handleItemClick(feedstock) {
-      console.log(
-        'TCL: handleItemClick -> this.toSelectFeedstock',
-        this.toSelectFeedstock
-      )
       if (this.toSelectFeedstock) {
         this.addIngredient(feedstock)
 

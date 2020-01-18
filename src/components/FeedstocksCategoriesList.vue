@@ -3,7 +3,14 @@
     <v-card style="width:100%">
       <v-list>
         <v-list-item-group>
-          <v-list-item @click="$router.push({ name: 'My Feedstocks' })">
+          <v-list-item
+            @click="
+              $router.push({
+                name: 'My Feedstocks',
+                params: { toSelectFeedstock }
+              })
+            "
+          >
             <v-list-item-icon>
               <v-icon v-text="'mdi-star'"></v-icon>
             </v-list-item-icon>

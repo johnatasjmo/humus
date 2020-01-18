@@ -1,6 +1,9 @@
 <template>
   <div>
-    <MyFeedstocksList :my-feedstocks="myFeedstocks" />
+    <MyFeedstocksList
+      :my-feedstocks="myFeedstocks"
+      :to-select-feedstock="toSelectFeedstock"
+    />
   </div>
 </template>
 
@@ -11,6 +14,12 @@ import MyFeedstocksList from '@/components/MyFeedStocksList'
 export default {
   components: {
     MyFeedstocksList
+  },
+  props: {
+    toSelectFeedstock: {
+      type: Boolean,
+      default: false
+    }
   },
   computed: {
     ...mapState('feedstocks', ['myFeedstocks'])

@@ -94,6 +94,7 @@ const router = new Router({
         }
         next()
       },
+      props: true,
       component: () =>
         import(
           /* webpackChunkName: "client-chunk-myFeedstocks" */ '@/views/MyFeedstocks.vue'

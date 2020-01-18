@@ -15,14 +15,7 @@
           <v-list-item
             v-for="feedstock in myFeedstocks"
             :key="feedstock.id"
-            @click="
-              $router.push({
-                name: 'My feedstock',
-                params: {
-                  id: feedstock.id
-                }
-              })
-            "
+            @click="handleItemClick(feedstock)"
           >
             <FeedstockRow :feedstock="feedstock" />
             <v-list-item-icon>
@@ -74,7 +67,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
 import Dialog from '@/components/Dialog'
 import FeedstockRow from './FeedstockRow'
 
@@ -87,6 +80,10 @@ export default {
     myFeedstocks: {
       type: Array,
       required: true
+    },
+    toSelectFeedstock: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -96,10 +93,34 @@ export default {
   },
   methods: {
     ...mapActions('feedstocks', ['deleteFeedstock']),
+    ...mapMutations('recipe', ['addIngredient']),
     async doDeleteFeedstock(id) {
       this.loading = true
       await this.deleteFeedstock(id)
       this.loading = false
+    },
+    handleItemClick(feedstock) {
+      console.log(
+        'TCL: handleItemClick -> this.toSelectFeedstock',
+        this.toSelectFeedstock
+      )
+      if (this.toSelectFeedstock) {
+        this.addIngredient(feedstock)
+
+        this.$router.replace({
+          name: 'Recipe calculator',
+          params: {
+            id: feedstock.id
+          }
+        })
+      } else {
+        this.$router.push({
+          name: 'My feedstock',
+          params: {
+            id: feedstock.id
+          }
+        })
+      }
     }
   }
 }

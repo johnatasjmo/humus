@@ -64,7 +64,11 @@ export default {
         {
           icon: 'mdi-calculator',
           title: 'Calculator',
-          action() {}
+          action() {
+            router.push({ name: 'Recipe calculator' }).catch(err => {
+              console.log('TCL: action -> err', err)
+            })
+          }
         },
         {
           icon: 'mdi-format-list-bulleted',

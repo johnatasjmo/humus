@@ -25,8 +25,8 @@
       <v-list>
         <v-list-item-group>
           <FeedstockItem
-            v-for="ingredient in ingredients"
-            :key="ingredient.id"
+            v-for="(ingredient, index) in ingredients"
+            :key="index"
             :feedstock="ingredient"
             unit="cy"
           />

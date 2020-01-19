@@ -1,26 +1,27 @@
 <template>
-  <v-list-item
-    @click="
-      $router.push({
-        name: 'Feedstock',
-        params: {
-          id: feedstock.id,
-          categoryId: feedstock.material_type
-        }
-      })
-    "
-  >
+  <v-list-item>
     <v-list-item-content>
       <div style="width:100%" class="d-flex justify-space-between align-center">
-        <div>
+        <div
+          style="width:100%; height:100%"
+          @click.stop="
+            $router.push({
+              name: 'Feedstock',
+              params: {
+                id: feedstock.id,
+                categoryId: feedstock.material_type
+              }
+            })
+          "
+        >
           {{ feedstock.material }}
         </div>
         <div class="d-flex justify-end align-center" style="width:80px">
           <div style="width: 30px">
-            <v-text-field dense class="caption" />
+            <v-text-field v-model="quantity" dense class="caption" />
           </div>
           <div class="caption ml-2">
-            {{ unit }}
+            {{ feedstock.id === 'water' ? 'Gallons' : unit }}
           </div>
         </div>
       </div>
@@ -50,7 +51,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapGetters } from 'vuex'
 import Dialog from '../Dialog'
 
 export default {
@@ -67,8 +68,22 @@ export default {
       required: true
     }
   },
+  computed: {
+    quantity: {
+      get() {
+        return this.getIngredientValueById()(this.feedstock.id)
+      },
+      set(quantity) {
+        this.setIngredentQuantity({
+          id: this.feedstock.id,
+          quantity
+        })
+      }
+    }
+  },
   methods: {
-    ...mapMutations('recipe', ['removeIngredient'])
+    ...mapMutations('recipe', ['removeIngredient', 'setIngredentQuantity']),
+    ...mapGetters('recipe', ['getIngredientValueById'])
   }
 }
 </script>

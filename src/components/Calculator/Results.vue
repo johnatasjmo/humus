@@ -89,6 +89,9 @@
             </span>
           </v-col>
         </v-row>
+        <v-row justify="center">
+          <v-btn color="accent">Save</v-btn>
+        </v-row>
       </v-card-text>
     </v-card>
   </div>

@@ -5,17 +5,17 @@
         <div>
           {{ feedstock.material }}
         </div>
-        <div class="d-flex justify-space-between align-center">
+        <div class="d-flex justify-end align-center" style="width:80px">
           <div style="width: 30px">
             <v-text-field dense class="caption" />
           </div>
           <div class="caption ml-2">
-            cy
+            {{ unit }}
           </div>
         </div>
       </div>
     </v-list-item-content>
-    <v-list-item-icon>
+    <v-list-item-icon v-if="feedstock.id !== 'water'">
       <Dialog>
         <template slot="activator">
           <v-btn text icon>
@@ -50,6 +50,10 @@ export default {
   props: {
     feedstock: {
       type: Object,
+      required: true
+    },
+    unit: {
+      type: String,
       required: true
     }
   },

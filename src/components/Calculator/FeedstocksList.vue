@@ -1,7 +1,7 @@
 <template>
   <div style="width:100%">
     <v-card style="width:100%">
-      <v-container>
+      <v-container class="pt-0 pb-0">
         <v-row justify="space-between" class="pa-4">
           <div class="title">
             Feedstocks
@@ -24,11 +24,11 @@
       </v-container>
       <v-list>
         <v-list-item-group>
-          <FeedstockItem :feedstock="getWater" />
           <FeedstockItem
             v-for="ingredient in ingredients"
             :key="ingredient.id"
             :feedstock="ingredient"
+            unit="cy"
           />
         </v-list-item-group>
       </v-list>
@@ -37,18 +37,16 @@
 </template>
 
 <script>
-import { mapGetters, mapState } from 'vuex'
 import FeedstockItem from './FeedstockItem'
 
 export default {
   components: {
     FeedstockItem
   },
-  computed: {
-    ...mapGetters('feedstocks', ['getFeedstockDetails']),
-    ...mapState('recipe', ['ingredients']),
-    getWater() {
-      return this.getFeedstockDetails('water')
+  props: {
+    ingredients: {
+      type: Array,
+      required: true
     }
   }
 }

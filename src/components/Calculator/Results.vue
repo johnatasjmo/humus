@@ -149,14 +149,37 @@ export default {
     },
     getTotalMixWater() {
       console.log(this.toWatch)
-      return this.feedstocks.reduce(
+
+      const water = this.feedstocks.find(f => f.id === 'water')
+      const feedstocksWithoutWater = this.feedstocks.filter(
+        f => f.id !== 'water'
+      )
+
+      const part1 = feedstocksWithoutWater.reduce(
         (acc, f) => acc + this.getMix(this.getWater(f), f.quantity),
         0
       )
+      console.log(
+        'TCL: getTotalMixWater -> part1 + (this.getWater(f) * f.quantity /202)',
+        part1 + (this.getWater(water) * water.quantity) / 202
+      )
+
+      return Math.round(part1 + (this.getWater(water) * water.quantity) / 202)
     },
     getTotalWetWeight() {
       console.log(this.toWatch)
-      return this.feedstocks.reduce((acc, f) => acc + this.getWetWeight(f), 0)
+
+      const water = this.feedstocks.find(f => f.id === 'water')
+      const feedstocksWithoutWater = this.feedstocks.filter(
+        f => f.id !== 'water'
+      )
+
+      const part1 = feedstocksWithoutWater.reduce(
+        (acc, f) => acc + this.getWetWeight(f),
+        0
+      )
+
+      return Math.round(part1 + (water.bulk_density_yd * water.quantity) / 202)
     },
     getMixCN() {
       const mixCarbon = (this.getTotalMixCarbon / 479) * 100

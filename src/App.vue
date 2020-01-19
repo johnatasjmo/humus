@@ -77,7 +77,8 @@ export default {
   methods: {
     leftButtonAction() {
       if (this.$route.meta.backRoute) {
-        this.$router.push({ name: this.$route.meta.backRoute })
+        // this.$router.push({ name: this.$route.meta.backRoute })
+        this.$router.go(-1)
       } else {
         this.toggleDrawer()
       }

@@ -1,5 +1,15 @@
 <template>
-  <v-list-item>
+  <v-list-item
+    @click="
+      $router.push({
+        name: 'Feedstock',
+        params: {
+          id: feedstock.id,
+          categoryId: feedstock.material_type
+        }
+      })
+    "
+  >
     <v-list-item-content>
       <div style="width:100%" class="d-flex justify-space-between align-center">
         <div>

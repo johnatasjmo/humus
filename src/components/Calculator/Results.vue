@@ -20,7 +20,7 @@
         </div>
       </div>
       <v-card-text>
-        <v-row justify="space-between pl-2 pr-2">
+        <v-row justify="space-between" class="pl-2 pr-2">
           <v-col cols="4" class="pr-0 pb-0 pl-1">
             <span class="font-weight-bold"> </span>
           </v-col>

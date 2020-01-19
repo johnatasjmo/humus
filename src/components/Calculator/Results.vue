@@ -50,7 +50,7 @@
           </v-col>
           <v-col cols="4" class="pr-0 pb-0 pl-1">
             <span class="font-weight-bold" style="color:black">
-              27:1
+              {{ getMixCN }}:1
             </span>
           </v-col>
           <v-col cols="4" class="pr-0 pb-0 pl-1">
@@ -65,7 +65,7 @@
           </v-col>
           <v-col cols="4" class="pr-0 pb-0 pl-1">
             <span class="font-weight-bold" style="color:black">
-              63.5%
+              {{ getMixMoisture }}%
             </span>
           </v-col>
           <v-col cols="4" class="pr-0 pb-0 pl-1">
@@ -80,7 +80,7 @@
           </v-col>
           <v-col cols="4" class="pr-0 pb-0 pl-1">
             <span class="font-weight-bold" style="color:black">
-              1.003 lb/cy
+              {{ getBulkDensity }} lb/cy
             </span>
           </v-col>
           <v-col cols="4" class="pr-0 pb-0 pl-1">
@@ -134,7 +134,7 @@ export default {
       return this.feedstocks.reduce((acc, f) => acc + this.getCarbon(f), 0)
     },
     getTotalMixNitrogen() {
-      console.log(this.feedstocks[0].quantity)
+      console.log(this.toWatch)
       return this.feedstocks.reduce(
         (acc, f) => acc + this.getMix(this.getNitrogen(f), f.quantity),
         0
@@ -157,6 +157,32 @@ export default {
     getTotalWetWeight() {
       console.log(this.toWatch)
       return this.feedstocks.reduce((acc, f) => acc + this.getWetWeight(f), 0)
+    },
+    getMixCN() {
+      const mixCarbon = (this.getTotalMixCarbon / 479) * 100
+      const MixNitrogen = (this.getTotalMixNitrogen / 479) * 100
+
+      return Math.round(mixCarbon / MixNitrogen)
+    },
+    getMixMoisture() {
+      return ((this.getTotalMixWater / this.getTotalWetWeight) * 100).toFixed(1)
+    },
+    getBulkDensity() {
+      const water = this.feedstocks.find(f => f.id === 'water')
+      const feedstocksWithoutWater = this.feedstocks.filter(
+        f => f.id !== 'water'
+      )
+      const totalQuantitiesWithoutWater = feedstocksWithoutWater.reduce(
+        (acc, f) => {
+          return acc + f.quantity
+        },
+        0
+      )
+
+      return Math.round(
+        this.getTotalWetWeight /
+          (totalQuantitiesWithoutWater + water.quantity / 202)
+      )
     }
   },
   methods: {

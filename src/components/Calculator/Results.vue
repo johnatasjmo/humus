@@ -94,11 +94,18 @@
         </v-row>
       </v-card-text>
     </v-card>
+    <div>Total Water: {{ getTotalWater }}</div>
+    <div>Total Nitrogen: {{ getTotalNitrogen }}</div>
+    <div>Total Carbon: {{ getTotalCarbon }}</div>
+    <div>Total Mix Nitrogen: {{ getTotalMixNitrogen }}</div>
+    <div>Total Mix Carbon: {{ getTotalMixCarbon }}</div>
+    <div>Total Mix Water: {{ getTotalMixWater }}</div>
+    <div>Total Wet Weight: {{ getTotalWetWeight }}</div>
   </div>
 </template>
 
 <script>
-import { mapMutations, mapGetters } from 'vuex'
+import { mapMutations, mapGetters, mapState } from 'vuex'
 
 export default {
   props: {
@@ -108,13 +115,77 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('feedstocks', ['getFeedstockDetails'])
+    ...mapState('recipe', ['toWatch']),
+    ...mapGetters('feedstocks', ['getFeedstockDetails']),
+
+    /**
+     * CALCULATIONS
+     */
+    getTotalWater() {
+      console.log(this.toWatch)
+      return this.feedstocks.reduce((acc, f) => acc + this.getWater(f), 0)
+    },
+    getTotalNitrogen() {
+      console.log(this.toWatch)
+      return this.feedstocks.reduce((acc, f) => acc + this.getNitrogen(f), 0)
+    },
+    getTotalCarbon() {
+      console.log(this.toWatch)
+      return this.feedstocks.reduce((acc, f) => acc + this.getCarbon(f), 0)
+    },
+    getTotalMixNitrogen() {
+      console.log(this.feedstocks[0].quantity)
+      return this.feedstocks.reduce(
+        (acc, f) => acc + this.getMix(this.getNitrogen(f), f.quantity),
+        0
+      )
+    },
+    getTotalMixCarbon() {
+      console.log(this.toWatch)
+      return this.feedstocks.reduce(
+        (acc, f) => acc + this.getMix(this.getCarbon(f), f.quantity),
+        0
+      )
+    },
+    getTotalMixWater() {
+      console.log(this.toWatch)
+      return this.feedstocks.reduce(
+        (acc, f) => acc + this.getMix(this.getWater(f), f.quantity),
+        0
+      )
+    },
+    getTotalWetWeight() {
+      console.log(this.toWatch)
+      return this.feedstocks.reduce((acc, f) => acc + this.getWetWeight(f), 0)
+    }
   },
   methods: {
     ...mapMutations('recipe', ['clearIngredients', 'addIngredient']),
     resetIngredients() {
       this.clearIngredients()
       this.addIngredient(this.getFeedstockDetails('water'))
+    },
+    /**
+     * CALCULATIONS
+     */
+    getWater(feedstock) {
+      return (feedstock.bulk_density_yd * feedstock.moisture_content) / 100
+    },
+    getNitrogen(feedstock) {
+      return (
+        ((feedstock.bulk_density_yd - this.getWater(feedstock)) *
+          feedstock.nitrogen) /
+        100
+      )
+    },
+    getCarbon(feedstock) {
+      return this.getNitrogen(feedstock) * feedstock.cn_ratio
+    },
+    getWetWeight(feedstock) {
+      return feedstock.bulk_density_yd * feedstock.quantity
+    },
+    getMix(value, quantity) {
+      return value * quantity
     }
   }
 }

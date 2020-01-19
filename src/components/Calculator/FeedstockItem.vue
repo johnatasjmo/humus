@@ -74,6 +74,7 @@ export default {
         return this.getIngredientValueById()(this.feedstock.id)
       },
       set(quantity) {
+        this.setToWatchValue(quantity)
         this.setIngredentQuantity({
           id: this.feedstock.id,
           quantity
@@ -82,7 +83,11 @@ export default {
     }
   },
   methods: {
-    ...mapMutations('recipe', ['removeIngredient', 'setIngredentQuantity']),
+    ...mapMutations('recipe', [
+      'removeIngredient',
+      'setIngredentQuantity',
+      'setToWatchValue'
+    ]),
     ...mapGetters('recipe', ['getIngredientValueById'])
   }
 }

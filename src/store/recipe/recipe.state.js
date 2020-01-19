@@ -1,4 +1,5 @@
 export default {
   myRecipes: [],
-  ingredients: []
+  ingredients: [],
+  toWatch: ''
 }

@@ -20,10 +20,15 @@ export default {
     ...mapState('recipe', ['ingredients'])
   },
   beforeMount() {
-    this.addIngredient(this.getFeedstockDetails('water'))
+    if (this.ingredients.length === 0) {
+      const water = this.getFeedstockDetails('water')
+      water.quantity = 0
+
+      this.setIngredients([water, ...this.ingredients])
+    }
   },
   methods: {
-    ...mapMutations('recipe', ['addIngredient'])
+    ...mapMutations('recipe', ['setIngredients'])
   }
 }
 </script>

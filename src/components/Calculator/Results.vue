@@ -98,7 +98,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapGetters } from 'vuex'
 
 export default {
   props: {
@@ -107,8 +107,15 @@ export default {
       required: true
     }
   },
+  computed: {
+    ...mapGetters('feedstocks', ['getFeedstockDetails'])
+  },
   methods: {
-    ...mapMutations('recipe', ['resetIngredients'])
+    ...mapMutations('recipe', ['clearIngredients', 'addIngredient']),
+    resetIngredients() {
+      this.clearIngredients()
+      this.addIngredient(this.getFeedstockDetails('water'))
+    }
   }
 }
 </script>

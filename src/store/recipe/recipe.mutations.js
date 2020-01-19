@@ -1,4 +1,6 @@
 export default {
+  // Overrides all the ingredients
+  setIngredients: (state, ingredients) => (state.ingredients = ingredients),
   addIngredient: (state, ingredient) => {
     ingredient.quantity = 0
     state.ingredients = [...state.ingredients, ingredient]
@@ -7,7 +9,8 @@ export default {
     (state.ingredients = state.ingredients.filter(
       ingredient => ingredient.id !== id
     )),
-  resetIngredients: state => (state.ingredients = []),
+  // resetIngredients: state => (state.ingredients = []),
+  clearIngredients: state => (state.ingredients = []),
   /**
    * Function to set new value for an ingredient
    */

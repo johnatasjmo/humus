@@ -26,11 +26,13 @@
           Delete
         </template>
         <template>
-          ¿Do you want to delete the feedstock?
+          ¿Do you want to delete the feedstock {{ feedstock.material }}?
         </template>
         <template slot="actions">
           <v-btn text>Cancel</v-btn>
-          <v-btn color="red" dark @click="() => {}">Delete</v-btn>
+          <v-btn color="red" dark @click="removeIngredient(feedstock.id)"
+            >Delete</v-btn
+          >
         </template>
       </Dialog>
     </v-list-item-icon>
@@ -38,6 +40,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import Dialog from '../Dialog'
 
 export default {
@@ -49,6 +52,9 @@ export default {
       type: Object,
       required: true
     }
+  },
+  methods: {
+    ...mapMutations('recipe', ['removeIngredient'])
   }
 }
 </script>

@@ -20,10 +20,63 @@
         </div>
       </div>
       <v-card-text>
-        <v-row justify="space-between">
-          <v-col cols="9">
+        <v-row justify="space-between pl-2 pr-2">
+          <v-col cols="4" class="pr-0 pb-0 pl-1">
+            <span class="font-weight-bold"> </span>
+          </v-col>
+          <v-col cols="4" class="pr-0 pb-0 pl-1">
+            <span class="font-weight-bold" style="color:black">
+              Results
+            </span>
+          </v-col>
+          <v-col cols="4" class="pr-0 pb-0 pl-1">
+            <span class="font-weight-bold text-truncate">
+              Recommended
+            </span>
+          </v-col>
+          <v-col cols="4" class="pr-0 pb-0 pl-1">
+            <span class="font-weight-bold" style="color:black">
+              Moisture C:N
+            </span>
+          </v-col>
+          <v-col cols="4" class="pr-0 pb-0 pl-1">
+            <span class="font-weight-bold" style="color:black">
+              27:1
+            </span>
+          </v-col>
+          <v-col cols="4" class="pr-0 pb-0 pl-1">
             <span class="font-weight-bold">
-              More data
+              20:1 - 40:1
+            </span>
+          </v-col>
+          <v-col cols="4" class="pr-0 pb-0 pl-1">
+            <span class="font-weight-bold" style="color:black">
+              Moisture
+            </span>
+          </v-col>
+          <v-col cols="4" class="pr-0 pb-0 pl-1">
+            <span class="font-weight-bold" style="color:black">
+              63.5%
+            </span>
+          </v-col>
+          <v-col cols="4" class="pr-0 pb-0 pl-1">
+            <span class="font-weight-bold">
+              40 - 65%
+            </span>
+          </v-col>
+          <v-col cols="4" class="pr-0 pb-0 pl-1">
+            <span class="font-weight-bold" style="color:black">
+              Bulk density
+            </span>
+          </v-col>
+          <v-col cols="4" class="pr-0 pb-0 pl-1">
+            <span class="font-weight-bold" style="color:black">
+              1.003 lb/cy
+            </span>
+          </v-col>
+          <v-col cols="4" class="pr-0 pb-0 pl-1">
+            <span class="font-weight-bold">
+              800 - 1,000 lb/cy
             </span>
           </v-col>
         </v-row>

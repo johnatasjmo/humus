@@ -14,9 +14,18 @@
           </v-card-subtitle>
         </div>
         <div class="d-flex justify-center align-start ma-3">
-          <v-btn text icon>
-            <v-icon color="white">mdi-dots-vertical</v-icon>
-          </v-btn>
+          <v-menu offset-y>
+            <template v-slot:activator="{ on }">
+              <v-btn text icon v-on="on">
+                <v-icon color="white">mdi-dots-vertical</v-icon>
+              </v-btn>
+            </template>
+            <v-list>
+              <v-list-item @click="resetIngredients">
+                <v-list-item-title>Reset</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
         </div>
       </div>
       <v-card-text>
@@ -86,12 +95,17 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
   props: {
     feedstocks: {
       type: Array,
       required: true
     }
+  },
+  methods: {
+    ...mapMutations('recipe', ['resetIngredients'])
   }
 }
 </script>

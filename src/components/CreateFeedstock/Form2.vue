@@ -29,7 +29,7 @@
             v-model="formValues.cn_ratio"
             :rules="validations.cnRatioRules"
             inputmode="numeric"
-            label="C:N ratio (weight to weight)"
+            label="C:N ratio"
             required
           ></v-text-field>
         </v-col>

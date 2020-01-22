@@ -1,17 +1,30 @@
 <template>
   <div style="width:100%">
     <v-card class="mx-auto" max-width="500">
-      <v-card-title class="headline">
+      <!-- <v-card-title class="headline">
         {{ feedstockDetails.material }}
       </v-card-title>
       <v-card-subtitle v-if="feedstockDetails.source">
         source: {{ feedstockDetails.source }}
-      </v-card-subtitle>
+      </v-card-subtitle> -->
+      <div
+        class="d-flex justify-space-between "
+        style="background-color: #4b2c20; color: white"
+      >
+        <div>
+          <v-card-title class="title">
+            feedstockDetails.material
+          </v-card-title>
+          <v-card-subtitle style="color:white">
+            source: {{ feedstockDetails.source }}
+          </v-card-subtitle>
+        </div>
+      </div>
       <v-card-text>
         <v-row justify="space-between">
           <v-col cols="9">
             <span class="font-weight-bold">
-              Nitrogen % (dry/weight)
+              Nitrogen (% dry/weight)
             </span>
           </v-col>
           <v-col cols="3">
@@ -23,7 +36,7 @@
         <v-row>
           <v-col cols="9">
             <span class="font-weight-bold">
-              Carbon % (dry/weight)
+              Carbon (Total, % dry/weight)
             </span>
           </v-col>
           <v-col cols="3">
@@ -35,7 +48,19 @@
         <v-row>
           <v-col cols="9">
             <span class="font-weight-bold">
-              Moisture content % (wet weight)
+              C:N ratio
+            </span>
+          </v-col>
+          <v-col cols="3">
+            <div class="font-weight-bold text-end">
+              {{ feedstockDetails.cn_ratio }}
+            </div>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="9">
+            <span class="font-weight-bold">
+              Moisture (%)
             </span>
           </v-col>
           <v-col cols="3">
@@ -47,7 +72,7 @@
         <v-row>
           <v-col cols="9">
             <span class="font-weight-bold">
-              Bulk density (pound per cubic yard)
+              Bulk density (lb/cy)
             </span>
           </v-col>
           <v-col cols="3">

@@ -56,15 +56,26 @@ export default {
     }
   },
   computed: {
-    ...mapState('authentication', ['user'])
+    ...mapState('authentication', ['user']),
+    ...mapState('feedstocks', ['myFeedstocks'])
   },
   methods: {
     ...mapActions('feedstocks', ['insertFeedstock']),
     ...mapMutations('feedstocks', ['addFeedstockToMyFeedstocks']),
     ...mapMutations('snackbar', ['setSnackbar']),
     async createFeedstock(values) {
+      if (this.myFeedstocks.length >= 10) {
+        this.setSnackbar({
+          show: true,
+          color: 'error',
+          text: 'You have reached the limit of 10 feedstocks'
+        })
+        return
+      }
+
       this.setValues(values)
       this.addExtraValues()
+
       try {
         this.loading = true
 
@@ -82,9 +93,6 @@ export default {
             id: newFeedstock.id
           }
         })
-        /*  this.$router.replace({
-          name: 'My Feedstocks'
-        }) */
       } catch (error) {
         this.loading = false
         console.error('TCL: createFeedstock -> error', error)

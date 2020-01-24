@@ -1,19 +1,13 @@
 <template>
   <div style="width:100%">
     <v-card class="mx-auto" max-width="500">
-      <!-- <v-card-title class="headline">
-        {{ feedstockDetails.material }}
-      </v-card-title>
-      <v-card-subtitle v-if="feedstockDetails.source">
-        source: {{ feedstockDetails.source }}
-      </v-card-subtitle> -->
       <div
         class="d-flex justify-space-between "
         style="background-color: #4b2c20; color: white"
       >
         <div>
           <v-card-title class="title">
-            feedstockDetails.material
+            {{ feedstockDetails.material }}
           </v-card-title>
           <v-card-subtitle style="color:white">
             source: {{ feedstockDetails.source }}

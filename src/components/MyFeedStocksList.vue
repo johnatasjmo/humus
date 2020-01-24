@@ -15,7 +15,7 @@
           <v-list-item
             v-for="feedstock in myFeedstocks"
             :key="feedstock.id"
-            @click="handleItemClick(feedstock)"
+            @click.native.stop="handleItemClick(feedstock)"
           >
             <FeedstockRow :feedstock="feedstock" />
             <v-list-item-icon>

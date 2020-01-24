@@ -6,39 +6,22 @@
     ></v-list-item-title>
     <div class="flexContainer mt-1">
       <p class="flexItem2 customCondensed mb-2">
-        N = {{ feedstock.nitrogen }}%
+        N = {{ Math.round(feedstock.nitrogen) }}%
       </p>
-      <p class="flexItem2 customCondensed mb-2">C = {{ feedstock.carbon }}%</p>
+      <p class="flexItem2 customCondensed mb-2">
+        C = {{ Math.round(feedstock.carbon) }}%
+      </p>
       <p class="flexItem1 customCondensed mb-2">
-        CN = {{ feedstock.cn_ratio }}
+        CN = {{ Math.round(feedstock.cn_ratio) }}
       </p>
       <p class="flexItem2 customCondensed mb-2">
-        BD = {{ feedstock.bulk_density_yd }} lb/cy
+        BD = {{ Math.round(feedstock.bulk_density_yd) }} lb/cy
       </p>
       <p class="flexItem2 customCondensed mb-2">
-        Moisture = {{ feedstock.moisture_content }}%
+        Moisture = {{ Math.round(feedstock.moisture_content) }}%
       </p>
       <p class="flexItem1 customCondensed mb-2"></p>
     </div>
-    <!-- <v-container class="pa-0">
-      <v-row justify="start">
-        <v-col cols="4" class="customCondensed pt-1 pb-0 pr-0">
-          N = {{ feedstock.nitrogen }}%
-        </v-col>
-        <v-col cols="4" class="customCondensed pt-1 pb-0 pr-0">
-          C = {{ feedstock.carbon }}%
-        </v-col>
-        <v-col cols="4" class="customCondensed pt-1 pb-0 pr-0">
-          CN = {{ feedstock.cn_ratio }}
-        </v-col>
-        <v-col cols="4" class="customCondensed pt-1 pb-0 pr-0">
-          BD = {{ feedstock.bulk_density_yd }} lb/cy
-        </v-col>
-        <v-col cols="4" class="customCondensed pt-1 pb-0 pr-0">
-          Moisture = {{ feedstock.moisture_content }}%
-        </v-col>
-      </v-row>
-    </v-container> -->
   </v-list-item-content>
 </template>
 
@@ -56,7 +39,7 @@ export default {
 <style scoped>
 .customCondensed {
   font-family: Roboto !important;
-  font-size: 0.74em !important;
+  font-size: 0.8em !important;
   /* font-weight: 200 !important; */
   font-stretch: condensed !important;
 }

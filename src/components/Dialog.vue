@@ -14,7 +14,7 @@
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <div @click="dialog = false">
+        <div @click.stop="dialog = false">
           <slot name="actions" />
         </div>
       </v-card-actions>

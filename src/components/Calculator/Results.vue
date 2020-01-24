@@ -90,7 +90,7 @@
           </v-col>
         </v-row>
         <v-row justify="center">
-          <v-btn color="accent">Save</v-btn>
+          <v-btn color="accent" :disabled="feedstocks.length <= 1">Save</v-btn>
         </v-row>
       </v-card-text>
     </v-card>

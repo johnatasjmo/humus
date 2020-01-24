@@ -7,11 +7,11 @@
     ></v-progress-circular>
     <v-stepper v-else v-model="stepper">
       <v-stepper-header>
-        <v-stepper-step
-          :complete="stepper > 1"
-          step="1"
-          editable
-        ></v-stepper-step>
+        <v-stepper-step :complete="stepper > 1" step="1" editable>
+        </v-stepper-step>
+        <v-row align="center" style="width: 20px; max-width:80px">
+          step 1
+        </v-row>
 
         <v-divider></v-divider>
 
@@ -20,6 +20,9 @@
           step="2"
           :editable="stepper > 2"
         ></v-stepper-step>
+        <v-row align="center" style="width: 20px; max-width:80px">
+          step 2
+        </v-row>
       </v-stepper-header>
 
       <v-stepper-items>

@@ -8,7 +8,7 @@
             v-mask="formMasks.twoDigitsTwoDecimals"
             :rules="validations.nitrogenRules"
             inputmode="numeric"
-            label="Nitrogen % (dry weight)"
+            label="Nitrogen (% dry weight)"
             placeholder="00.00"
             required
           ></v-text-field>
@@ -19,7 +19,7 @@
             v-mask="formMasks.twoDigitsTwoDecimals"
             :rules="validations.carbonRules"
             inputmode="numeric"
-            label="Carbon % (dry weight)"
+            label="Carbon (Total, % dry weight)"
             placeholder="00.00"
             required
           ></v-text-field>
@@ -39,7 +39,7 @@
             v-mask="formMasks.twoDigitsOneDecimal"
             :rules="validations.moistureContentRules"
             inputmode="numeric"
-            label="Moisture content (weight to weight)"
+            label="Moisture (%)"
             placeholder="00.0"
             required
           ></v-text-field>
@@ -49,7 +49,7 @@
             v-model="formValues.bulk_density_yd"
             :rules="validations.bulkDensityRules"
             inputmode="numeric"
-            label="Bulk density (lb/cy)"
+            label="Bulk Density (lb/cy)"
             required
           ></v-text-field>
         </v-col>

@@ -18,7 +18,7 @@
         <v-row justify="space-between">
           <v-col cols="9">
             <span class="font-weight-bold">
-              Nitrogen (% dry/weight)
+              Nitrogen (% dry weight)
             </span>
           </v-col>
           <v-col cols="3">
@@ -30,7 +30,7 @@
         <v-row>
           <v-col cols="9">
             <span class="font-weight-bold">
-              Carbon (Total, % dry/weight)
+              Carbon (Total, % dry weight)
             </span>
           </v-col>
           <v-col cols="3">

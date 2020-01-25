@@ -10,7 +10,7 @@
             Recipe Results
           </v-card-title>
           <v-card-subtitle style="color:white">
-            {{ feedstocks.length }} feedstocks
+            {{ feedstocks.length - 1 }} feedstocks
           </v-card-subtitle>
         </div>
         <div class="d-flex justify-center align-start ma-3">

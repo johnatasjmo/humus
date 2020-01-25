@@ -3,7 +3,7 @@
     <v-row justify="center">
       <v-col cols="12">
         <v-text-field
-          v-model="recipe"
+          v-model="recipeName"
           label="Recipe name"
           :rules="validations.recipeRules"
         />
@@ -21,7 +21,7 @@ import { mapMutations, mapActions, mapState } from 'vuex'
 export default {
   data() {
     return {
-      recipe: '',
+      recipeName: '',
       validations: {
         recipeRules: [v => !!v || 'Recipe name is required']
       },
@@ -42,15 +42,22 @@ export default {
     async createRecipe() {
       try {
         this.loading = true
-        await this.insertRecipe(this.ingredients)
+
+        const data = {
+          recipe: this.ingredients,
+          name: this.recipeName
+        }
+
+        await this.insertRecipe(data)
+
         this.loading = false
         this.setSnackbar({
           show: true,
           text: 'Recipe created!'
         })
-        /* this.$router.replace({
-          name: 'My feedstock',
-        }) */
+        this.$router.replace({
+          name: 'My Recipes'
+        })
       } catch (error) {
         this.loading = false
         console.error('TCL: createFeedstock -> error', error)

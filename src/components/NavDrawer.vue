@@ -90,8 +90,12 @@ export default {
         },
         {
           icon: 'mdi-chart-bar',
-          title: 'myResults',
-          action() {}
+          title: 'myRecipes',
+          action() {
+            router.push({ name: 'My Recipes' }).catch(err => {
+              console.log('TCL: action -> err', err)
+            })
+          }
         },
         {
           icon: 'mdi-settings',

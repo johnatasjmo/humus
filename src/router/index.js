@@ -146,6 +146,14 @@ const router = new Router({
         authNotRequired: true,
         backRoute: 'Recipe calculator'
       }
+    },
+    {
+      path: '/calculator/myrecipes',
+      name: 'My Recipes',
+      component: () =>
+        import(
+          /* webpackChunkName: "client-chunk-calculator" */ '@/views/MyRecipes.vue'
+        )
     }
   ]
 })

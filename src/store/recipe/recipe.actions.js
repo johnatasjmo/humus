@@ -8,8 +8,16 @@ export default {
       creator: rootState.authentication.user.id
     }
 
-    const newRecipe = recipesDB.create(finalData)
+    const newRecipe = await recipesDB.create(finalData)
     commit('addRecipeToMyRecipes', newRecipe)
     return newRecipe
+  },
+  getMyRecipes: async ({ rootState, commit }) => {
+    const recipesDB = new RecipesDB()
+    const userID = rootState.authentication.user.id
+
+    const recipes = await recipesDB.readAll([['creator', '==', userID]])
+    commit('setMyRecipes', recipes)
+    return recipes
   }
 }

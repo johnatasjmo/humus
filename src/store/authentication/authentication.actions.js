@@ -18,6 +18,9 @@ export default {
 
     // Getting My feedstocks from firestore
     await dispatch('feedstocks/getMyFeedstocks', null, { root: true })
+
+    // Getting My Recipes from firestore
+    await dispatch('recipe/getMyRecipes', null, { root: true })
   },
 
   /**

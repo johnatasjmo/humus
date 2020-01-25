@@ -22,5 +22,6 @@ export default {
    */
   setToWatchValue: (state, data) => (state.toWatch = data),
   addRecipeToMyRecipes: (state, recipe) =>
-    (state.myRecipes = [...state.myRecipes, recipe])
+    (state.myRecipes = [...state.myRecipes, recipe]),
+  setMyRecipes: (state, recipes) => (state.myRecipes = recipes)
 }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Calculator />
+    <Calculator :pre-ingredients="ingredients" />
   </div>
 </template>
 
@@ -10,6 +10,11 @@ import Calculator from '../components/Calculator'
 export default {
   components: {
     Calculator
+  },
+  props: {
+    ingredients: {
+      type: Array
+    }
   }
 }
 </script>

@@ -15,16 +15,25 @@ export default {
     FeedstocksList,
     Results
   },
+  props: {
+    preIngredients: {
+      type: Array
+    }
+  },
   computed: {
     ...mapGetters('feedstocks', ['getFeedstockDetails']),
     ...mapState('recipe', ['ingredients'])
   },
   beforeMount() {
+    if (this.preIngredients) {
+      this.setIngredients(this.preIngredients)
+    }
+
     if (this.ingredients.length === 0) {
       const water = this.getFeedstockDetails('water')
       water.quantity = 0
 
-      this.setIngredients([water, ...this.ingredients])
+      this.setIngredients([water])
     }
   },
   methods: {

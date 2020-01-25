@@ -15,7 +15,16 @@
           <v-list-item
             v-for="recipe in myRecipes"
             :key="recipe.id"
-            @click.native.stop="() => {}"
+            @click.native.stop="
+              () => {
+                $router.push({
+                  name: 'Recipe calculator',
+                  params: {
+                    ingredients: recipe.recipe
+                  }
+                })
+              }
+            "
           >
             <RecipeRow :recipe="recipe" />
             <v-list-item-icon>

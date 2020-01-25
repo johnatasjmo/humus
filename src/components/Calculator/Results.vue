@@ -89,8 +89,13 @@
             </span>
           </v-col>
         </v-row>
-        <v-row justify="center">
-          <v-btn color="accent" :disabled="feedstocks.length <= 1">Save</v-btn>
+        <v-row justify="center" class="pt-4">
+          <v-btn
+            color="accent"
+            :disabled="feedstocks.length <= 1"
+            @click="$router.push({ name: 'Save Recipe' })"
+            >Save</v-btn
+          >
         </v-row>
       </v-card-text>
     </v-card>

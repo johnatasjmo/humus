@@ -130,7 +130,22 @@ const router = new Router({
         import(
           /* webpackChunkName: "client-chunk-calculator" */ '@/views/Calculator.vue'
         ),
-      props: true
+      props: true,
+      meta: {
+        authNotRequired: true
+      }
+    },
+    {
+      path: '/calculator/save-recipe',
+      name: 'Save Recipe',
+      component: () =>
+        import(
+          /* webpackChunkName: "client-chunk-calculator" */ '@/views/SaveRecipe.vue'
+        ),
+      meta: {
+        authNotRequired: true,
+        backRoute: 'Recipe calculator'
+      }
     }
   ]
 })

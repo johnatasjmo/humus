@@ -89,6 +89,9 @@ const router = new Router({
       path: '/myfeedstocks',
       name: 'My Feedstocks',
       beforeEnter: (to, from, next) => {
+        console.log('TCL: from', from)
+        console.log('TCL: to', to)
+
         if (from.name === 'Feedstocks') {
           to.meta.backRoute = 'Feedstocks'
         }
@@ -143,7 +146,6 @@ const router = new Router({
           /* webpackChunkName: "client-chunk-calculator" */ '@/views/SaveRecipe.vue'
         ),
       meta: {
-        authNotRequired: true,
         backRoute: 'Recipe calculator'
       }
     },

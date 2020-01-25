@@ -16,9 +16,15 @@
         >
           {{ feedstock.material }}
         </div>
-        <div class="d-flex justify-end align-center" style="width:80px">
-          <div style="width: 30px">
-            <v-text-field v-model="quantity" dense class="caption" />
+        <div class="d-flex justify-end align-center" style="width:90px">
+          <div style="width: 45px">
+            <v-text-field
+              v-model="quantity"
+              dense
+              class="caption"
+              inputmode="numeric"
+              type="number"
+            />
           </div>
           <div class="caption ml-2">
             {{ feedstock.id === 'water' ? 'Gallons' : unit }}
@@ -51,7 +57,7 @@
 </template>
 
 <script>
-import { mapMutations, mapGetters } from 'vuex'
+import { mapMutations, mapGetters, mapState } from 'vuex'
 import Dialog from '../Dialog'
 
 export default {
@@ -69,12 +75,13 @@ export default {
     }
   },
   computed: {
+    ...mapState('recipe', ['toWatch']),
     quantity: {
       get() {
         return this.getIngredientValueById()(this.feedstock.id)
       },
       set(quantity) {
-        this.setToWatchValue(quantity)
+        this.setToWatchValue(!this.toWatch)
         this.setIngredentQuantity({
           id: this.feedstock.id,
           quantity

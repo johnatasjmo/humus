@@ -1,5 +1,5 @@
 export default {
   myRecipes: [],
   ingredients: [],
-  toWatch: ''
+  toWatch: false
 }

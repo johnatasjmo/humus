@@ -1,6 +1,6 @@
 <template>
   <div style="width:100%">
-    <v-card class="mx-auto" max-width="500">
+    <v-card style="width:100%">
       <div
         class="d-flex justify-space-between "
         style="background-color: #4b2c20; color: white"
@@ -71,7 +71,7 @@
           </v-col>
           <v-col cols="3">
             <div class="font-weight-bold text-end">
-              {{ feedstockDetails.bulk_density_yd }}
+              {{ Math.round(feedstockDetails.bulk_density_yd) }}
             </div>
           </v-col>
         </v-row>

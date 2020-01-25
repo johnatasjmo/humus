@@ -29,7 +29,7 @@ export default {
     }
   },
   computed: {
-    ...mapState('recipe', ['ingredients'])
+    ...mapState('recipe', ['ingredients', 'myRecipes'])
   },
   methods: {
     ...mapMutations('snackbar', ['setSnackbar']),
@@ -40,6 +40,15 @@ export default {
       }
     },
     async createRecipe() {
+      if (this.myRecipes.length >= 10) {
+        this.setSnackbar({
+          show: true,
+          color: 'error',
+          text: 'You have reached the limit of 10 recipes'
+        })
+        return
+      }
+
       try {
         this.loading = true
 

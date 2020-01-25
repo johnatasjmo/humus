@@ -99,13 +99,13 @@
         </v-row>
       </v-card-text>
     </v-card>
-    <div>Total Water: {{ getTotalWater }}</div>
+    <!-- <div>Total Water: {{ getTotalWater }}</div>
     <div>Total Nitrogen: {{ getTotalNitrogen }}</div>
     <div>Total Carbon: {{ getTotalCarbon }}</div>
     <div>Total Mix Nitrogen: {{ getTotalMixNitrogen }}</div>
     <div>Total Mix Carbon: {{ getTotalMixCarbon }}</div>
     <div>Total Mix Water: {{ getTotalMixWater }}</div>
-    <div>Total Wet Weight: {{ getTotalWetWeight }}</div>
+    <div>Total Wet Weight: {{ getTotalWetWeight }}</div> -->
   </div>
 </template>
 

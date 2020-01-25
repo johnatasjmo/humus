@@ -89,9 +89,6 @@ const router = new Router({
       path: '/myfeedstocks',
       name: 'My Feedstocks',
       beforeEnter: (to, from, next) => {
-        console.log('TCL: from', from)
-        console.log('TCL: to', to)
-
         if (from.name === 'Feedstocks') {
           to.meta.backRoute = 'Feedstocks'
         }
@@ -156,6 +153,17 @@ const router = new Router({
         import(
           /* webpackChunkName: "client-chunk-calculator" */ '@/views/MyRecipes.vue'
         )
+    },
+    {
+      path: '/settings',
+      name: 'Settings',
+      component: () =>
+        import(
+          /* webpackChunkName: "client-chunk-calculator" */ '@/views/Settings.vue'
+        ),
+      meta: {
+        authNotRequired: true
+      }
     }
   ]
 })

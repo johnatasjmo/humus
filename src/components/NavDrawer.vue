@@ -10,7 +10,7 @@
           Compost calculator
         </v-list-item-title>
         <v-list-item-subtitle>
-          subtext
+          {{ user ? user.email : '' }}
         </v-list-item-subtitle>
       </v-list-item-content>
     </v-list-item>
@@ -39,6 +39,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import router from '../router'
 
 export default {
@@ -100,7 +101,11 @@ export default {
         {
           icon: 'mdi-settings',
           title: 'Settings',
-          action() {}
+          action() {
+            router.push({ name: 'Settings' }).catch(err => {
+              console.log('TCL: action -> err', err)
+            })
+          }
         }
       ]
     }
@@ -113,7 +118,8 @@ export default {
       set() {
         return null
       }
-    }
+    },
+    ...mapState('authentication', ['user'])
   },
   methods: {
     checkHideDrawer(show) {

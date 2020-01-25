@@ -28,7 +28,8 @@ export default {
    */
   logout: ({ commit }) => {
     commit('setUser', null)
-    commit('products/setProducts', null, { root: true })
+    commit('recipe/setMyRecipes', [], { root: true })
+    commit('feedstocks/setMyfeedstocks', [], { root: true })
 
     const currentRouter = router.app.$route
     if (!(currentRouter.meta && currentRouter.meta.authNotRequired)) {

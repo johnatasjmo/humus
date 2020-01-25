@@ -56,7 +56,7 @@
 </template>
 
 <script>
-// import { mapActions, mapMutations } from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
 import Dialog from '@/components/Dialog'
 import RecipeRow from '@/components/RecipeRow'
 
@@ -77,8 +77,25 @@ export default {
     }
   },
   methods: {
-    doDeleteRecipe(id) {
-      console.log('TCL: doDeleteRecipe -> id', id)
+    ...mapActions('recipe', ['deleteRecipe']),
+    ...mapMutations('snackbar', ['setSnackbar']),
+    async doDeleteRecipe(id) {
+      try {
+        this.loading = true
+        await this.deleteRecipe(id)
+        this.loading = false
+
+        this.setSnackbar({
+          show: true,
+          text: 'Recipe deleted'
+        })
+      } catch (error) {
+        this.setSnackbar({
+          show: true,
+          color: 'error',
+          text: 'There was an error, please try again later'
+        })
+      }
     }
   }
 }

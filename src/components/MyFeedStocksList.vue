@@ -94,10 +94,24 @@ export default {
   methods: {
     ...mapActions('feedstocks', ['deleteFeedstock']),
     ...mapMutations('recipe', ['addIngredient']),
+    ...mapMutations('snackbar', ['setSnackbar']),
     async doDeleteFeedstock(id) {
-      this.loading = true
-      await this.deleteFeedstock(id)
-      this.loading = false
+      try {
+        this.loading = true
+        await this.deleteFeedstock(id)
+        this.loading = false
+
+        this.setSnackbar({
+          show: true,
+          text: 'Feedstock deleted'
+        })
+      } catch (error) {
+        this.setSnackbar({
+          show: true,
+          color: 'error',
+          text: 'There was an error, please try again later'
+        })
+      }
     },
     handleItemClick(feedstock) {
       if (this.toSelectFeedstock) {

@@ -19,5 +19,11 @@ export default {
     const recipes = await recipesDB.readAll([['creator', '==', userID]])
     commit('setMyRecipes', recipes)
     return recipes
+  },
+  deleteRecipe: async ({ commit }, id) => {
+    const recipesDB = new RecipesDB()
+
+    await recipesDB.delete(id)
+    commit('removeRecipe', id)
   }
 }

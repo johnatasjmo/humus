@@ -23,5 +23,7 @@ export default {
   setToWatchValue: (state, data) => (state.toWatch = data),
   addRecipeToMyRecipes: (state, recipe) =>
     (state.myRecipes = [...state.myRecipes, recipe]),
-  setMyRecipes: (state, recipes) => (state.myRecipes = recipes)
+  setMyRecipes: (state, recipes) => (state.myRecipes = recipes),
+  removeRecipe: (state, id) =>
+    (state.myRecipes = state.myRecipes.filter(r => r.id !== id))
 }

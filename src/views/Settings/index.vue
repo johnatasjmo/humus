@@ -10,9 +10,9 @@
 </template>
 
 <script>
-import Units from '@/components/Settings/Units'
-import Language from '@/components/Settings/Language'
-import Logout from '@/components/Settings/Logout'
+import Units from './Units'
+import Language from './Language'
+import Logout from './Logout'
 
 export default {
   components: {

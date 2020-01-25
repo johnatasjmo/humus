@@ -159,7 +159,7 @@ const router = new Router({
       name: 'Settings',
       component: () =>
         import(
-          /* webpackChunkName: "client-chunk-calculator" */ '@/views/Settings.vue'
+          /* webpackChunkName: "client-chunk-calculator" */ '@/views/Settings'
         ),
       meta: {
         authNotRequired: true

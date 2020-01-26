@@ -7,7 +7,7 @@
     <v-list-item>
       <v-list-item-content>
         <v-list-item-title class="title">
-          Compost calculator
+          Recipe Calculator
         </v-list-item-title>
         <v-list-item-subtitle>
           {{ user ? user.email : '' }}

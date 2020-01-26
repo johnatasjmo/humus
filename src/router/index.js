@@ -29,6 +29,10 @@ const router = new Router({
       }
     },
     {
+      path: '/index.html',
+      redirect: { name: 'Home' }
+    },
+    {
       path: '/check-login',
       name: 'check-login',
       component: CheckLogin,

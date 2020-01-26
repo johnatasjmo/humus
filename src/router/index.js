@@ -151,7 +151,7 @@ const router = new Router({
       name: 'My Recipes',
       component: () =>
         import(
-          /* webpackChunkName: "client-chunk-calculator" */ '@/views/MyRecipes.vue'
+          /* webpackChunkName: "client-chunk-my-recipes" */ '@/views/MyRecipes.vue'
         )
     },
     {
@@ -159,11 +159,18 @@ const router = new Router({
       name: 'Settings',
       component: () =>
         import(
-          /* webpackChunkName: "client-chunk-calculator" */ '@/views/Settings'
+          /* webpackChunkName: "client-chunk-settings" */ '@/views/Settings'
         ),
       meta: {
         authNotRequired: true
       }
+    },
+    {
+      path: '*',
+      component: () =>
+        import(
+          /* webpackChunkName: "client-chunk-404" */ '@/views/PageNotFound'
+        )
     }
   ]
 })

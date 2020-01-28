@@ -1,16 +1,35 @@
 <template>
   <div style="width:100%">
     <v-card style="width:100%">
-      <div class="title pa-2">
-        Feedstocks
-      </div>
+      <v-container class="pt-0 pb-0">
+        <v-row justify="space-between" class="pa-4">
+          <div class="title">
+            Feedstocks
+          </div>
+          <v-btn fab dark small color="accent">
+            <v-icon
+              dark
+              @click="
+                $router.push({
+                  name: 'Feedstocks',
+                  params: {
+                    toSelectFeedstock: true
+                  }
+                })
+              "
+              >mdi-plus</v-icon
+            >
+          </v-btn>
+        </v-row>
+      </v-container>
       <v-list>
         <v-list-item-group>
-          <v-list-item>
-            <v-list-item-content>
-              <FeedstockItem :feedstock="getWater" />
-            </v-list-item-content>
-          </v-list-item>
+          <FeedstockItem
+            v-for="(ingredient, index) in ingredients"
+            :key="index"
+            :feedstock="ingredient"
+            unit="cy"
+          />
         </v-list-item-group>
       </v-list>
     </v-card>
@@ -18,17 +37,16 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import FeedstockItem from './FeedstockItem'
 
 export default {
   components: {
     FeedstockItem
   },
-  computed: {
-    ...mapGetters('feedstocks', ['getFeedstockDetails']),
-    getWater() {
-      return this.getFeedstockDetails('water')
+  props: {
+    ingredients: {
+      type: Array,
+      required: true
     }
   }
 }

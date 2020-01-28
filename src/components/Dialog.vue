@@ -1,7 +1,7 @@
 <template>
   <v-dialog v-model="dialog" max-width="290">
     <template v-slot:activator="{ on }">
-      <div v-on="on">
+      <div v-on="on" @click.stop="">
         <slot name="activator" />
       </div>
     </template>
@@ -14,7 +14,7 @@
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <div @click="dialog = false">
+        <div @click.stop="dialog = false">
           <slot name="actions" />
         </div>
       </v-card-actions>

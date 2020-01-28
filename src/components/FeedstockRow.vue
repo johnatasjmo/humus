@@ -4,25 +4,24 @@
       class="font-weight-medium"
       v-text="feedstock.material"
     ></v-list-item-title>
-    <v-container class="pa-0">
-      <v-row justify="start">
-        <v-col cols="4" class="caption pt-1 pb-0 pr-0">
-          N = {{ feedstock.nitrogen }}%
-        </v-col>
-        <v-col cols="4" class="caption pt-1 pb-0 pr-0">
-          C = {{ feedstock.carbon }}%
-        </v-col>
-        <v-col cols="4" class="caption pt-1 pb-0 pr-0">
-          CN = {{ feedstock.cn_ratio }}
-        </v-col>
-        <v-col cols="4" class="caption pt-1 pb-0 pr-0">
-          BD = {{ feedstock.bulk_density_yd }} lb/cy
-        </v-col>
-        <v-col cols="4" class="caption pt-1 pb-0 pr-0">
-          Moisture = {{ feedstock.moisture_content }}%
-        </v-col>
-      </v-row>
-    </v-container>
+    <div class="flexContainer mt-1">
+      <p class="flexItem2 customCondensed mb-2">
+        N = {{ Math.round(feedstock.nitrogen) }}%
+      </p>
+      <p class="flexItem2 customCondensed mb-2">
+        C = {{ Math.round(feedstock.carbon) }}%
+      </p>
+      <p class="flexItem1 customCondensed mb-2">
+        CN = {{ Math.round(feedstock.cn_ratio) }}
+      </p>
+      <p class="flexItem2 customCondensed mb-2">
+        BD = {{ Math.round(feedstock.bulk_density_yd) }} lb/cy
+      </p>
+      <p class="flexItem2 customCondensed mb-2">
+        Moisture = {{ Math.round(feedstock.moisture_content) }}%
+      </p>
+      <p class="flexItem1 customCondensed mb-2"></p>
+    </div>
   </v-list-item-content>
 </template>
 
@@ -36,3 +35,24 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.customCondensed {
+  font-family: Roboto !important;
+  font-size: 0.8em !important;
+  /* font-weight: 200 !important; */
+  font-stretch: condensed !important;
+}
+.flexContainer {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.flexItem1 {
+  flex: 1 0 20%;
+}
+.flexItem2 {
+  flex: 2 0 35%;
+  margin-right: 5px;
+}
+</style>

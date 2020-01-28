@@ -69,11 +69,11 @@ const fethLocalOrOnlineData = async (
 
   if (localDataString) {
     localData = JSON.parse(localDataString)
-    console.log('TCL: localData1', localData)
+    console.log('TCL: local data', localData)
   } else {
     console.log('TCL: action', action)
     localData = await dispatch(action, null, { root: true })
-    console.log('TCL: localData2', localData)
+    console.log('TCL: server data', localData)
     localStorage.setItem(localStorageKey, JSON.stringify(localData))
   }
 

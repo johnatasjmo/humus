@@ -29,6 +29,10 @@ const router = new Router({
       }
     },
     {
+      path: '/index.html',
+      redirect: { name: 'Home' }
+    },
+    {
       path: '/check-login',
       name: 'check-login',
       component: CheckLogin,
@@ -54,6 +58,7 @@ const router = new Router({
         import(
           /* webpackChunkName: "client-chunk-feedstocks-categories" */ '@/views/FeedstocksCategories.vue'
         ),
+      props: true,
       meta: {
         authNotRequired: true
       }
@@ -93,6 +98,7 @@ const router = new Router({
         }
         next()
       },
+      props: true,
       component: () =>
         import(
           /* webpackChunkName: "client-chunk-myFeedstocks" */ '@/views/MyFeedstocks.vue'
@@ -128,7 +134,47 @@ const router = new Router({
         import(
           /* webpackChunkName: "client-chunk-calculator" */ '@/views/Calculator.vue'
         ),
-      props: true
+      props: true,
+      meta: {
+        authNotRequired: true
+      }
+    },
+    {
+      path: '/calculator/save-recipe',
+      name: 'Save Recipe',
+      component: () =>
+        import(
+          /* webpackChunkName: "client-chunk-calculator" */ '@/views/SaveRecipe.vue'
+        ),
+      meta: {
+        backRoute: 'Recipe calculator'
+      }
+    },
+    {
+      path: '/calculator/myrecipes',
+      name: 'My Recipes',
+      component: () =>
+        import(
+          /* webpackChunkName: "client-chunk-my-recipes" */ '@/views/MyRecipes.vue'
+        )
+    },
+    {
+      path: '/settings',
+      name: 'Settings',
+      component: () =>
+        import(
+          /* webpackChunkName: "client-chunk-settings" */ '@/views/Settings'
+        ),
+      meta: {
+        authNotRequired: true
+      }
+    },
+    {
+      path: '*',
+      component: () =>
+        import(
+          /* webpackChunkName: "client-chunk-404" */ '@/views/PageNotFound'
+        )
     }
   ]
 })

@@ -55,12 +55,13 @@ export default {
   },
   data() {
     return {
-      showDrawer: true
+      showDrawer: false
     }
   },
   computed: {
     ...mapGetters('app', ['newContentAvailable', 'getAppTitle']),
     ...mapState('app', ['showAddToHomeScreenModalForApple', 'refreshingApp']),
+    ...mapState('route', ['from']),
     currentAppTitle() {
       return this.getAppTitle(this.$route.name)
     },
@@ -77,7 +78,11 @@ export default {
   methods: {
     leftButtonAction() {
       if (this.$route.meta.backRoute) {
-        this.$router.push({ name: this.$route.meta.backRoute })
+        if (this.from.name === 'check-login') {
+          this.$router.push({ name: this.$route.meta.backRoute })
+        } else {
+          this.$router.go(-1)
+        }
       } else {
         this.toggleDrawer()
       }

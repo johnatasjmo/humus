@@ -1,7 +1,7 @@
 <template>
   <div style="width:100%">
-    <div v-if="myFeedstocks && myFeedstocks.length === 0" class="text-center">
-      You do not have feedstocks yet
+    <div v-if="myRecipes && myRecipes.length === 0" class="text-center">
+      You do not have recipes yet
     </div>
     <v-progress-circular
       v-else-if="loading"
@@ -13,11 +13,20 @@
       <v-list>
         <v-list-item-group>
           <v-list-item
-            v-for="feedstock in myFeedstocks"
-            :key="feedstock.id"
-            @click.native.stop="handleItemClick(feedstock)"
+            v-for="recipe in myRecipes"
+            :key="recipe.id"
+            @click.native.stop="
+              () => {
+                $router.push({
+                  name: 'Recipe calculator',
+                  params: {
+                    ingredients: recipe.recipe
+                  }
+                })
+              }
+            "
           >
-            <FeedstockRow :feedstock="feedstock" />
+            <RecipeRow :recipe="recipe" />
             <v-list-item-icon>
               <Dialog>
                 <template slot="activator">
@@ -29,14 +38,11 @@
                   Delete
                 </template>
                 <template>
-                  ¿Do you want to delete the feedstock {{ feedstock.material }}?
+                  ¿Do you want to delete the recipe {{ recipe.name }}?
                 </template>
                 <template slot="actions">
                   <v-btn text>Cancel</v-btn>
-                  <v-btn
-                    color="red"
-                    dark
-                    @click="doDeleteFeedstock(feedstock.id)"
+                  <v-btn color="red" dark @click="doDeleteRecipe(recipe.id)"
                     >Delete</v-btn
                   >
                 </template>
@@ -46,44 +52,23 @@
         </v-list-item-group>
       </v-list>
     </v-card>
-
-    <v-btn
-      class="mx-2"
-      fab
-      dark
-      color="accent"
-      fixed
-      right
-      bottom
-      @click="
-        $router.push({
-          name: 'Create Feedstock'
-        })
-      "
-    >
-      <v-icon dark>mdi-plus</v-icon>
-    </v-btn>
   </div>
 </template>
 
 <script>
 import { mapActions, mapMutations } from 'vuex'
 import Dialog from '@/components/Dialog'
-import FeedstockRow from './FeedstockRow'
+import RecipeRow from '@/components/RecipeRow'
 
 export default {
   components: {
     Dialog,
-    FeedstockRow
+    RecipeRow
   },
   props: {
-    myFeedstocks: {
+    myRecipes: {
       type: Array,
       required: true
-    },
-    toSelectFeedstock: {
-      type: Boolean,
-      default: false
     }
   },
   data() {
@@ -92,18 +77,17 @@ export default {
     }
   },
   methods: {
-    ...mapActions('feedstocks', ['deleteFeedstock']),
-    ...mapMutations('recipe', ['addIngredient']),
+    ...mapActions('recipe', ['deleteRecipe']),
     ...mapMutations('snackbar', ['setSnackbar']),
-    async doDeleteFeedstock(id) {
+    async doDeleteRecipe(id) {
       try {
         this.loading = true
-        await this.deleteFeedstock(id)
+        await this.deleteRecipe(id)
         this.loading = false
 
         this.setSnackbar({
           show: true,
-          text: 'Feedstock deleted'
+          text: 'Recipe deleted'
         })
       } catch (error) {
         this.setSnackbar({
@@ -112,28 +96,9 @@ export default {
           text: 'There was an error, please try again later'
         })
       }
-    },
-    handleItemClick(feedstock) {
-      if (this.toSelectFeedstock) {
-        this.addIngredient(feedstock)
-
-        this.$router.replace({
-          name: 'Recipe calculator',
-          params: {
-            id: feedstock.id
-          }
-        })
-      } else {
-        this.$router.push({
-          name: 'My feedstock',
-          params: {
-            id: feedstock.id
-          }
-        })
-      }
     }
   }
 }
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped></style>

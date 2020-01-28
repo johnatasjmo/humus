@@ -7,11 +7,11 @@
     ></v-progress-circular>
     <v-stepper v-else v-model="stepper">
       <v-stepper-header>
-        <v-stepper-step
-          :complete="stepper > 1"
-          step="1"
-          editable
-        ></v-stepper-step>
+        <v-stepper-step :complete="stepper > 1" step="1" editable>
+        </v-stepper-step>
+        <v-row align="center" style="width: 20px; max-width:80px">
+          step 1
+        </v-row>
 
         <v-divider></v-divider>
 
@@ -20,6 +20,9 @@
           step="2"
           :editable="stepper > 2"
         ></v-stepper-step>
+        <v-row align="center" style="width: 20px; max-width:80px">
+          step 2
+        </v-row>
       </v-stepper-header>
 
       <v-stepper-items>
@@ -53,15 +56,26 @@ export default {
     }
   },
   computed: {
-    ...mapState('authentication', ['user'])
+    ...mapState('authentication', ['user']),
+    ...mapState('feedstocks', ['myFeedstocks'])
   },
   methods: {
     ...mapActions('feedstocks', ['insertFeedstock']),
     ...mapMutations('feedstocks', ['addFeedstockToMyFeedstocks']),
     ...mapMutations('snackbar', ['setSnackbar']),
     async createFeedstock(values) {
+      if (this.myFeedstocks.length >= 10) {
+        this.setSnackbar({
+          show: true,
+          color: 'error',
+          text: 'You have reached the limit of 10 feedstocks'
+        })
+        return
+      }
+
       this.setValues(values)
       this.addExtraValues()
+
       try {
         this.loading = true
 
@@ -79,9 +93,6 @@ export default {
             id: newFeedstock.id
           }
         })
-        /*  this.$router.replace({
-          name: 'My Feedstocks'
-        }) */
       } catch (error) {
         this.loading = false
         console.error('TCL: createFeedstock -> error', error)

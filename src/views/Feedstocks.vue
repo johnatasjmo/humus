@@ -4,7 +4,11 @@
     indeterminate
     color="green"
   ></v-progress-circular>
-  <FeedStocksByCategory v-else :feedstocks="feedstocks" />
+  <FeedStocksByCategory
+    v-else
+    :feedstocks="feedstocks"
+    :to-select-feedstock="toSelectFeedstock"
+  />
 </template>
 
 <script>
@@ -14,6 +18,12 @@ import FeedStocksByCategory from '@/components/FeedstocksByCategoryList'
 export default {
   components: {
     FeedStocksByCategory
+  },
+  props: {
+    toSelectFeedstock: {
+      type: Boolean,
+      default: false
+    }
   },
   computed: {
     ...mapGetters('feedstocks', ['getFeedstocksByCategoryId']),

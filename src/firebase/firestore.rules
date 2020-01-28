@@ -38,5 +38,12 @@ service cloud.firestore {
       allow get: if true;
       allow list: if true;
     }
+
+    match /recipes/{recipeId} {
+      allow get: if true;
+      allow list: if true;
+      allow create: if authenticated();
+      allow update, delete: if authenticated();
+    }
   }
 }

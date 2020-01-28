@@ -18,6 +18,9 @@ export default {
 
     // Getting My feedstocks from firestore
     await dispatch('feedstocks/getMyFeedstocks', null, { root: true })
+
+    // Getting My Recipes from firestore
+    await dispatch('recipe/getMyRecipes', null, { root: true })
   },
 
   /**
@@ -25,7 +28,8 @@ export default {
    */
   logout: ({ commit }) => {
     commit('setUser', null)
-    commit('products/setProducts', null, { root: true })
+    commit('recipe/setMyRecipes', [], { root: true })
+    commit('feedstocks/setMyfeedstocks', [], { root: true })
 
     const currentRouter = router.app.$route
     if (!(currentRouter.meta && currentRouter.meta.authNotRequired)) {

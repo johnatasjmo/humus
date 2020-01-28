@@ -16,7 +16,7 @@ export default {
         if (user === undefined) return
 
         if (this.$route.query.redirectUrl === this.$route.path) {
-          this.$router.push('/')
+          this.$router.push({ name: 'Home' })
         }
 
         const redirectUrl = isNil(user)

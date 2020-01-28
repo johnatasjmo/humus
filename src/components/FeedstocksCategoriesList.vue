@@ -3,7 +3,14 @@
     <v-card style="width:100%">
       <v-list>
         <v-list-item-group>
-          <v-list-item @click="$router.push({ name: 'My Feedstocks' })">
+          <v-list-item
+            @click="
+              $router.push({
+                name: 'My Feedstocks',
+                params: { toSelectFeedstock }
+              })
+            "
+          >
             <v-list-item-icon>
               <v-icon v-text="'mdi-star'"></v-icon>
             </v-list-item-icon>
@@ -20,7 +27,11 @@
             @click="
               $router.push({
                 name: 'Material',
-                params: { categoryId: category.id, categoryName: category.name }
+                params: {
+                  categoryId: category.id,
+                  categoryName: category.name,
+                  toSelectFeedstock
+                }
               })
             "
           >
@@ -46,6 +57,10 @@ export default {
     feedstocksCategories: {
       type: Array,
       required: true
+    },
+    toSelectFeedstock: {
+      type: Boolean,
+      default: false
     }
   }
 }

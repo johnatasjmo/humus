@@ -1,5 +1,8 @@
 <template>
-  <FeedstocksCategoriesList :feedstocks-categories="feedstocksCategories" />
+  <FeedstocksCategoriesList
+    :feedstocks-categories="feedstocksCategories"
+    :to-select-feedstock="toSelectFeedstock"
+  />
 </template>
 
 <script>
@@ -9,6 +12,12 @@ import FeedstocksCategoriesList from '@/components/FeedstocksCategoriesList'
 export default {
   components: {
     FeedstocksCategoriesList
+  },
+  props: {
+    toSelectFeedstock: {
+      type: Boolean,
+      default: false
+    }
   },
   computed: {
     ...mapState('feedstocks', ['feedstocksCategories'])

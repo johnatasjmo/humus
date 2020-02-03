@@ -11,7 +11,7 @@
       </v-row>
       <v-row justify="center" class="mt-5">
         <v-btn color="primary" large disabled>
-          Sponsor: Your Logo/Link Here
+          Sponsor: Your Logo/Link Here 2
         </v-btn>
       </v-row>
       <v-row justify="center" class="mt-5">

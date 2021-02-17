@@ -104,8 +104,8 @@ export default {
   props: {
     feedstocks: {
       type: Array,
-      required: true,
-    },
+      required: true
+    }
   },
   computed: {
     ...mapState('recipe', ['toWatch']),
@@ -143,9 +143,9 @@ export default {
     getTotalMixWater() {
       console.log(this.toWatch)
 
-      const water = this.feedstocks.find((f) => f.id === 'water')
+      const water = this.feedstocks.find(f => f.id === 'water')
       const feedstocksWithoutWater = this.feedstocks.filter(
-        (f) => f.id !== 'water'
+        f => f.id !== 'water'
       )
 
       const part1 = feedstocksWithoutWater.reduce(
@@ -162,9 +162,9 @@ export default {
     getTotalWetWeight() {
       console.log(this.toWatch)
 
-      const water = this.feedstocks.find((f) => f.id === 'water')
+      const water = this.feedstocks.find(f => f.id === 'water')
       const feedstocksWithoutWater = this.feedstocks.filter(
-        (f) => f.id !== 'water'
+        f => f.id !== 'water'
       )
 
       const part1 = feedstocksWithoutWater.reduce(
@@ -184,9 +184,9 @@ export default {
       return ((this.getTotalMixWater / this.getTotalWetWeight) * 100).toFixed(1)
     },
     getBulkDensity() {
-      // const water = this.feedstocks.find((f) => f.id === 'water')
+      // const water = this.feedstocks.find(f => f.id === 'water')
       const feedstocksWithoutWater = this.feedstocks.filter(
-        (f) => f.id !== 'water'
+        f => f.id !== 'water'
       )
       const totalQuantitiesWithoutWater = feedstocksWithoutWater.reduce(
         (acc, f) => {
@@ -198,7 +198,7 @@ export default {
       return totalQuantitiesWithoutWater === 0
         ? 0
         : Math.round(this.getTotalWetWeight / totalQuantitiesWithoutWater)
-    },
+    }
   },
   methods: {
     ...mapMutations('recipe', ['clearIngredients', 'addIngredient']),
@@ -227,8 +227,8 @@ export default {
     },
     getMix(value, quantity) {
       return value * quantity
-    },
-  },
+    }
+  }
 }
 </script>
 

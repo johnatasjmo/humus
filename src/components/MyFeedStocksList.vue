@@ -55,7 +55,7 @@
       bottom
       @click="
         $router.push({
-          name: 'Create Feedstock',
+          name: 'Create Feedstock'
         })
       "
     >
@@ -72,21 +72,21 @@ import FeedstockRow from './FeedstockRow'
 export default {
   components: {
     Dialog,
-    FeedstockRow,
+    FeedstockRow
   },
   props: {
     myFeedstocks: {
       type: Array,
-      required: true,
+      required: true
     },
     toSelectFeedstock: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   data() {
     return {
-      loading: false,
+      loading: false
     }
   },
   methods: {
@@ -101,13 +101,13 @@ export default {
 
         this.setSnackbar({
           show: true,
-          text: 'Feedstock deleted',
+          text: 'Feedstock deleted'
         })
       } catch (error) {
         this.setSnackbar({
           show: true,
           color: 'error',
-          text: 'There was an error, please try again later',
+          text: 'There was an error, please try again later'
         })
       }
     },
@@ -118,19 +118,19 @@ export default {
         this.$router.replace({
           name: 'Recipe calculator',
           params: {
-            id: feedstock.id,
-          },
+            id: feedstock.id
+          }
         })
       } else {
         this.$router.push({
           name: 'My feedstock',
           params: {
-            id: feedstock.id,
-          },
+            id: feedstock.id
+          }
         })
       }
-    },
-  },
+    }
+  }
 }
 </script>
 

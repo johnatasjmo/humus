@@ -44,7 +44,9 @@ const router = new Router({
       path: '/login',
       name: 'login',
       component: () =>
-        import(/* webpackChunkName: "client-chunk-login" */ '@/views/Login.vue'),
+        import(
+          /* webpackChunkName: "client-chunk-login" */ '@/views/Login.vue'
+        ),
       meta: {
         authNotRequired: true
       }
@@ -53,7 +55,9 @@ const router = new Router({
       path: '/feedstocks',
       name: 'Feedstocks',
       component: () =>
-        import(/* webpackChunkName: "client-chunk-feedstocks-categories" */ '@/views/FeedstocksCategories.vue'),
+        import(
+          /* webpackChunkName: "client-chunk-feedstocks-categories" */ '@/views/FeedstocksCategories.vue'
+        ),
       props: true,
       meta: {
         authNotRequired: true
@@ -63,7 +67,9 @@ const router = new Router({
       path: '/feedstocks/:categoryId',
       name: 'Material',
       component: () =>
-        import(/* webpackChunkName: "client-chunk-feedstocks" */ '@/views/Feedstocks.vue'),
+        import(
+          /* webpackChunkName: "client-chunk-feedstocks" */ '@/views/Feedstocks.vue'
+        ),
       props: true,
       meta: {
         authNotRequired: true,
@@ -74,7 +80,9 @@ const router = new Router({
       path: '/feedstocks/:categoryId/:id',
       name: 'Feedstock',
       component: () =>
-        import(/* webpackChunkName: "client-chunk-feedstock-details" */ '@/views/FeedstockDetails.vue'),
+        import(
+          /* webpackChunkName: "client-chunk-feedstock-details" */ '@/views/FeedstockDetails.vue'
+        ),
       props: true,
       meta: {
         authNotRequired: true,
@@ -92,13 +100,17 @@ const router = new Router({
       },
       props: true,
       component: () =>
-        import(/* webpackChunkName: "client-chunk-myFeedstocks" */ '@/views/MyFeedstocks.vue')
+        import(
+          /* webpackChunkName: "client-chunk-myFeedstocks" */ '@/views/MyFeedstocks.vue'
+        )
     },
     {
       path: '/myfeedstocks/create',
       name: 'Create Feedstock',
       component: () =>
-        import(/* webpackChunkName: "client-chunk-myFeedstocks-create" */ '@/views/CreateFeedstock.vue'),
+        import(
+          /* webpackChunkName: "client-chunk-myFeedstocks-create" */ '@/views/CreateFeedstock.vue'
+        ),
       meta: {
         backRoute: 'My Feedstocks'
       }
@@ -107,7 +119,9 @@ const router = new Router({
       path: '/myfeedstocks/:id',
       name: 'My feedstock',
       component: () =>
-        import(/* webpackChunkName: "client-chunk-my-feedstock-details" */ '@/views/FeedstockDetails.vue'),
+        import(
+          /* webpackChunkName: "client-chunk-my-feedstock-details" */ '@/views/FeedstockDetails.vue'
+        ),
       props: true,
       meta: {
         backRoute: 'My Feedstocks'
@@ -117,7 +131,9 @@ const router = new Router({
       path: '/calculator',
       name: 'Recipe calculator',
       component: () =>
-        import(/* webpackChunkName: "client-chunk-calculator" */ '@/views/Calculator.vue'),
+        import(
+          /* webpackChunkName: "client-chunk-calculator" */ '@/views/Calculator.vue'
+        ),
       props: true,
       meta: {
         authNotRequired: true
@@ -127,7 +143,9 @@ const router = new Router({
       path: '/calculator/save-recipe',
       name: 'Save Recipe',
       component: () =>
-        import(/* webpackChunkName: "client-chunk-calculator" */ '@/views/SaveRecipe.vue'),
+        import(
+          /* webpackChunkName: "client-chunk-calculator" */ '@/views/SaveRecipe.vue'
+        ),
       meta: {
         backRoute: 'Recipe calculator'
       }
@@ -136,13 +154,17 @@ const router = new Router({
       path: '/calculator/myrecipes',
       name: 'My Recipes',
       component: () =>
-        import(/* webpackChunkName: "client-chunk-my-recipes" */ '@/views/MyRecipes.vue')
+        import(
+          /* webpackChunkName: "client-chunk-my-recipes" */ '@/views/MyRecipes.vue'
+        )
     },
     {
       path: '/settings',
       name: 'Settings',
       component: () =>
-        import(/* webpackChunkName: "client-chunk-settings" */ '@/views/Settings'),
+        import(
+          /* webpackChunkName: "client-chunk-settings" */ '@/views/Settings'
+        ),
       meta: {
         authNotRequired: true
       }
@@ -159,7 +181,9 @@ const router = new Router({
     {
       path: '*',
       component: () =>
-        import(/* webpackChunkName: "client-chunk-404" */ '@/views/PageNotFound')
+        import(
+          /* webpackChunkName: "client-chunk-404" */ '@/views/PageNotFound'
+        )
     }
   ]
 })

@@ -27,11 +27,11 @@
 
       <v-stepper-items>
         <v-stepper-content step="1">
-          <Form1 @formValid="(values) => nextStep(values)" />
+          <Form1 @formValid="values => nextStep(values)" />
         </v-stepper-content>
 
         <v-stepper-content step="2">
-          <Form2 @formValid="(values) => createFeedstock(values)" />
+          <Form2 @formValid="values => createFeedstock(values)" />
         </v-stepper-content>
       </v-stepper-items>
     </v-stepper>
@@ -46,18 +46,18 @@ import Form2 from './Form2'
 export default {
   components: {
     Form1,
-    Form2,
+    Form2
   },
   data() {
     return {
       stepper: 1,
       values: {},
-      loading: false,
+      loading: false
     }
   },
   computed: {
     ...mapState('authentication', ['user']),
-    ...mapState('feedstocks', ['myFeedstocks']),
+    ...mapState('feedstocks', ['myFeedstocks'])
   },
   methods: {
     ...mapActions('feedstocks', ['insertFeedstock']),
@@ -68,7 +68,7 @@ export default {
         this.setSnackbar({
           show: true,
           color: 'error',
-          text: 'You have reached the limit of 10 feedstocks',
+          text: 'You have reached the limit of 10 feedstocks'
         })
         return
       }
@@ -85,13 +85,13 @@ export default {
         this.loading = false
         this.setSnackbar({
           show: true,
-          text: 'Feedstock created!',
+          text: 'Feedstock created!'
         })
         this.$router.replace({
           name: 'My feedstock',
           params: {
-            id: newFeedstock.id,
-          },
+            id: newFeedstock.id
+          }
         })
       } catch (error) {
         this.loading = false
@@ -99,7 +99,7 @@ export default {
         this.setSnackbar({
           show: true,
           color: 'error',
-          text: 'there was an error creating the feedstock',
+          text: 'there was an error creating the feedstock'
         })
       }
     },
@@ -110,7 +110,7 @@ export default {
     setValues(values) {
       this.values = {
         ...values,
-        ...this.values,
+        ...this.values
       }
     },
     addExtraValues() {
@@ -122,10 +122,10 @@ export default {
         ...this.values,
         bulk_density_m,
         creator: this.user.id,
-        public: true,
+        public: true
       }
-    },
-  },
+    }
+  }
 }
 </script>
 

@@ -28,9 +28,9 @@ export default {
   props: {
     feedstock: {
       type: Object,
-      required: true,
-    },
-  },
+      required: true
+    }
+  }
 }
 </script>
 

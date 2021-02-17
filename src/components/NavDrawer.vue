@@ -6,9 +6,7 @@
   >
     <v-list-item>
       <v-list-item-content>
-        <v-list-item-title class="title">
-          Recipe Calculator
-        </v-list-item-title>
+        <v-list-item-title class="title"> Recipe Calculator </v-list-item-title>
         <v-list-item-subtitle>
           {{ user ? user.email : '' }}
         </v-list-item-subtitle>
@@ -46,8 +44,8 @@ export default {
   props: {
     showDrawer: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   data() {
     return {
@@ -57,57 +55,57 @@ export default {
           icon: 'mdi-home',
           title: 'Home',
           action() {
-            router.push({ name: 'Home' }).catch(err => {
+            router.push({ name: 'Home' }).catch((err) => {
               console.log('TCL: action -> err', err)
             })
-          }
+          },
         },
         {
           icon: 'mdi-calculator',
           title: 'Calculator',
           action() {
-            router.push({ name: 'Recipe calculator' }).catch(err => {
+            router.push({ name: 'Recipe calculator' }).catch((err) => {
               console.log('TCL: action -> err', err)
             })
-          }
+          },
         },
         {
           icon: 'mdi-format-list-bulleted',
           title: 'Feedstocks',
           action() {
-            router.push({ name: 'Feedstocks' }).catch(err => {
+            router.push({ name: 'Feedstocks' }).catch((err) => {
               console.log('TCL: action -> err', err)
             })
-          }
+          },
         },
         {
           icon: 'mdi-star',
           title: 'myFeedstocks',
           action() {
-            router.push({ name: 'My Feedstocks' }).catch(err => {
+            router.push({ name: 'My Feedstocks' }).catch((err) => {
               console.log('TCL: action -> err', err)
             })
-          }
+          },
         },
         {
           icon: 'mdi-chart-bar',
           title: 'myRecipes',
           action() {
-            router.push({ name: 'My Recipes' }).catch(err => {
+            router.push({ name: 'My Recipes' }).catch((err) => {
               console.log('TCL: action -> err', err)
             })
-          }
+          },
         },
         {
           icon: 'mdi-settings',
           title: 'Settings',
           action() {
-            router.push({ name: 'Settings' }).catch(err => {
+            router.push({ name: 'Settings' }).catch((err) => {
               console.log('TCL: action -> err', err)
             })
-          }
-        }
-      ]
+          },
+        },
+      ],
     }
   },
   computed: {
@@ -117,17 +115,17 @@ export default {
       },
       set() {
         return null
-      }
+      },
     },
-    ...mapState('authentication', ['user'])
+    ...mapState('authentication', ['user']),
   },
   methods: {
     checkHideDrawer(show) {
       if (!show) {
         this.$emit('closeDrawer')
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

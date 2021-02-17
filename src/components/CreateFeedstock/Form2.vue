@@ -55,9 +55,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <v-btn color="accent" block @click="validate">
-      Create feedstock
-    </v-btn>
+    <v-btn color="accent" block @click="validate"> Create feedstock </v-btn>
   </v-form>
 </template>
 
@@ -66,38 +64,40 @@ import { mask } from 'vue-the-mask'
 
 export default {
   directives: {
-    mask
+    mask,
   },
   data() {
     return {
       valid: false,
       formMasks: {
         twoDigitsTwoDecimals: '##.##',
-        twoDigitsOneDecimal: '##.#'
+        twoDigitsOneDecimal: '##.#',
       },
       formValues: {
         nitrogen: null,
         carbon: null,
         cn_ratio: null,
         moisture_content: null,
-        bulk_density_yd: null
+        bulk_density_yd: null,
       },
       validations: {
-        nitrogenRules: [v => !!v || 'Nitrogen is required'],
-        carbonRules: [v => !!v || 'Carbon is required'],
+        nitrogenRules: [(v) => !!v || 'Nitrogen is required'],
+        carbonRules: [(v) => !!v || 'Carbon is required'],
         cnRatioRules: [
-          v => !!v || 'C:N ratio is required',
-          v => /^-?\d*(\.\d+)?$/.test(v) || 'C:N ratio must be a valid number',
-          v => (v && v <= 1500) || 'C:N ratio must be less than 1500'
+          (v) => !!v || 'C:N ratio is required',
+          (v) =>
+            /^-?\d*(\.\d+)?$/.test(v) || 'C:N ratio must be a valid number',
+          (v) => (v && v <= 1500) || 'C:N ratio must be less than 1500',
         ],
-        moistureContentRules: [v => !!v || 'Moisture content is required'],
+        moistureContentRules: [(v) => !!v || 'Moisture content is required'],
         bulkDensityRules: [
-          v => !!v || 'Bulk density is required',
-          v =>
+          (v) => !!v || 'Bulk density is required',
+          (v) =>
             /^-?\d*(\.\d+)?$/.test(v) || 'Bulk density must be a valid number',
-          v => (v && v.length <= 100) || 'Name must be less than 10 characters'
-        ]
-      }
+          (v) =>
+            (v && v.length <= 100) || 'Name must be less than 10 characters',
+        ],
+      },
     }
   },
   methods: {
@@ -105,8 +105,8 @@ export default {
       if (this.$refs.form.validate()) {
         this.$emit('formValid', this.formValues)
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

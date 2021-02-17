@@ -1,5 +1,5 @@
 <template>
-  <div style="width:100%">
+  <div style="width: 100%">
     <div v-if="myFeedstocks && myFeedstocks.length === 0" class="text-center">
       You do not have feedstocks yet
     </div>
@@ -7,7 +7,7 @@
       v-else-if="loading"
       indeterminate
       color="green"
-      style="width:100%"
+      style="width: 100%"
     ></v-progress-circular>
     <v-card v-else>
       <v-list>
@@ -25,9 +25,7 @@
                     <v-icon>mdi-delete</v-icon>
                   </v-btn>
                 </template>
-                <template slot="title">
-                  Delete
-                </template>
+                <template slot="title"> Delete </template>
                 <template>
                   ¿Do you want to delete the feedstock {{ feedstock.material }}?
                 </template>
@@ -57,7 +55,7 @@
       bottom
       @click="
         $router.push({
-          name: 'Create Feedstock'
+          name: 'Create Feedstock',
         })
       "
     >
@@ -74,21 +72,21 @@ import FeedstockRow from './FeedstockRow'
 export default {
   components: {
     Dialog,
-    FeedstockRow
+    FeedstockRow,
   },
   props: {
     myFeedstocks: {
       type: Array,
-      required: true
+      required: true,
     },
     toSelectFeedstock: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
-      loading: false
+      loading: false,
     }
   },
   methods: {
@@ -103,13 +101,13 @@ export default {
 
         this.setSnackbar({
           show: true,
-          text: 'Feedstock deleted'
+          text: 'Feedstock deleted',
         })
       } catch (error) {
         this.setSnackbar({
           show: true,
           color: 'error',
-          text: 'There was an error, please try again later'
+          text: 'There was an error, please try again later',
         })
       }
     },
@@ -120,19 +118,19 @@ export default {
         this.$router.replace({
           name: 'Recipe calculator',
           params: {
-            id: feedstock.id
-          }
+            id: feedstock.id,
+          },
         })
       } else {
         this.$router.push({
           name: 'My feedstock',
           params: {
-            id: feedstock.id
-          }
+            id: feedstock.id,
+          },
         })
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

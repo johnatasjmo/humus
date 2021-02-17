@@ -6,11 +6,9 @@
     ></v-list-item-title>
     <div class="flexContainer mt-1">
       <p class="flexItem2 customCondensed mb-2">
-        N = {{ Math.round(feedstock.nitrogen) }}%
+        N = {{ feedstock.nitrogen }}%
       </p>
-      <p class="flexItem2 customCondensed mb-2">
-        C = {{ Math.round(feedstock.carbon) }}%
-      </p>
+      <p class="flexItem2 customCondensed mb-2">C = {{ feedstock.carbon }}%</p>
       <p class="flexItem1 customCondensed mb-2">
         CN = {{ Math.round(feedstock.cn_ratio) }}
       </p>
@@ -30,9 +28,9 @@ export default {
   props: {
     feedstock: {
       type: Object,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 }
 </script>
 

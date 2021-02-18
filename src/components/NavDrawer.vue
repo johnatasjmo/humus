@@ -6,9 +6,7 @@
   >
     <v-list-item>
       <v-list-item-content>
-        <v-list-item-title class="title">
-          Recipe Calculator
-        </v-list-item-title>
+        <v-list-item-title class="title"> Recipe Calculator </v-list-item-title>
         <v-list-item-subtitle>
           {{ user ? user.email : '' }}
         </v-list-item-subtitle>

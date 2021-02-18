@@ -19,6 +19,9 @@
           Contact us
         </v-btn>
       </v-row>
+      <v-row justify="center" style="margin-top: 100px">
+        <a href="/about"> About us</a>
+      </v-row>
     </div>
   </div>
 </template>
@@ -34,8 +37,8 @@ export default {
     this.clearCustomAppBarTitle(null)
   },
   methods: {
-    ...mapMutations('app', ['setCustomAppBarTitle', 'clearCustomAppBarTitle'])
-  }
+    ...mapMutations('app', ['setCustomAppBarTitle', 'clearCustomAppBarTitle']),
+  },
 }
 </script>
 

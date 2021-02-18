@@ -9,7 +9,7 @@
       <v-stepper-header>
         <v-stepper-step :complete="stepper > 1" step="1" editable>
         </v-stepper-step>
-        <v-row align="center" style="width: 20px; max-width:80px">
+        <v-row align="center" style="width: 20px; max-width: 80px">
           step 1
         </v-row>
 
@@ -20,7 +20,7 @@
           step="2"
           :editable="stepper > 2"
         ></v-stepper-step>
-        <v-row align="center" style="width: 20px; max-width:80px">
+        <v-row align="center" style="width: 20px; max-width: 80px">
           step 2
         </v-row>
       </v-stepper-header>

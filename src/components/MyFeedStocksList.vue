@@ -1,5 +1,5 @@
 <template>
-  <div style="width:100%">
+  <div style="width: 100%">
     <div v-if="myFeedstocks && myFeedstocks.length === 0" class="text-center">
       You do not have feedstocks yet
     </div>
@@ -7,7 +7,7 @@
       v-else-if="loading"
       indeterminate
       color="green"
-      style="width:100%"
+      style="width: 100%"
     ></v-progress-circular>
     <v-card v-else>
       <v-list>
@@ -25,9 +25,7 @@
                     <v-icon>mdi-delete</v-icon>
                   </v-btn>
                 </template>
-                <template slot="title">
-                  Delete
-                </template>
+                <template slot="title"> Delete </template>
                 <template>
                   ¿Do you want to delete the feedstock {{ feedstock.material }}?
                 </template>

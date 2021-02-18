@@ -170,6 +170,15 @@ const router = new Router({
       }
     },
     {
+      path: '/about',
+      name: 'About',
+      component: () =>
+        import(/* webpackChunkName: "client-chunk-settings" */ '@/views/About'),
+      meta: {
+        authNotRequired: true
+      }
+    },
+    {
       path: '*',
       component: () =>
         import(

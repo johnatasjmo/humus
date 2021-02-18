@@ -5,9 +5,8 @@
         <v-col cols="12" md="6">
           <v-text-field
             v-model="formValues.nitrogen"
-            v-mask="formMasks.twoDigitsTwoDecimals"
             :rules="validations.nitrogenRules"
-            inputmode="numeric"
+            type="number"
             label="Nitrogen (% dry weight)"
             placeholder="00.00"
             required
@@ -16,9 +15,8 @@
         <v-col cols="12" md="6">
           <v-text-field
             v-model="formValues.carbon"
-            v-mask="formMasks.twoDigitsTwoDecimals"
             :rules="validations.carbonRules"
-            inputmode="numeric"
+            type="number"
             label="Carbon (Total, % dry weight)"
             placeholder="00.00"
             required
@@ -28,7 +26,7 @@
           <v-text-field
             v-model="formValues.cn_ratio"
             :rules="validations.cnRatioRules"
-            inputmode="numeric"
+            type="number"
             label="C:N ratio"
             required
           ></v-text-field>
@@ -36,9 +34,8 @@
         <v-col cols="12" md="6">
           <v-text-field
             v-model="formValues.moisture_content"
-            v-mask="formMasks.twoDigitsOneDecimal"
             :rules="validations.moistureContentRules"
-            inputmode="numeric"
+            type="number"
             label="Moisture (%)"
             placeholder="00.0"
             required
@@ -48,16 +45,14 @@
           <v-text-field
             v-model="formValues.bulk_density_yd"
             :rules="validations.bulkDensityRules"
-            inputmode="numeric"
+            type="number"
             label="Bulk Density (lb/cy)"
             required
           ></v-text-field>
         </v-col>
       </v-row>
     </v-container>
-    <v-btn color="accent" block @click="validate">
-      Create feedstock
-    </v-btn>
+    <v-btn color="accent" block @click="validate"> Create feedstock </v-btn>
   </v-form>
 </template>
 

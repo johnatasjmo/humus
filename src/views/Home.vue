@@ -19,6 +19,9 @@
           Contact us
         </v-btn>
       </v-row>
+      <v-row justify="center" style="margin-top: 100px">
+        <a href="/about"> About us</a>
+      </v-row>
     </div>
   </div>
 </template>

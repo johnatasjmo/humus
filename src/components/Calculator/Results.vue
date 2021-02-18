@@ -1,15 +1,13 @@
 <template>
-  <div style="width:100%">
-    <v-card style="width:100%">
+  <div style="width: 100%">
+    <v-card style="width: 100%">
       <div
-        class="d-flex justify-space-between "
+        class="d-flex justify-space-between"
         style="background-color: #087f23; color: white"
       >
         <div>
-          <v-card-title class="title">
-            Recipe Results
-          </v-card-title>
-          <v-card-subtitle style="color:white">
+          <v-card-title class="title"> Recipe Results </v-card-title>
+          <v-card-subtitle style="color: white">
             {{ feedstocks.length - 1 }} feedstocks
           </v-card-subtitle>
         </div>
@@ -34,59 +32,49 @@
             <span class="font-weight-bold"> </span>
           </v-col>
           <v-col cols="4" class="pr-0 pb-0 pl-1">
-            <span class="font-weight-bold" style="color:black">
-              Results
-            </span>
+            <span class="font-weight-bold" style="color: black"> Results </span>
           </v-col>
           <v-col cols="4" class="pr-0 pb-0 pl-1">
-            <span class="font-weight-bold text-truncate">
-              Recommended
-            </span>
+            <span class="font-weight-bold text-truncate"> Recommended </span>
           </v-col>
           <v-col cols="4" class="pr-0 pb-0 pl-1">
-            <span class="font-weight-bold" style="color:black">
+            <span class="font-weight-bold" style="color: black">
               Moisture C:N
             </span>
           </v-col>
           <v-col cols="4" class="pr-0 pb-0 pl-1">
-            <span class="font-weight-bold" style="color:black">
+            <span class="font-weight-bold" style="color: black">
               {{ getMixCN }}:1
             </span>
           </v-col>
           <v-col cols="4" class="pr-0 pb-0 pl-1">
-            <span class="font-weight-bold">
-              20:1 - 40:1
-            </span>
+            <span class="font-weight-bold"> 20:1 - 40:1 </span>
           </v-col>
           <v-col cols="4" class="pr-0 pb-0 pl-1">
-            <span class="font-weight-bold" style="color:black">
+            <span class="font-weight-bold" style="color: black">
               Moisture
             </span>
           </v-col>
           <v-col cols="4" class="pr-0 pb-0 pl-1">
-            <span class="font-weight-bold" style="color:black">
+            <span class="font-weight-bold" style="color: black">
               {{ getMixMoisture }}%
             </span>
           </v-col>
           <v-col cols="4" class="pr-0 pb-0 pl-1">
-            <span class="font-weight-bold">
-              40 - 65%
-            </span>
+            <span class="font-weight-bold"> 40 - 65% </span>
           </v-col>
           <v-col cols="4" class="pr-0 pb-0 pl-1">
-            <span class="font-weight-bold" style="color:black">
+            <span class="font-weight-bold" style="color: black">
               Bulk density
             </span>
           </v-col>
           <v-col cols="4" class="pr-0 pb-0 pl-1">
-            <span class="font-weight-bold" style="color:black">
+            <span class="font-weight-bold" style="color: black">
               {{ getBulkDensity }} lb/cy
             </span>
           </v-col>
           <v-col cols="4" class="pr-0 pb-0 pl-1">
-            <span class="font-weight-bold">
-              800 - 1,000 lb/cy
-            </span>
+            <span class="font-weight-bold"> 800 - 1,000 lb/cy </span>
           </v-col>
         </v-row>
         <v-row justify="center" class="pt-4">
@@ -196,7 +184,7 @@ export default {
       return ((this.getTotalMixWater / this.getTotalWetWeight) * 100).toFixed(1)
     },
     getBulkDensity() {
-      const water = this.feedstocks.find(f => f.id === 'water')
+      // const water = this.feedstocks.find(f => f.id === 'water')
       const feedstocksWithoutWater = this.feedstocks.filter(
         f => f.id !== 'water'
       )
@@ -206,11 +194,10 @@ export default {
         },
         0
       )
-
-      return Math.round(
-        this.getTotalWetWeight /
-          (totalQuantitiesWithoutWater + water.quantity / 202)
-      )
+      console.log('total', totalQuantitiesWithoutWater)
+      return totalQuantitiesWithoutWater === 0
+        ? 0
+        : Math.round(this.getTotalWetWeight / totalQuantitiesWithoutWater)
     }
   },
   methods: {

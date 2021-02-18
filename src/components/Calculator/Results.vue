@@ -184,7 +184,7 @@ export default {
       return ((this.getTotalMixWater / this.getTotalWetWeight) * 100).toFixed(1)
     },
     getBulkDensity() {
-      // const water = this.feedstocks.find(f => f.id === 'water')
+      const water = this.feedstocks.find(f => f.id === 'water')
       const feedstocksWithoutWater = this.feedstocks.filter(
         f => f.id !== 'water'
       )
@@ -194,10 +194,10 @@ export default {
         },
         0
       )
-      console.log('total', totalQuantitiesWithoutWater)
-      return totalQuantitiesWithoutWater === 0
-        ? 0
-        : Math.round(this.getTotalWetWeight / totalQuantitiesWithoutWater)
+      return Math.round(
+        this.getTotalWetWeight /
+          (totalQuantitiesWithoutWater + water.quantity * 0)
+      )
     }
   },
   methods: {

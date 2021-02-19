@@ -37,8 +37,8 @@ export default {
     this.clearCustomAppBarTitle(null)
   },
   methods: {
-    ...mapMutations('app', ['setCustomAppBarTitle', 'clearCustomAppBarTitle']),
-  },
+    ...mapMutations('app', ['setCustomAppBarTitle', 'clearCustomAppBarTitle'])
+  }
 }
 </script>
 

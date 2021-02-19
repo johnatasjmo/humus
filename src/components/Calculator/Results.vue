@@ -178,10 +178,14 @@ export default {
       const mixCarbon = (this.getTotalMixCarbon / 479) * 100
       const MixNitrogen = (this.getTotalMixNitrogen / 479) * 100
 
-      return Math.round(mixCarbon / MixNitrogen)
+      return Number.isNaN(Math.round(mixCarbon / MixNitrogen))
+        ? ''
+        : Math.round(mixCarbon / MixNitrogen)
     },
     getMixMoisture() {
-      return ((this.getTotalMixWater / this.getTotalWetWeight) * 100).toFixed(1)
+      return Number.isNaN(this.getTotalMixWater / this.getTotalWetWeight)
+        ? ''
+        : ((this.getTotalMixWater / this.getTotalWetWeight) * 100).toFixed(1)
     },
     getBulkDensity() {
       const water = this.feedstocks.find(f => f.id === 'water')
@@ -194,10 +198,24 @@ export default {
         },
         0
       )
-      return Math.round(
+      let result = Math.round(
         this.getTotalWetWeight /
           (totalQuantitiesWithoutWater + water.quantity * 0)
       )
+      if (Number.isNaN(result)) result = ''
+      if (!Number.isFinite(result)) result = ''
+      return result
+      // return Number.isNaN(
+      //   Math.round(
+      //     this.getTotalWetWeight /
+      //       (totalQuantitiesWithoutWater + water.quantity * 0)
+      //   )
+      // )
+      //   ? ''
+      //   : Math.round(
+      //       this.getTotalWetWeight /
+      //         (totalQuantitiesWithoutWater + water.quantity * 0)
+      //     )
     }
   },
   methods: {

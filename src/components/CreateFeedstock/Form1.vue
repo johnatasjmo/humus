@@ -35,6 +35,9 @@
             label="Reference"
           ></v-text-field>
         </v-col>
+        <v-snackbar v-model="snackbar" timeout="2000">
+          Same Feedstock already exist!
+        </v-snackbar>
       </v-row>
     </v-container>
     <v-btn color="accent" block @click="validate">
@@ -49,6 +52,7 @@ import { mapState } from 'vuex'
 export default {
   data() {
     return {
+      snackbar: false,
       valid: false,
       formValues: {
         material_type: null,
@@ -64,11 +68,23 @@ export default {
     }
   },
   computed: {
-    ...mapState('feedstocks', ['feedstocksCategories'])
+    ...mapState('feedstocks', ['feedstocksCategories']),
+    ...mapState('feedstocks', ['myFeedstocks'])
+  },
+  created() {
+    console.log('d', this.myFeedstocks)
   },
   methods: {
     validate() {
+      // let exist_material = false
+      let i
       if (this.$refs.form.validate()) {
+        for (i = 0; i < this.myFeedstocks.length; i += 1) {
+          if (this.myFeedstocks[i].material === this.formValues.material) {
+            this.snackbar = true
+            return
+          }
+        }
         this.$emit('formValid', this.formValues)
       }
     }

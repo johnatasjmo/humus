@@ -11,6 +11,9 @@
       <v-btn color="accent" :loading="loading" @click="validate">
         save
       </v-btn>
+      <v-snackbar v-model="snackbar" timeout="2000">
+        Same Recipe already exist!
+      </v-snackbar>
     </v-row>
   </v-form>
 </template>
@@ -22,6 +25,7 @@ export default {
   data() {
     return {
       recipeName: '',
+      snackbar: false,
       validations: {
         recipeRules: [v => !!v || 'Recipe name is required']
       },
@@ -31,11 +35,19 @@ export default {
   computed: {
     ...mapState('recipe', ['ingredients', 'myRecipes'])
   },
+
   methods: {
     ...mapMutations('snackbar', ['setSnackbar']),
     ...mapActions('recipe', ['insertRecipe']),
     validate() {
+      let i
       if (this.$refs.form.validate()) {
+        for (i = 0; i < this.myRecipes.length; i += 1) {
+          if (this.myRecipes[i].name === this.recipeName) {
+            this.snackbar = true
+            return
+          }
+        }
         this.createRecipe()
       }
     },

@@ -25,7 +25,9 @@
                     <v-icon>mdi-delete</v-icon>
                   </v-btn>
                 </template>
-                <template slot="title"> Delete </template>
+                <template slot="title">
+                  Delete
+                </template>
                 <template>
                   ¿Do you want to delete the feedstock {{ feedstock.material }}?
                 </template>

@@ -28,6 +28,7 @@
             :rules="validations.cnRatioRules"
             type="number"
             label="C:N ratio"
+            disabled
             required
           ></v-text-field>
         </v-col>
@@ -73,7 +74,7 @@ export default {
       formValues: {
         nitrogen: null,
         carbon: null,
-        cn_ratio: null,
+        cn_ratio: 20,
         moisture_content: null,
         bulk_density_yd: null
       },

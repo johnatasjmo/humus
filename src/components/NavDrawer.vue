@@ -32,12 +32,22 @@
           </v-list-item-content>
         </v-list-item>
       </v-list-item-group>
+      <v-list-item link @click="logout">
+        <v-list-item-icon>
+          <v-icon>mdi-logout</v-icon>
+        </v-list-item-icon>
+
+        <v-list-item-content>
+          <v-list-item-title>logout</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
     </v-list>
   </v-navigation-drawer>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import firebase from 'firebase/app'
+import { mapMutations, mapState } from 'vuex'
 import router from '../router'
 
 export default {
@@ -97,7 +107,7 @@ export default {
           }
         },
         {
-          icon: 'mdi-settings',
+          icon: 'mdi-settings_applications',
           title: 'Settings',
           action() {
             router.push({ name: 'Settings' }).catch(err => {
@@ -120,6 +130,18 @@ export default {
     ...mapState('authentication', ['user'])
   },
   methods: {
+    ...mapMutations('snackbar', ['setSnackbar']),
+    async logout() {
+      await firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.setSnackbar({
+            show: true,
+            text: 'User logged out!'
+          })
+        })
+    },
     checkHideDrawer(show) {
       if (!show) {
         this.$emit('closeDrawer')

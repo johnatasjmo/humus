@@ -17,7 +17,7 @@
           <v-text-field
             v-model="formValues.material"
             :rules="validations.materialRules"
-            label="Material"
+            label="Feedstock"
             required
           ></v-text-field>
         </v-col>
@@ -25,14 +25,14 @@
           <v-text-field
             v-model="formValues.source"
             :rules="validations.sourceRules"
-            label="Source"
+            label="Source of info"
             required
           ></v-text-field>
         </v-col>
         <v-col cols="12" md="6">
           <v-text-field
             v-model="formValues.reference"
-            label="Reference"
+            label="Notes of Feedstock"
           ></v-text-field>
         </v-col>
         <v-snackbar v-model="snackbar" timeout="2000">

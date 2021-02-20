@@ -52,6 +52,13 @@
           ></v-text-field>
         </v-col>
       </v-row>
+
+        <div style="width: 100%, font-size: 80%" class="pa-6">
+          <p>
+          C:N autopopulates. If you have the values for C:N and N, then to calculate C, you need to multiply C:N by N. If you have the values for C and C:N, you need to divide C by C:N.
+          </p>
+        </div>
+
     </v-container>
     <v-btn color="accent" block @click="validate"> Create feedstock </v-btn>
   </v-form>

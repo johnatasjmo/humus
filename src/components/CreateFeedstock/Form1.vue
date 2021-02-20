@@ -25,7 +25,7 @@
           <v-text-field
             v-model="formValues.source"
             :rules="validations.sourceRules"
-            label="Source"
+            label="Source of info"
             required
           ></v-text-field>
         </v-col>

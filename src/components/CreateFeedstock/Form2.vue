@@ -14,26 +14,6 @@
         </v-col>
         <v-col cols="12" md="6">
           <v-text-field
-            v-model="new_carbon"
-            :rules="validations.carbonRules"
-            type="number"
-            label="Carbon (Total, % dry weight)"
-            placeholder="00.00"
-            required
-          ></v-text-field>
-        </v-col>
-        <v-col cols="12" md="6">
-          <v-text-field
-            v-model="formValues.cn_ratio"
-            :rules="validations.cnRatioRules"
-            type="number"
-            label="C:N ratio"
-            disabled
-            required
-          ></v-text-field>
-        </v-col>
-        <v-col cols="12" md="6">
-          <v-text-field
             v-model="new_moisture"
             :rules="validations.moistureContentRules"
             type="number"
@@ -44,10 +24,30 @@
         </v-col>
         <v-col cols="12" md="6">
           <v-text-field
+            v-model="new_carbon"
+            :rules="validations.carbonRules"
+            type="number"
+            label="Carbon (Total, % dry weight)"
+            placeholder="00.00"
+            required
+          ></v-text-field>
+        </v-col>
+        <v-col cols="12" md="6">
+          <v-text-field
             v-model="formValues.bulk_density_yd"
             :rules="validations.bulkDensityRules"
             type="number"
             label="Bulk Density (lb/cy)"
+            required
+          ></v-text-field>
+        </v-col>
+        <v-col cols="12" md="6">
+          <v-text-field
+            v-model="formValues.cn_ratio"
+            :rules="validations.cnRatioRules"
+            type="number"
+            label="C:N ratio"
+            disabled
             required
           ></v-text-field>
         </v-col>

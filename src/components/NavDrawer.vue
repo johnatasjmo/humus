@@ -138,7 +138,7 @@ export default {
         .then(() => {
           this.setSnackbar({
             show: true,
-            text: 'User logged out!'
+            text: 'You have been signed out!'
           })
         })
     },

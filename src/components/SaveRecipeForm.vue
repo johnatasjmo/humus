@@ -12,7 +12,7 @@
         save
       </v-btn>
       <v-snackbar v-model="snackbar" timeout="2000">
-        Same Recipe already exist!
+        {{ recipeName }} already exist. Use a different name!
       </v-snackbar>
     </v-row>
   </v-form>

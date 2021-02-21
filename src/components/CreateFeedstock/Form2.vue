@@ -14,7 +14,7 @@
         </v-col>
         <v-col cols="12" md="6">
           <v-text-field
-            v-model="formValues.carbon"
+            v-model="new_carbon"
             :rules="validations.carbonRules"
             type="number"
             label="Carbon (Total, % dry weight)"
@@ -34,7 +34,7 @@
         </v-col>
         <v-col cols="12" md="6">
           <v-text-field
-            v-model="formValues.moisture_content"
+            v-model="new_moisture"
             :rules="validations.moistureContentRules"
             type="number"
             label="Moisture (%)"
@@ -66,6 +66,8 @@ export default {
   },
   data() {
     return {
+      new_moisture: null,
+      new_carbon: null,
       valid: false,
       formMasks: {
         twoDigitsTwoDecimals: '##.##',
@@ -74,7 +76,7 @@ export default {
       formValues: {
         nitrogen: null,
         carbon: null,
-        cn_ratio: 20,
+        cn_ratio: null,
         moisture_content: null,
         bulk_density_yd: null
       },
@@ -94,6 +96,21 @@ export default {
           v => (v && v.length <= 100) || 'Name must be less than 10 characters'
         ]
       }
+    }
+  },
+  watch: {
+    new_moisture(newValue) {
+      this.formValues.moisture_content = newValue
+      if (newValue !== null && newValue !== 0)
+        this.formValues.cn_ratio = this.new_carbon / newValue
+      this.formValues.cn_ratio =
+        Math.round(this.formValues.cn_ratio * 100) / 100
+    },
+    new_carbon(newValue) {
+      this.formValues.carbon = newValue
+      this.formValues.cn_ratio = newValue / this.new_moisture
+      this.formValues.cn_ratio =
+        Math.round(this.formValues.cn_ratio * 100) / 100
     }
   },
   methods: {

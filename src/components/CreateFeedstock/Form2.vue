@@ -14,8 +14,8 @@
         </v-col>
         <v-col cols="12" md="6">
           <v-text-field
-            v-model="new_moisture"
-            :rules="validations.moistureContentRules"
+            v-model="new_carbon"
+            :rules="validations.carbonRules"
             type="number"
             label="Moisture (%)"
             placeholder="00.0"
@@ -34,8 +34,8 @@
         </v-col>
         <v-col cols="12" md="6">
           <v-text-field
-            v-model="formValues.bulk_density_yd"
-            :rules="validations.bulkDensityRules"
+            v-model="new_moisture"
+            :rules="validations.moistureContentRules"
             type="number"
             label="Bulk Density (lb/cy)"
             required

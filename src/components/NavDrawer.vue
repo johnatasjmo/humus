@@ -107,7 +107,7 @@ export default {
           }
         },
         {
-          icon: 'mdi-cog',
+          icon: 'mdi-settings_applications',
           title: 'Settings',
           action() {
             router.push({ name: 'Settings' }).catch(err => {

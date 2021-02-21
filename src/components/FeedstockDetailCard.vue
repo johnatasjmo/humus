@@ -107,8 +107,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
-
+import { mapMutations, mapState, mapGetters } from 'vuex'
 export default {
   props: {
     feedstockDetails: {
@@ -116,11 +115,23 @@ export default {
       required: true
     }
   },
+  computed: {
+    ...mapGetters('feedstocks', ['getFeedstockDetails']),
+    ...mapState('recipe', ['ingredients'])
+  },
+
   methods: {
     ...mapMutations('snackbar', ['setSnackbar']),
     ...mapMutations('recipe', ['addIngredient']),
     addFeedStockCalculator() {
-      this.addIngredient(this.feedstockDetails)
+      if (this.ingredients.length === 0) {
+        const water = this.getFeedstockDetails('water')
+        water.quantity = 0
+        this.addIngredient(this.getFeedstockDetails('water'))
+        this.addIngredient(this.feedstockDetails)
+      } else {
+        this.addIngredient(this.feedstockDetails)
+      }
       this.setSnackbar({
         show: true,
         text: 'Added to Calculator!'

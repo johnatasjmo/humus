@@ -4,7 +4,7 @@
       <Units />
       <v-divider></v-divider>
       <Language class="mt-2" />
-      <Logout />
+      <!-- <Logout /> -->
     </v-card>
   </div>
 </template>
@@ -12,13 +12,13 @@
 <script>
 import Units from './Units'
 import Language from './Language'
-import Logout from './Logout'
+// import Logout from './Logout'
 
 export default {
   components: {
     Units,
-    Language,
-    Logout
+    Language
+    // Logout
   }
 }
 </script>

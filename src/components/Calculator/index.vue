@@ -32,12 +32,12 @@ export default {
     if (this.ingredients.length === 0) {
       const water = this.getFeedstockDetails('water')
       water.quantity = 0
-
-      this.setIngredients([water])
+      this.addIngredient(this.getFeedstockDetails('water'))
     }
   },
   methods: {
-    ...mapMutations('recipe', ['setIngredients'])
+    ...mapMutations('recipe', ['setIngredients']),
+    ...mapMutations('recipe', ['clearIngredients', 'addIngredient'])
   }
 }
 </script>

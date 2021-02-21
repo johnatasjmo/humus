@@ -12,7 +12,10 @@
           </v-card-subtitle>
         </div>
         <div class="d-flex justify-center align-start ma-3">
-          <v-menu offset-y>
+          <v-btn color="accent" block @click="resetIngredients">
+            Reset
+          </v-btn>
+          <!-- <v-menu offset-y>
             <template v-slot:activator="{ on }">
               <v-btn text icon v-on="on">
                 <v-icon color="white">mdi-dots-vertical</v-icon>
@@ -23,7 +26,7 @@
                 <v-list-item-title>Reset</v-list-item-title>
               </v-list-item>
             </v-list>
-          </v-menu>
+          </v-menu> -->
         </div>
       </div>
       <v-card-text>
@@ -39,7 +42,7 @@
           </v-col>
           <v-col cols="4" class="pr-0 pb-0 pl-1">
             <span class="font-weight-bold" style="color: black">
-              Moisture C:N
+              C:N
             </span>
           </v-col>
           <v-col cols="4" class="pr-0 pb-0 pl-1">

@@ -17,8 +17,27 @@
             v-model="new_carbon"
             :rules="validations.carbonRules"
             type="number"
+            label="Moisture (%)"
+            placeholder="00.0"
+            required
+          ></v-text-field>
+        </v-col>
+        <v-col cols="12" md="6">
+          <v-text-field
+            v-model="new_carbon"
+            :rules="validations.carbonRules"
+            type="number"
             label="Carbon (Total, % dry weight)"
             placeholder="00.00"
+            required
+          ></v-text-field>
+        </v-col>
+        <v-col cols="12" md="6">
+          <v-text-field
+            v-model="new_moisture"
+            :rules="validations.moistureContentRules"
+            type="number"
+            label="Bulk Density (lb/cy)"
             required
           ></v-text-field>
         </v-col>
@@ -32,26 +51,14 @@
             required
           ></v-text-field>
         </v-col>
-        <v-col cols="12" md="6">
-          <v-text-field
-            v-model="new_moisture"
-            :rules="validations.moistureContentRules"
-            type="number"
-            label="Moisture (%)"
-            placeholder="00.0"
-            required
-          ></v-text-field>
-        </v-col>
-        <v-col cols="12" md="6">
-          <v-text-field
-            v-model="formValues.bulk_density_yd"
-            :rules="validations.bulkDensityRules"
-            type="number"
-            label="Bulk Density (lb/cy)"
-            required
-          ></v-text-field>
-        </v-col>
       </v-row>
+
+        <div style="width: 100%, font-size: 80%" class="pa-6">
+          <p>
+          C:N autopopulates. If you have the values for C:N and N, then to calculate C, you need to multiply C:N by N. If you have the values for C and C:N, you need to divide C by C:N.
+          </p>
+        </div>
+
     </v-container>
     <v-btn color="accent" block @click="validate"> Create feedstock </v-btn>
   </v-form>

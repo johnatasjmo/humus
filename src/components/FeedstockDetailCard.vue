@@ -108,7 +108,6 @@
 
 <script>
 import { mapMutations, mapState, mapGetters } from 'vuex'
-
 export default {
   props: {
     feedstockDetails: {
@@ -120,6 +119,7 @@ export default {
     ...mapGetters('feedstocks', ['getFeedstockDetails']),
     ...mapState('recipe', ['ingredients'])
   },
+
   methods: {
     ...mapMutations('snackbar', ['setSnackbar']),
     ...mapMutations('recipe', ['addIngredient']),

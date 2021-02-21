@@ -108,6 +108,7 @@
 
 <script>
 import { mapMutations, mapState, mapGetters } from 'vuex'
+
 export default {
   props: {
     feedstockDetails: {

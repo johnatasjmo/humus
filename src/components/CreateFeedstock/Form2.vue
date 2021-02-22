@@ -4,14 +4,14 @@
       <v-row>
         <v-col cols="12" md="6">
           <v-text-field
-            v-model="formValues.nitrogen"
-            :rules="validations.nitrogenRules"
+            v-model="formValues.bulk_density_yd"
+            :rules="validations.bulkDensityRules"
             type="number"
-            label="Nitrogen (% dry weight)"
-            placeholder="00.00"
+            label="Bulk Density (lb/cy)"
             required
           ></v-text-field>
         </v-col>
+        
         <v-col cols="12" md="6">
           <v-text-field
             v-model="new_moisture"
@@ -32,12 +32,13 @@
             required
           ></v-text-field>
         </v-col>
-        <v-col cols="12" md="6">
-          <v-text-field
-            v-model="formValues.bulk_density_yd"
-            :rules="validations.bulkDensityRules"
+      <v-col cols="12" md="6">
+            <v-text-field
+            v-model="formValues.nitrogen"
+            :rules="validations.nitrogenRules"
             type="number"
-            label="Bulk Density (lb/cy)"
+            label="Nitrogen (% dry weight)"
+            placeholder="00.00"
             required
           ></v-text-field>
         </v-col>

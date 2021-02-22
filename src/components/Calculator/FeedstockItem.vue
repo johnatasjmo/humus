@@ -1,9 +1,9 @@
 <template>
   <v-list-item>
     <v-list-item-content>
-      <div style="width:100%" class="d-flex justify-space-between align-center">
+      <div class="d-flex justify-space-between align-center">
         <div
-          style="width:100%; height:100%"
+          style="flex: 1; height:100%"
           @click.stop="
             $router.push({
               name: 'Feedstock',
@@ -15,19 +15,19 @@
           "
         >
           <strong>{{ feedstock.material }}</strong>
-          <v-row class="mt-2 d-flex">
-            <v-col cols="4">N = {{ parseFloat(feedstock.nitrogen) }}%</v-col>
+          <v-row class="mt-2 d-flex detail-text" >
+            <v-col cols="4" >N = {{ parseFloat(feedstock.nitrogen) }}%</v-col>
             <v-col cols="4">C = {{ parseFloat(feedstock.carbon) }}%</v-col>
             <v-col cols="4">CN = {{ feedstock.cn_ratio }}</v-col>
           </v-row>
-          <v-row class="mt-2 d-flex">
+          <v-row class="mt-2 d-flex detail-text" >
             <v-col cols="6">BD = {{ feedstock.bulk_density_yd }}lb/cy</v-col>
             <v-col cols="6"
-              >Mositure = {{ parseFloat(feedstock.moisture_content) }}%</v-col
+                 >Mositure = {{ parseFloat(feedstock.moisture_content) }}%</v-col
             >
           </v-row>
         </div>
-        <div class="d-flex justify-end align-center" style="width:90px">
+        <div class="d-flex justify-start align-center" style="width:90px">
           <div style="width: 45px">
             <v-text-field
               v-model="quantity"
@@ -43,7 +43,7 @@
         </div>
       </div>
     </v-list-item-content>
-    <v-list-item-icon v-if="feedstock.id !== 'water'">
+    <v-list-item-icon v-if="feedstock.id !== 'water'" style="position: absolute; right: 0; bottom: 0; margin: 0">
       <Dialog>
         <template slot="activator">
           <v-btn text icon>
@@ -111,4 +111,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.detail-text{
+  font-size: 0.8em;
+}
+</style>

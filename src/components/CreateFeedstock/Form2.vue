@@ -94,8 +94,7 @@ export default {
         nitrogenRules: [v => !!v || 'Nitrogen is required'],
         carbonRules: [v => !!v || 'Carbon is required'],
         cnRatioRules: [
-          v => /^-?\d*(\.\d+)?$/.test(v) || 'C:N ratio must be a valid number',
-          v => (v && v <= 1500) || 'C:N ratio must be less than 1500'
+
         ],
         moistureContentRules: [v => !!v || 'Moisture content is required'],
         bulkDensityRules: [

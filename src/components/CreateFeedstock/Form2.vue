@@ -14,11 +14,30 @@
         </v-col>
         <v-col cols="12" md="6">
           <v-text-field
-            v-model="formValues.carbon"
-            :rules="validations.carbonRules"
+            v-model="new_moisture"
+            :rules="validations.moistureContentRules"
+            type="number"
+            label="Moisture (%)"
+            placeholder="00.0"
+            required
+          ></v-text-field>
+        </v-col>
+        <v-col cols="12" md="6">
+          <v-text-field
+            v-model="new_carbon"
+            :rules="formValues.carbonRules"
             type="number"
             label="Carbon (Total, % dry weight)"
             placeholder="00.00"
+            required
+          ></v-text-field>
+        </v-col>
+        <v-col cols="12" md="6">
+          <v-text-field
+            v-model="formValues.bulk_density_yd"
+            :rules="validations.bulkDensityRules"
+            type="number"
+            label="Bulk Density (lb/cy)"
             required
           ></v-text-field>
         </v-col>
@@ -32,26 +51,15 @@
             required
           ></v-text-field>
         </v-col>
-        <v-col cols="12" md="6">
-          <v-text-field
-            v-model="formValues.moisture_content"
-            :rules="validations.moistureContentRules"
-            type="number"
-            label="Moisture (%)"
-            placeholder="00.0"
-            required
-          ></v-text-field>
-        </v-col>
-        <v-col cols="12" md="6">
-          <v-text-field
-            v-model="formValues.bulk_density_yd"
-            :rules="validations.bulkDensityRules"
-            type="number"
-            label="Bulk Density (lb/cy)"
-            required
-          ></v-text-field>
-        </v-col>
       </v-row>
+
+      <div style="width: 100%, font-size: 80%" class="pa-6">
+        <p>
+          C:N autopopulates. If you have the values for C:N and N, then to
+          calculate C, you need to multiply C:N by N. If you have the values for
+          C and C:N, you need to divide C by C:N.
+        </p>
+      </div>
     </v-container>
     <v-btn color="accent" block @click="validate"> Create feedstock </v-btn>
   </v-form>
@@ -66,6 +74,8 @@ export default {
   },
   data() {
     return {
+      new_moisture: null,
+      new_carbon: null,
       valid: false,
       formMasks: {
         twoDigitsTwoDecimals: '##.##',
@@ -74,7 +84,7 @@ export default {
       formValues: {
         nitrogen: null,
         carbon: null,
-        cn_ratio: 20,
+        cn_ratio: null,
         moisture_content: null,
         bulk_density_yd: null
       },
@@ -82,7 +92,6 @@ export default {
         nitrogenRules: [v => !!v || 'Nitrogen is required'],
         carbonRules: [v => !!v || 'Carbon is required'],
         cnRatioRules: [
-          v => !!v || 'C:N ratio is required',
           v => /^-?\d*(\.\d+)?$/.test(v) || 'C:N ratio must be a valid number',
           v => (v && v <= 1500) || 'C:N ratio must be less than 1500'
         ],
@@ -94,6 +103,21 @@ export default {
           v => (v && v.length <= 100) || 'Name must be less than 10 characters'
         ]
       }
+    }
+  },
+  watch: {
+    new_moisture(newValue) {
+      this.formValues.moisture_content = newValue
+      if (newValue !== null && newValue !== 0)
+        this.formValues.cn_ratio = this.new_carbon / newValue
+      this.formValues.cn_ratio =
+        Math.round(this.formValues.cn_ratio * 100) / 100
+    },
+    new_carbon(newValue) {
+      this.formValues.carbon = newValue
+      this.formValues.cn_ratio = newValue / this.new_moisture
+      this.formValues.cn_ratio =
+        Math.round(this.formValues.cn_ratio * 100) / 100
     }
   },
   methods: {

@@ -11,8 +11,9 @@
       <v-btn color="accent" :loading="loading" @click="validate">
         save
       </v-btn>
-      <v-snackbar v-model="snackbar" timeout="2000">
-        Same Recipe already exist!
+
+      <v-snackbar v-model="snackbar" timeout="2000" color="red">
+        {{ recipeName }} already exist. Use a different name!
       </v-snackbar>
     </v-row>
   </v-form>
@@ -43,7 +44,10 @@ export default {
       let i
       if (this.$refs.form.validate()) {
         for (i = 0; i < this.myRecipes.length; i += 1) {
-          if (this.myRecipes[i].name === this.recipeName) {
+          if (
+            this.myRecipes[i].name.toLowerCase() ===
+            this.recipeName.toLowerCase()
+          ) {
             this.snackbar = true
             return
           }

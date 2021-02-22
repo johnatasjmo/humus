@@ -17,7 +17,7 @@
           <v-text-field
             v-model="formValues.material"
             :rules="validations.materialRules"
-            label="Material"
+            label="Feedstock"
             required
           ></v-text-field>
         </v-col>
@@ -25,18 +25,19 @@
           <v-text-field
             v-model="formValues.source"
             :rules="validations.sourceRules"
-            label="Source"
+            label="Source of info"
             required
           ></v-text-field>
         </v-col>
         <v-col cols="12" md="6">
           <v-text-field
             v-model="formValues.reference"
-            label="Reference"
+            label="Notes of Feedstock"
           ></v-text-field>
         </v-col>
-        <v-snackbar v-model="snackbar" timeout="2000">
-          Same Feedstock already exist!
+
+        <v-snackbar v-model="snackbar" timeout="2000" color="red">
+          {{ formValues.material }} already esists. Use a different name!
         </v-snackbar>
       </v-row>
     </v-container>
@@ -80,7 +81,10 @@ export default {
       let i
       if (this.$refs.form.validate()) {
         for (i = 0; i < this.myFeedstocks.length; i += 1) {
-          if (this.myFeedstocks[i].material === this.formValues.material) {
+          if (
+            this.myFeedstocks[i].material.toLowerCase() ===
+            this.formValues.material.toLowerCase()
+          ) {
             this.snackbar = true
             return
           }

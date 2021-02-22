@@ -34,7 +34,7 @@
         </v-col>
       <v-col cols="12" md="6">
             <v-text-field
-            v-model="formValues.nitrogen"
+            v-model="new_nitrogen"
             :rules="validations.nitrogenRules"
             type="number"
             label="Nitrogen (% dry weight)"
@@ -77,6 +77,7 @@ export default {
     return {
       new_moisture: null,
       new_carbon: null,
+      new_nitrogen: null,
       valid: false,
       formMasks: {
         twoDigitsTwoDecimals: '##.##',
@@ -109,6 +110,9 @@ export default {
   watch: {
     new_moisture(newValue) {
       this.formValues.moisture_content = newValue
+    },
+    new_nitrogen(newValue) {
+      this.formValues.nitrogen = newValue
       if (newValue !== null && newValue !== 0)
         this.formValues.cn_ratio = this.new_carbon / newValue
       this.formValues.cn_ratio =
@@ -116,7 +120,7 @@ export default {
     },
     new_carbon(newValue) {
       this.formValues.carbon = newValue
-      this.formValues.cn_ratio = newValue / this.new_moisture
+      this.formValues.cn_ratio = newValue / this.new_nitrogen
       this.formValues.cn_ratio =
         Math.round(this.formValues.cn_ratio * 100) / 100
     }

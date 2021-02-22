@@ -22,9 +22,7 @@
           </v-row>
           <v-row class="mt-2 d-flex detail-text" >
             <v-col cols="6">BD = {{ feedstock.bulk_density_yd }}lb/cy</v-col>
-            <v-col cols="6"
-                 >Mositure = {{ parseFloat(feedstock.moisture_content) }}%</v-col
-            >
+            <v-col cols="6">Mositure = {{ parseFloat(feedstock.moisture_content) }}%</v-col>
           </v-row>
         </div>
         <div class="d-flex justify-start align-center" style="width:90px">

@@ -16,6 +16,7 @@
           <v-text-field
             v-model="new_moisture"
             :rules="validations.moistureContentRules"
+
             type="number"
             label="Moisture (%)"
             placeholder="00.0"
@@ -25,7 +26,9 @@
         <v-col cols="12" md="6">
           <v-text-field
             v-model="new_carbon"
+
             :rules="formValues.carbonRules"
+
             type="number"
             label="Carbon (Total, % dry weight)"
             placeholder="00.00"
@@ -112,6 +115,7 @@ export default {
     },
     new_nitrogen(newValue) {
       this.formValues.nitrogen = newValue
+
       if (newValue !== null && newValue !== 0)
         this.formValues.cn_ratio = this.new_carbon / newValue
       this.formValues.cn_ratio =
@@ -120,6 +124,7 @@ export default {
     new_carbon(newValue) {
       this.formValues.carbon = newValue
       this.formValues.cn_ratio = newValue / this.new_nitrogen
+
       this.formValues.cn_ratio =
         Math.round(this.formValues.cn_ratio * 100) / 100
     }

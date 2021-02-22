@@ -36,7 +36,9 @@
           ></v-text-field>
         </v-col>
 
+
         <v-snackbar v-model="snackbar" timeout="2000" color="red">
+
           {{ formValues.material }} already esists. Use a different name!
         </v-snackbar>
       </v-row>

@@ -32,7 +32,9 @@
           </v-list-item-content>
         </v-list-item>
       </v-list-item-group>
+
       <v-list-item v-if="user" link @click="logout">
+
         <v-list-item-icon>
           <v-icon>mdi-logout</v-icon>
         </v-list-item-icon>
@@ -108,6 +110,7 @@ export default {
         },
         {
           icon: 'mdi-cog',
+
           title: 'Settings',
           action() {
             router.push({ name: 'Settings' }).catch(err => {

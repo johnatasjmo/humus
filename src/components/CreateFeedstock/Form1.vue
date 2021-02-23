@@ -35,7 +35,10 @@
             label="Notes of Feedstock"
           ></v-text-field>
         </v-col>
-        <v-snackbar v-model="snackbar" timeout="2000">
+
+
+        <v-snackbar v-model="snackbar" timeout="2000" color="red">
+
           {{ formValues.material }} already esists. Use a different name!
         </v-snackbar>
       </v-row>
@@ -80,7 +83,10 @@ export default {
       let i
       if (this.$refs.form.validate()) {
         for (i = 0; i < this.myFeedstocks.length; i += 1) {
-          if (this.myFeedstocks[i].material === this.formValues.material) {
+          if (
+            this.myFeedstocks[i].material.toLowerCase() ===
+            this.formValues.material.toLowerCase()
+          ) {
             this.snackbar = true
             return
           }

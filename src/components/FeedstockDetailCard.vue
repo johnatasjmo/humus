@@ -25,7 +25,7 @@
               </v-col>
               <v-col cols="3">
                 <div class="font-weight-bold text-end">
-                  {{ feedstockDetails.nitrogen }}
+                  {{ parseFloat(feedstockDetails.nitrogen) }}
                 </div>
               </v-col>
             </v-row>
@@ -37,7 +37,9 @@
               </v-col>
               <v-col cols="3">
                 <div class="font-weight-bold text-end">
-                  {{ feedstockDetails.carbon }}
+
+                  {{ parseFloat(feedstockDetails.carbon) }}
+
                 </div>
               </v-col>
             </v-row>
@@ -61,7 +63,9 @@
               </v-col>
               <v-col cols="3">
                 <div class="font-weight-bold text-end">
-                  {{ feedstockDetails.moisture_content }}
+
+                  {{ parseFloat(feedstockDetails.moisture_content) }}
+
                 </div>
               </v-col>
             </v-row>

@@ -13524,6 +13524,11 @@ url-parse@^1.4.3, url-parse@^1.4.7:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
 
+url-search-params-polyfill@^8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/url-search-params-polyfill/-/url-search-params-polyfill-8.1.0.tgz#5c15b69687165bfd4f6c7d8a161d70d85385885b"
+  integrity sha512-MRG3vzXyG20BJ2fox50/9ZRoe+2h3RM7DIudVD2u/GY9MtayO1Dkrna76IUOak+uoUPVWbyR0pHCzxctP/eDYQ==
+
 url@0.11.0, url@^0.11.0:
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/url/-/url-0.11.0.tgz#3838e97cfc60521eb73c525a8e55bfdd9e2e28f1"
@@ -13662,6 +13667,13 @@ vue-eslint-parser@^5.0.0:
     espree "^4.1.0"
     esquery "^1.0.1"
     lodash "^4.17.11"
+
+vue-gtm@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/vue-gtm/-/vue-gtm-3.4.0.tgz#d02b690afaa99ea87d5cf57fae2e3b1c3e0a81de"
+  integrity sha512-R6bg63mrRK4qGuCbRJdehRzbzTyB9wRaSxk8BGcH1Ht/dqfyrIjqkNdfk2CeA1RiMsEN14kWhgQzK/q3sUue5g==
+  dependencies:
+    url-search-params-polyfill "^8.1.0"
 
 vue-head@^2.1.1:
   version "2.2.0"

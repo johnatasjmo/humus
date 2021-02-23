@@ -3,7 +3,7 @@
     <v-list-item-content>
       <div class="d-flex justify-space-between align-center">
         <div
-          style="flex: 1; height:100%"
+          style="flex: 1; height:100% ; margin-bottom:15px" 
           @click.stop="
             $router.push({
               name: 'Feedstock',

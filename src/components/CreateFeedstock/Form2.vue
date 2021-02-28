@@ -11,12 +11,11 @@
             required
           ></v-text-field>
         </v-col>
-        
+
         <v-col cols="12" md="6">
           <v-text-field
             v-model="new_moisture"
             :rules="validations.moistureContentRules"
-
             type="number"
             label="Moisture (%)"
             placeholder="00.0"
@@ -26,17 +25,15 @@
         <v-col cols="12" md="6">
           <v-text-field
             v-model="new_carbon"
-
-            :rules="formValues.carbonRules"
-
+            :rules="validations.carbonRules"
             type="number"
             label="Carbon (Total, % dry weight)"
             placeholder="00.00"
             required
           ></v-text-field>
         </v-col>
-      <v-col cols="12" md="6">
-            <v-text-field
+        <v-col cols="12" md="6">
+          <v-text-field
             v-model="new_nitrogen"
             :rules="validations.nitrogenRules"
             type="number"
@@ -96,9 +93,7 @@ export default {
       validations: {
         nitrogenRules: [v => !!v || 'Nitrogen is required'],
         carbonRules: [v => !!v || 'Carbon is required'],
-        cnRatioRules: [
-
-        ],
+        cnRatioRules: [],
         moistureContentRules: [v => !!v || 'Moisture content is required'],
         bulkDensityRules: [
           v => !!v || 'Bulk density is required',

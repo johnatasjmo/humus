@@ -20,7 +20,7 @@
         </v-btn>
       </v-row>
       <v-row justify="center" style="margin-top: 100px">
-        <a href="/about"> About us</a>
+        <a href="/about">About CompostCalc</a>
       </v-row>
     </div>
   </div>

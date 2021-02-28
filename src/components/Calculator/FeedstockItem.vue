@@ -35,10 +35,8 @@
               inputmode="numeric"
               type="number"
               min="0"
-              :allowNegative="allowNegative"
               oninput="if(this.value < 0) this.value = 0;"
-              @change="changeQuantity"
-            />
+             />
           </div>
           <div class="caption ml-2">
             {{ feedstock.id === 'water' ? 'Gallons' : unit }}
@@ -118,15 +116,7 @@ export default {
       'setToWatchValue'
     ]),
     ...mapGetters('recipe', ['getIngredientValueById']),
-    changeQuantity (value) {
    
-      const val = Math.round(Number(value))
-      let quantity = val
-      if (val <= 0) {
-        quantity = 0
-      }
-      this.quantity = quantity
-    }
   }
 }
 

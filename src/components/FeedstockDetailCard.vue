@@ -37,9 +37,7 @@
               </v-col>
               <v-col cols="3">
                 <div class="font-weight-bold text-end">
-
                   {{ parseFloat(feedstockDetails.carbon) }}
-
                 </div>
               </v-col>
             </v-row>
@@ -63,9 +61,7 @@
               </v-col>
               <v-col cols="3">
                 <div class="font-weight-bold text-end">
-
                   {{ parseFloat(feedstockDetails.moisture_content) }}
-
                 </div>
               </v-col>
             </v-row>
@@ -139,7 +135,7 @@ export default {
       }
       this.setSnackbar({
         show: true,
-        text: 'Added to Calculator!'
+        text: 'Feedstock added to recipe.'
       })
     }
   }

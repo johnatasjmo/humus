@@ -139,7 +139,7 @@ export default {
       }
       this.setSnackbar({
         show: true,
-        text: 'Added to Calculator!'
+        text: 'Feedstock added to recipe.'
       })
     }
   }

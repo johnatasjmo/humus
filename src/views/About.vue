@@ -1,18 +1,10 @@
 <template>
   <div>
     <div style="width: 100%" class="pa-4">
-      <p>
-        This compost recipe calculator app builds on the recipe calculators from
-        the US Composting Council and Washington State Univeresity-Puyallup to
-        allow the users to develop their own recipes quickly.
-      </p>
-      <p>
-        We strongly suggest you use your own feedstocks. The feedstocks in the
-        database come from Cornell University, On-Farm Composting Handbook, and
-        the US Composting Council.
-      </p>
-      <p>If you have any questions, please contact Jorge Montezuma, PE at</p>
-      <p>jlmontezuma@gmail.com</p>
+      <p>Developed by Jorge Montezuma and Misky Trade. Jorge is an environmental engineer and has been composting and teaching how to compost since 2008. </p>
+      
+      <p>For questions, please email compostcalc@gmail.com.</p>
+    
     </div>
   </div>
 </template>

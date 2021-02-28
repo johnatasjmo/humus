@@ -35,6 +35,9 @@
               inputmode="numeric"
               type="number"
               min="0"
+              :allowNegative="allowNegative"
+              oninput="if(this.value < 0) this.value = 0;"
+              @change="changeQuantity"
             />
           </div>
           <div class="caption ml-2">
@@ -75,6 +78,11 @@ import { mapMutations, mapGetters, mapState } from 'vuex'
 import Dialog from '../Dialog'
 
 export default {
+  data() {
+    return  {
+      allowNegative: false
+    }
+  },
   components: {
     Dialog
   },
@@ -109,9 +117,19 @@ export default {
       'setIngredentQuantity',
       'setToWatchValue'
     ]),
-    ...mapGetters('recipe', ['getIngredientValueById'])
+    ...mapGetters('recipe', ['getIngredientValueById']),
+    changeQuantity (value) {
+   
+      const val = Math.round(Number(value))
+      let quantity = val
+      if (val <= 0) {
+        quantity = 0
+      }
+      this.quantity = quantity
+    }
   }
 }
+
 </script>
 
 <style lang="scss" scoped>

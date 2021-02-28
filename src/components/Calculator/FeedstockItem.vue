@@ -15,14 +15,14 @@
           "
         >
           <strong>{{ feedstock.material }}</strong>
-          <v-row class="d-flex detail-text">
+          <v-row class="d-flex detail-text" v-if="feedstock.material !== 'Water'">
             <v-col cols="4" style="padding:20px 18px 0px 15px">N = {{ parseFloat(feedstock.nitrogen) }}%</v-col>
             <v-col cols="4" style="padding:20px 18px 0px 15px">C = {{ parseFloat(feedstock.carbon) }}%</v-col>
             <v-col cols="4" style="padding:20px 18px 0px 15px">CN = {{ feedstock.cn_ratio }}</v-col>
           </v-row>
-          <v-row class=" d-flex detail-text">
+          <v-row class=" d-flex detail-text" v-if="feedstock.material !== 'Water'">
             <v-col cols="4" style="padding:10px 10px 0px 15px">BD = {{ feedstock.bulk_density_yd }} lb/cy</v-col>
-            <v-col cols="4" style="padding:10px 10px 0px 15px">Mositure = {{ parseFloat(feedstock.moisture_content) }}%</v-col
+            <v-col cols="4" style="padding:10px 10px 0px 15px">Moisture = {{ parseFloat(feedstock.moisture_content) }}%</v-col
             >
           </v-row>
         </div>
@@ -34,7 +34,9 @@
               class="caption"
               inputmode="numeric"
               type="number"
-            />
+              min="0"
+              oninput="if(this.value < 0) this.value = 0;"
+             />
           </div>
           <div class="caption ml-2">
             {{ feedstock.id === 'water' ? 'Gallons' : unit }}
@@ -74,6 +76,11 @@ import { mapMutations, mapGetters, mapState } from 'vuex'
 import Dialog from '../Dialog'
 
 export default {
+  data() {
+    return  {
+      allowNegative: false
+    }
+  },
   components: {
     Dialog
   },
@@ -108,9 +115,11 @@ export default {
       'setIngredentQuantity',
       'setToWatchValue'
     ]),
-    ...mapGetters('recipe', ['getIngredientValueById'])
+    ...mapGetters('recipe', ['getIngredientValueById']),
+   
   }
 }
+
 </script>
 
 <style lang="scss" scoped>

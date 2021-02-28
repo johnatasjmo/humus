@@ -12,7 +12,7 @@
         C = {{ parseFloat(feedstock.carbon) }}%
       </p>
       <p class="flexItem1 customCondensed mb-2">
-        CN = {{ Math.round(feedstock.cn_ratio) }}
+        C:N = {{ Math.round(feedstock.cn_ratio) }}
       </p>
       <p class="flexItem2 customCondensed mb-2">
         BD = {{ Math.round(feedstock.bulk_density_yd) }} lb/cy

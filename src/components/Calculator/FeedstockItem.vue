@@ -26,7 +26,7 @@
               >C = {{ parseFloat(feedstock.carbon) }}%</v-col
             >
             <v-col cols="4" style="padding:20px 18px 0px 15px"
-              >CN = {{ feedstock.cn_ratio }}</v-col
+              >C:N = {{ feedstock.cn_ratio }}</v-col
             >
           </v-row>
           <v-row

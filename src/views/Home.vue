@@ -15,12 +15,17 @@
         </v-btn>
       </v-row>
       <v-row justify="center" class="mt-5">
+        <v-btn color="primary" large disabled>
+          Share your lab results with us.
+        </v-btn>
+      </v-row>
+      <v-row justify="center" class="mt-5">
         <v-btn color="primary" href="mailto:compostcalc@gmail.com">
           Contact us
         </v-btn>
       </v-row>
       <v-row justify="center" style="margin-top: 100px">
-        <a href="/about"> About us</a>
+        <a href="/about">About CompostCalc</a>
       </v-row>
     </div>
   </div>

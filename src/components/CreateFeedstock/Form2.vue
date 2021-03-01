@@ -8,40 +8,49 @@
             :rules="validations.bulkDensityRules"
             type="number"
             label="Bulk Density (lb/cy)"
+            min="0"
+            max="100"
+            oninput="if(this.value < 0) this.value = 0;"
             required
           ></v-text-field>
         </v-col>
-        
+
         <v-col cols="12" md="6">
           <v-text-field
             v-model="new_moisture"
             :rules="validations.moistureContentRules"
-
             type="number"
             label="Moisture (%)"
             placeholder="00.0"
+            min="0"
+            max="100"
+            oninput="if(this.value < 0||this.value>100) this.value = '';"
             required
           ></v-text-field>
         </v-col>
         <v-col cols="12" md="6">
           <v-text-field
             v-model="new_carbon"
-
-            :rules="formValues.carbonRules"
-
+            :rules="validations.carbonRules"
             type="number"
             label="Carbon (Total, % dry weight)"
             placeholder="00.00"
+            min="0"
+            max="100"
+            oninput="if(this.value < 0||this.value>100) this.value = '';"
             required
           ></v-text-field>
         </v-col>
-      <v-col cols="12" md="6">
-            <v-text-field
+        <v-col cols="12" md="6">
+          <v-text-field
             v-model="new_nitrogen"
             :rules="validations.nitrogenRules"
             type="number"
             label="Nitrogen (% dry weight)"
             placeholder="00.00"
+            min="0"
+            max="100"
+            oninput="if(this.value < 0||this.value>100) this.value = '';"
             required
           ></v-text-field>
         </v-col>
@@ -58,7 +67,7 @@
       </v-row>
 
       <div style="width: 100%, font-size: 80%" class="pa-6">
-        <p>
+        <p style="font-size: 0.8em">
           C:N autopopulates. If you have the values for C:N and N, then to
           calculate C, you need to multiply C:N by N. If you have the values for
           C and C:N, you need to divide C by C:N.
@@ -94,12 +103,10 @@ export default {
         bulk_density_yd: null
       },
       validations: {
-        nitrogenRules: [v => !!v || 'Nitrogen is required'],
-        carbonRules: [v => !!v || 'Carbon is required'],
-        cnRatioRules: [
-
-        ],
-        moistureContentRules: [v => !!v || 'Moisture content is required'],
+        nitrogenRules: [v => !!v || 'Max value is 100%'],
+        carbonRules: [v => !!v || 'Max value is 100%'],
+        cnRatioRules: [],
+        moistureContentRules: [v => !!v || 'Max value is 100%'],
         bulkDensityRules: [
           v => !!v || 'Bulk density is required',
           v =>

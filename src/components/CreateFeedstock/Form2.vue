@@ -103,10 +103,12 @@ export default {
         bulk_density_yd: null
       },
       validations: {
+
         nitrogenRules: [v => !!v || 'Max value is 100%'],
         carbonRules: [v => !!v || 'Max value is 100%'],
         cnRatioRules: [],
         moistureContentRules: [v => !!v || 'Max value is 100%'],
+
         bulkDensityRules: [
           v => !!v || 'Bulk density is required',
           v =>

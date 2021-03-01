@@ -50,7 +50,7 @@
               inputmode="numeric"
               type="number"
               min="0"
-              oninput="if(this.value < 0) this.value = 0;"
+              oninput="if(this.value < 0) this.value = '';"
             />
           </div>
           <div class="caption ml-2">

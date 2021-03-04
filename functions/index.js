@@ -1,3 +1,6 @@
+=======
+// // this function makes a backup of wanu into google cloud - jmo 2021-03-03
+
 const functions = require('firebase-functions');
 const firestore = require('@google-cloud/firestore');
 const client = new firestore.v1.FirestoreAdminClient();
@@ -30,3 +33,4 @@ exports.scheduledFirestoreExport = functions.pubsub
     throw new Error('Export operation failed');
   });
 });
+
